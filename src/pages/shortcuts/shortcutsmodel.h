@@ -10,14 +10,14 @@
 #include "base/signal.h"
 #include "pages/input/compositorservice.h"
 
-namespace cutefish::base::json {
+namespace properdesktop::base::json {
 class Value;
 }
 
 namespace settings {
 
 // The keyboard shortcuts page's view of the compositor's
-// org.cutefish.Shortcuts1 service. The compositor owns the bindings and the
+// org.properdesktop.Shortcuts1 service. The compositor owns the bindings and the
 // defaults; this side owns the order the actions are listed in, their
 // categories and their descriptions, the way
 // ash/webui/shortcut_customization_ui's layout table does for the ChromeOS
@@ -111,11 +111,11 @@ public:
     static uint32_t serviceKeysym(uint32_t keysym);
 
     // After the actions were read again, or the service came or went.
-    cutefish::base::Signal<> changed;
+    properdesktop::base::Signal<> changed;
 
 private:
     void reload();
-    Accelerator acceleratorFromJson(const cutefish::base::json::Value& object) const;
+    Accelerator acceleratorFromJson(const properdesktop::base::json::Value& object) const;
     std::string keyDisplay(const std::string& keyName, const std::string& keyText) const;
     template<typename... Args>
     Result call(const std::string& method, const Args&... args);
@@ -123,7 +123,7 @@ private:
     std::string messageFor(const std::string& result, const std::string& conflictDescription) const;
 
     CompositorService m_service;
-    cutefish::base::Subscription m_serviceChanged;
+    properdesktop::base::Subscription m_serviceChanged;
     std::vector<Action> m_actions;
     bool m_hasCustomAccelerators = false;
     bool m_commandKeys = false;

@@ -24,9 +24,9 @@ inline bool waitFor(const std::function<bool()>& condition,
 {
     if (condition())
         return true;
-    cutefish::base::EventLoop& loop = *cutefish::base::EventLoop::current();
+    properdesktop::base::EventLoop& loop = *properdesktop::base::EventLoop::current();
     const auto deadline = std::chrono::steady_clock::now() + timeout;
-    cutefish::base::Timer timer(&loop);
+    properdesktop::base::Timer timer(&loop);
     timer.onTimeout = [&] {
         if (condition() || std::chrono::steady_clock::now() >= deadline)
             loop.quit();
@@ -42,7 +42,7 @@ inline bool waitFor(const std::function<bool()>& condition,
 class ServiceThread
 {
 public:
-    using Setup = std::function<std::shared_ptr<void>(cutefish::base::dbus::Connection& bus)>;
+    using Setup = std::function<std::shared_ptr<void>(properdesktop::base::dbus::Connection& bus)>;
 
     ServiceThread(std::string name, Setup setup)
         : m_name(std::move(name))
@@ -60,9 +60,9 @@ public:
         m_ready = false;
         m_owned = false;
         m_thread = std::thread([this] {
-            cutefish::base::EventLoop loop;
-            std::unique_ptr<cutefish::base::dbus::Connection> bus =
-                    cutefish::base::dbus::Connection::open(cutefish::base::dbus::Connection::Bus::Session, &loop);
+            properdesktop::base::EventLoop loop;
+            std::unique_ptr<properdesktop::base::dbus::Connection> bus =
+                    properdesktop::base::dbus::Connection::open(properdesktop::base::dbus::Connection::Bus::Session, &loop);
             std::shared_ptr<void> objects = m_setup(*bus);
             const bool owned = bus->requestName(m_name);
             {
@@ -84,7 +84,7 @@ public:
     {
         if (!m_thread.joinable())
             return;
-        post([] { cutefish::base::EventLoop::current()->quit(); });
+        post([] { properdesktop::base::EventLoop::current()->quit(); });
         m_thread.join();
         std::lock_guard guard(m_mutex);
         m_loop = nullptr;
@@ -104,7 +104,7 @@ private:
     std::thread m_thread;
     std::mutex m_mutex;
     std::condition_variable m_readyChanged;
-    cutefish::base::EventLoop* m_loop = nullptr;
+    properdesktop::base::EventLoop* m_loop = nullptr;
     bool m_ready = false;
     bool m_owned = false;
 };
@@ -112,7 +112,7 @@ private:
 // Waits for a stopped service's name to leave the bus.
 inline bool waitForNameGone(const std::string& name)
 {
-    const cutefish::base::dbus::Proxy bus(cutefish::base::dbus::Connection::session(), "org.freedesktop.DBus",
+    const properdesktop::base::dbus::Proxy bus(properdesktop::base::dbus::Connection::session(), "org.freedesktop.DBus",
                                           "/org/freedesktop/DBus", "org.freedesktop.DBus");
     return waitFor([&] { return !bus.call("NameHasOwner", name).value<bool>().value_or(false); });
 }
@@ -120,7 +120,7 @@ inline bool waitForNameGone(const std::string& name)
 // Whether a session bus is there for services to run on.
 inline bool hasSessionBus()
 {
-    return cutefish::base::dbus::Connection::session() != nullptr;
+    return properdesktop::base::dbus::Connection::session() != nullptr;
 }
 
 } // namespace settings::testing

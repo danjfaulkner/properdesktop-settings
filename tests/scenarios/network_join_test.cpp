@@ -7,15 +7,15 @@
 #include <string>
 #include <vector>
 
-#include "cutefish/networkmanager/handler.h"
+#include "properdesktop/networkmanager/handler.h"
 #include "pages/network/wlan/newnetworkdialog.h"
 #include "scenario.h"
 #include "widgets/rowcombobox.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 using namespace settings;
 using namespace settings::network;
-namespace nm = cutefish::networkmanager;
+namespace nm = properdesktop::networkmanager;
 
 namespace {
 

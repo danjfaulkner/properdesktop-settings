@@ -22,9 +22,9 @@
 #include "window/page.h"
 #include "window/pagelist.h"
 
-using namespace cutefish::ui;
-using cutefish::base::ApplicationRegistry;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::base::ApplicationRegistry;
+using properdesktop::i18n::tr;
 
 namespace settings {
 
@@ -81,7 +81,7 @@ public:
         Section* section = content()->addChild<Section>(tr("Computer control"));
         m_unavailable = section->addChild<Card>();
         m_unavailableLabel = m_unavailable->addChild<Label>(
-                tr("Computer control is managed by the Cutefish compositor, which is not running."));
+                tr("Computer control is managed by the Proper Desktop compositor, which is not running."));
         m_unavailableLabel->setWrap(true);
         m_unavailableLabel->setLayoutHints({.fillWidth = true});
 
@@ -130,8 +130,8 @@ private:
     }
 
     ComputerControl m_control;
-    cutefish::base::Subscription m_subscription;
-    cutefish::base::Subscription m_registry;
+    properdesktop::base::Subscription m_subscription;
+    properdesktop::base::Subscription m_registry;
     Card* m_unavailable;
     Label* m_unavailableLabel;
     Card* m_empty;

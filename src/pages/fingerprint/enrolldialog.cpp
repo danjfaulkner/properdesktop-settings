@@ -14,11 +14,11 @@
 #include "ui/label.h"
 #include "widgets/metrics.h"
 
-using namespace cutefish::ui;
-using cutefish::fprint::Enrollment;
-using cutefish::fprint::Failure;
-using cutefish::fprint::ScanType;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::fprint::Enrollment;
+using properdesktop::fprint::Failure;
+using properdesktop::fprint::ScanType;
+using properdesktop::i18n::tr;
 
 namespace settings {
 
@@ -99,7 +99,7 @@ Message scanningMessage(const Enrollment& enrollment, ScanType scanType)
 
 } // namespace
 
-EnrollDialog::EnrollDialog(SettingsWindow& parent, cutefish::fprint::Reader& reader,
+EnrollDialog::EnrollDialog(SettingsWindow& parent, properdesktop::fprint::Reader& reader,
                            std::unique_ptr<Enrollment> enrollment)
     : FormDialog(parent, tr("Add Fingerprint"), kWidth)
     , m_reader(reader)

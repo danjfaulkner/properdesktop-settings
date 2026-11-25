@@ -11,8 +11,8 @@
 #include "ui/window.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish::base;
-using namespace cutefish::ui;
+using namespace properdesktop::base;
+using namespace properdesktop::ui;
 using namespace settings;
 using settings::testing::FakeTouchpad;
 using settings::testing::ServiceThread;
@@ -26,7 +26,7 @@ struct TouchpadTest : ::testing::Test
     {
         if (!settings::testing::hasSessionBus())
             GTEST_SKIP() << "no session bus";
-        service.emplace("org.cutefish.Touchpad1",
+        service.emplace("org.properdesktop.Touchpad1",
                         [this](dbus::Connection& bus) { return settings::testing::serveTouchpad(bus, fake); });
         ASSERT_TRUE(service->start());
     }
@@ -36,7 +36,7 @@ struct TouchpadTest : ::testing::Test
         if (!service)
             return;
         service.reset();
-        settings::testing::waitForNameGone("org.cutefish.Touchpad1");
+        settings::testing::waitForNameGone("org.properdesktop.Touchpad1");
     }
 
     FakeTouchpad fake;

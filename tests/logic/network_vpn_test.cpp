@@ -6,14 +6,14 @@
 #include <map>
 #include <string>
 
-#include "cutefish/networkmanager/handler.h"
-#include "cutefish/networkmanager/types.h"
-#include "cutefish/networkmanager/vpn_schema.h"
+#include "properdesktop/networkmanager/handler.h"
+#include "properdesktop/networkmanager/types.h"
+#include "properdesktop/networkmanager/vpn_schema.h"
 #include "pages/network/vpn/vpnformmodel.h"
 
 using namespace settings::network;
-namespace nm = cutefish::networkmanager;
-namespace schema = cutefish::networkmanager::vpn::schema;
+namespace nm = properdesktop::networkmanager;
+namespace schema = properdesktop::networkmanager::vpn::schema;
 
 static nm::VpnForm openVpnForm(const std::map<std::string, std::string>& data)
 {

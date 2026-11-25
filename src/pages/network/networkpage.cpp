@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 #include "base/i18n.h"
-#include "cutefish/networkmanager/connections.h"
-#include "cutefish/networkmanager/handler.h"
+#include "properdesktop/networkmanager/connections.h"
+#include "properdesktop/networkmanager/handler.h"
 #include "ui/cell_layout.h"
 #include "widgets/card.h"
 #include "widgets/listrow.h"
@@ -12,9 +12,9 @@
 #include "window/pagelist.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish::ui;
-using cutefish::i18n::tr;
-namespace nm = cutefish::networkmanager;
+using namespace properdesktop::ui;
+using properdesktop::i18n::tr;
+namespace nm = properdesktop::networkmanager;
 
 namespace settings::network {
 
@@ -57,7 +57,7 @@ private:
 
     nm::EnabledConnections m_enabled;
     nm::Handler m_handler;
-    std::vector<cutefish::base::Subscription> m_subscriptions;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
     NavigationItem* m_hotspot;
 };
 

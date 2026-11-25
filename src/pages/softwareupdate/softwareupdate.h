@@ -11,7 +11,7 @@
 
 namespace settings {
 
-// cutefish-services' org.cutefish.Services.SoftwareUpdate: the pending system
+// properdesktop-services' org.properdesktop.Services.SoftwareUpdate: the pending system
 // updates, which the service checks and installs while the session runs.
 // Read asynchronously and kept up to date, so the getters never block.
 class SoftwareUpdate
@@ -62,19 +62,19 @@ public:
 
     // Where the page looks for PackageKit: the system bus, unless a test
     // put its own.
-    static cutefish::base::dbus::Connection* packageKitBus();
-    static void setPackageKitBus(cutefish::base::dbus::Connection* bus);
+    static properdesktop::base::dbus::Connection* packageKitBus();
+    static void setPackageKitBus(properdesktop::base::dbus::Connection* bus);
 
-    cutefish::base::Signal<> changed;
+    properdesktop::base::Signal<> changed;
 
 private:
     void reload();
-    void apply(const cutefish::base::dbus::VariantMap& properties);
+    void apply(const properdesktop::base::dbus::VariantMap& properties);
 
-    cutefish::base::dbus::Proxy m_service;
-    cutefish::base::dbus::NameWatch m_watch;
-    cutefish::base::dbus::Match m_changedMatch;
-    cutefish::base::dbus::PendingCall m_reload;
+    properdesktop::base::dbus::Proxy m_service;
+    properdesktop::base::dbus::NameWatch m_watch;
+    properdesktop::base::dbus::Match m_changedMatch;
+    properdesktop::base::dbus::PendingCall m_reload;
     State m_state = State::Unknown;
     std::vector<Update> m_updates;
     Phase m_phase = Phase::Downloading;

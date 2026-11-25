@@ -12,7 +12,7 @@ namespace settings {
 // RoundedItem's ColumnLayout, its rows its children. A list card holds
 // ListRows edge to edge, without padding, so a row's press background
 // reaches the card's edge and its corners follow the card's.
-class Card : public cutefish::ui::ColumnLayout
+class Card : public properdesktop::ui::ColumnLayout
 {
 public:
     enum class Style {
@@ -23,15 +23,15 @@ public:
     explicit Card(Style style = Style::Padded);
 
 protected:
-    void paint(cutefish::ui::Painter& painter) override;
+    void paint(properdesktop::ui::Painter& painter) override;
 };
 
 
 // Kept for pages written before the toolkit had it; new code calls
-// cutefish::ui::themeCorners().
-inline cutefish::ui::Corners panelCorners()
+// properdesktop::ui::themeCorners().
+inline properdesktop::ui::Corners panelCorners()
 {
-    return cutefish::ui::themeCorners();
+    return properdesktop::ui::themeCorners();
 }
 
 } // namespace settings

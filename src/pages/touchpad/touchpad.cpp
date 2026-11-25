@@ -6,7 +6,7 @@
 namespace settings {
 
 Touchpad::Touchpad()
-    : m_service("org.cutefish.Touchpad1")
+    : m_service("org.properdesktop.Touchpad1")
 {
 }
 

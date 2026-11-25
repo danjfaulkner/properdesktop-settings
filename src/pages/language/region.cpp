@@ -15,13 +15,13 @@
 #include "base/strings.h"
 #include "pages/language/language.h"
 
-using namespace cutefish::base;
+using namespace properdesktop::base;
 
 namespace settings {
 
-static constexpr const char* kService = "org.cutefish.Services";
-static constexpr const char* kPath = "/org/cutefish/Services/Language";
-static constexpr const char* kInterface = "org.cutefish.Services.Language";
+static constexpr const char* kService = "org.properdesktop.Services";
+static constexpr const char* kPath = "/org/properdesktop/Services/Language";
+static constexpr const char* kInterface = "org.properdesktop.Services.Language";
 
 static icu::UnicodeString folded(const std::string& text)
 {
@@ -41,7 +41,7 @@ static std::string territoryName(const std::string& code, const icu::Locale& dis
 
 std::string Region::defaultConfigPath()
 {
-    return paths::cutefishConfig("services");
+    return paths::properdesktopConfig("services");
 }
 
 Locale Region::sessionLocale(const std::string& configPath)

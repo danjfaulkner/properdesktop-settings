@@ -11,7 +11,7 @@
 #include "pages/network/proxy/proxysettings.h"
 #include "scenario.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 using namespace settings::network;
 
 // A new server and its port saved together: the server going in first must

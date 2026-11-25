@@ -9,7 +9,7 @@
 #include "ui/application.h"
 #include "ui/keys.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 
 static bool canGoBack(TestDriver& driver)
 {

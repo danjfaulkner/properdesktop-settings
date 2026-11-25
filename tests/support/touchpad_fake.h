@@ -10,7 +10,7 @@
 
 namespace settings::testing {
 
-// The compositor's org.cutefish.Touchpad1 as a stand-in, for a pad with
+// The compositor's org.properdesktop.Touchpad1 as a stand-in, for a pad with
 // physical buttons: no choice of secondary click.
 struct FakeTouchpad
 {
@@ -18,13 +18,13 @@ struct FakeTouchpad
     bool tapToClick = false;
     double pointerAcceleration = 0;
     double scrollSpeed = 0.5;
-    cutefish::base::dbus::Object* object = nullptr;
+    properdesktop::base::dbus::Object* object = nullptr;
 };
 
-inline std::shared_ptr<void> serveTouchpad(cutefish::base::dbus::Connection& bus, FakeTouchpad& fake)
+inline std::shared_ptr<void> serveTouchpad(properdesktop::base::dbus::Connection& bus, FakeTouchpad& fake)
 {
-    auto object = std::make_shared<cutefish::base::dbus::Object>(&bus, "/org/cutefish/Touchpad1",
-                                                                 "org.cutefish.Touchpad1");
+    auto object = std::make_shared<properdesktop::base::dbus::Object>(&bus, "/org/properdesktop/Touchpad1",
+                                                                 "org.properdesktop.Touchpad1");
     object->addProperty("available", [] { return true; });
     object->addProperty("enabled", [] { return true; });
     object->addProperty("disableWithMouse", [] { return false; });

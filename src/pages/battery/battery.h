@@ -12,14 +12,14 @@
 #include "base/signal.h"
 #include "base/timer.h"
 
-namespace cutefish::upower {
+namespace properdesktop::upower {
 class BatteryStatus;
 class Device;
 }
 
 namespace settings {
 
-// The battery page's view of cutefish-services' batteries, plus each
+// The battery page's view of properdesktop-services' batteries, plus each
 // battery's capacity and UPower's charge limit. With --mock-battery it shows
 // sample values instead.
 class Battery
@@ -64,13 +64,13 @@ public:
     bool chargeLimitHeld() const;
     void setChargeLimitEnabled(bool enabled);
 
-    cutefish::base::Signal<> readyChanged;
-    cutefish::base::Signal<> availableChanged;
-    cutefish::base::Signal<> batteriesChanged;
-    cutefish::base::Signal<> capacityChanged;
-    cutefish::base::Signal<> lastChargedChanged;
-    cutefish::base::Signal<> udiChanged;
-    cutefish::base::Signal<> chargeLimitChanged;
+    properdesktop::base::Signal<> readyChanged;
+    properdesktop::base::Signal<> availableChanged;
+    properdesktop::base::Signal<> batteriesChanged;
+    properdesktop::base::Signal<> capacityChanged;
+    properdesktop::base::Signal<> lastChargedChanged;
+    properdesktop::base::Signal<> udiChanged;
+    properdesktop::base::Signal<> chargeLimitChanged;
 
 private:
     void watchBatteries();
@@ -78,13 +78,13 @@ private:
     void readKernelChargeLimits();
 
     bool m_mock;
-    std::shared_ptr<cutefish::upower::BatteryStatus> m_status;
+    std::shared_ptr<properdesktop::upower::BatteryStatus> m_status;
     std::vector<std::string> m_batteries;
     // One for each of m_batteries.
-    std::vector<std::unique_ptr<cutefish::upower::Device>> m_devices;
-    std::vector<cutefish::base::Subscription> m_subscriptions;
-    std::vector<cutefish::base::Subscription> m_deviceSubscriptions;
-    cutefish::base::Timer m_recheck;
+    std::vector<std::unique_ptr<properdesktop::upower::Device>> m_devices;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
+    std::vector<properdesktop::base::Subscription> m_deviceSubscriptions;
+    properdesktop::base::Timer m_recheck;
     int m_current = 0;
 
     bool m_chargeLimitSupported = false;

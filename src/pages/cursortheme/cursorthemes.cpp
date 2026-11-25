@@ -11,7 +11,7 @@
 #include "base/settings.h"
 
 namespace fs = std::filesystem;
-using namespace cutefish::base;
+using namespace properdesktop::base;
 
 namespace settings {
 
@@ -97,14 +97,14 @@ CursorTheme::List CursorTheme::installed()
     return list;
 }
 
-cutefish::ui::Image CursorTheme::preview() const
+properdesktop::ui::Image CursorTheme::preview() const
 {
     XcursorImages* images = XcursorLibraryLoadImages(m_sample.c_str(), id.c_str(), kSampleSize);
     if (!images)
         images = XcursorLibraryLoadImages("left_ptr", id.c_str(), kSampleSize);
     if (!images)
         return {};
-    cutefish::ui::Image result;
+    properdesktop::ui::Image result;
     if (images->nimage > 0) {
         const XcursorImage* frame = images->images[0];
         const int width = int(frame->width);
@@ -128,7 +128,7 @@ cutefish::ui::Image CursorTheme::preview() const
         const int contentWidth = right - left + 1;
         const int contentHeight = bottom - top + 1;
         const int extent = std::max(contentWidth, contentHeight) + kPadding * 2;
-        result = cutefish::ui::Image(extent, extent);
+        result = properdesktop::ui::Image(extent, extent);
         const int offsetX = (extent - contentWidth) / 2;
         const int offsetY = (extent - contentHeight) / 2;
         for (int y = 0; y < contentHeight; ++y) {

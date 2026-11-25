@@ -18,15 +18,15 @@
 
 #include "base/dbus.h"
 #include "base/event_loop.h"
-#include "cutefish/display/display_types.h"
+#include "properdesktop/display/display_types.h"
 #include "scenario.h"
 #include "ui/keys.h"
 #include "widgets/rowcombobox.h"
 
-using namespace cutefish;
-using namespace cutefish::base;
-using namespace cutefish::display;
-using namespace cutefish::ui;
+using namespace properdesktop;
+using namespace properdesktop::base;
+using namespace properdesktop::display;
+using namespace properdesktop::ui;
 using namespace settings;
 using namespace std::chrono_literals;
 
@@ -46,7 +46,7 @@ std::string cardDevice()
 using Request = std::tuple<std::string, bool, RequestedMode, uint32_t, uint32_t>;
 
 // The compositor's display service, the night light and brightness of
-// cutefish-services, on a thread of their own: the page reads brightness
+// properdesktop-services, on a thread of their own: the page reads brightness
 // with blocking calls.
 class FakeServices
 {
@@ -117,7 +117,7 @@ private:
         uint64_t revision = 1;
         std::string previewToken;
 
-        dbus::Object display(bus.get(), "/org/cutefish/DisplayConfig1", "org.cutefish.DisplayConfig1");
+        dbus::Object display(bus.get(), "/org/properdesktop/DisplayConfig1", "org.properdesktop.DisplayConfig1");
         display.addMethod("GetState", [&] {
             return std::make_tuple(std::string("test"), std::string("seat0"), uint64_t(1), revision, physical,
                                    logicals, std::vector<Placement>(), previewToken,
@@ -166,10 +166,10 @@ private:
         display.addSignal("OperationFinished", "sbbusastt");
         display.addSignal("PreviewChanged", "sttt");
         display.publish();
-        m_owned = bus->requestName("org.cutefish.DisplayConfig");
+        m_owned = bus->requestName("org.properdesktop.DisplayConfig");
 
         bool enabled = false;
-        dbus::Object nightLight(services.get(), "/org/cutefish/Services/NightLight", "org.cutefish.Services.NightLight");
+        dbus::Object nightLight(services.get(), "/org/properdesktop/Services/NightLight", "org.properdesktop.Services.NightLight");
         nightLight.addProperty("enabled", [&] { return enabled; });
         nightLight.addProperty("temperature", [] { return 0.5; });
         nightLight.addProperty("schedule", [this] { return locked(m_schedule); });
@@ -199,14 +199,14 @@ private:
 
         if (!panel.devicePath.empty())
             m_brightnessDisplays = {std::filesystem::path(panel.devicePath).filename().string() + "-eDP-1"};
-        dbus::Object brightness(services.get(), "/org/cutefish/Services/Brightness", "org.cutefish.Services.Brightness");
+        dbus::Object brightness(services.get(), "/org/properdesktop/Services/Brightness", "org.properdesktop.Services.Brightness");
         brightness.addMethod("displays", [this] { return locked(m_brightnessDisplays); });
         brightness.addMethod("displayBrightness", [](const std::string&) { return int32_t(70); });
         brightness.addMethod("setDisplayBrightness", [](const std::string&, int32_t) {});
         brightness.addSignal("displaysChanged", "");
         brightness.addSignal("displayBrightnessChanged", "si");
         brightness.publish();
-        m_owned = services->requestName("org.cutefish.Services") && m_owned;
+        m_owned = services->requestName("org.properdesktop.Services") && m_owned;
 
         ready.set_value();
         loop.run();

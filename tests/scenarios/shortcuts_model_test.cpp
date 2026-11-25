@@ -15,8 +15,8 @@
 #include "service_thread.h"
 #include "shortcuts_fake.h"
 
-using namespace cutefish::base;
-using namespace cutefish::ui;
+using namespace properdesktop::base;
+using namespace properdesktop::ui;
 using namespace settings;
 using settings::testing::FakeShortcuts;
 using settings::testing::ServiceThread;
@@ -29,7 +29,7 @@ struct ShortcutsModelTest : ::testing::Test
     {
         if (!settings::testing::hasSessionBus())
             GTEST_SKIP() << "no session bus";
-        service.emplace("org.cutefish.Shortcuts1",
+        service.emplace("org.properdesktop.Shortcuts1",
                         [this](dbus::Connection& bus) { return settings::testing::serveShortcuts(bus, fake); });
     }
 
@@ -38,7 +38,7 @@ struct ShortcutsModelTest : ::testing::Test
         if (!service)
             return;
         service.reset();
-        settings::testing::waitForNameGone("org.cutefish.Shortcuts1");
+        settings::testing::waitForNameGone("org.properdesktop.Shortcuts1");
     }
 
     FakeShortcuts fake;

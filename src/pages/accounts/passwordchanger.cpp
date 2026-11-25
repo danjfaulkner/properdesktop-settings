@@ -19,7 +19,7 @@
 #include "base/event_loop.h"
 #include "base/paths.h"
 
-using namespace cutefish;
+using namespace properdesktop;
 
 namespace settings {
 

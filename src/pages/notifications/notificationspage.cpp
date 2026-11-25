@@ -13,8 +13,8 @@
 #include "window/page.h"
 #include "window/pagelist.h"
 
-using namespace cutefish::ui;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::i18n::tr;
 
 namespace settings {
 
@@ -80,7 +80,7 @@ private:
     }
 
     Notifications m_notifications;
-    std::vector<cutefish::base::Subscription> m_subscriptions;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
     SwitchRow* m_doNotDisturb;
     Card* m_empty;
     Label* m_emptyLabel;

@@ -11,7 +11,7 @@
 
 namespace settings::testing {
 
-// The compositor's org.cutefish.Mouse1 as a stand-in: its settings outlive a
+// The compositor's org.properdesktop.Mouse1 as a stand-in: its settings outlive a
 // restart of the service, as the compositor keeps them in a file.
 struct FakeMouse
 {
@@ -21,11 +21,11 @@ struct FakeMouse
     bool acceleration = true;
     double pointerAcceleration = 0;
     // On the service thread only.
-    cutefish::base::dbus::Object* object = nullptr;
+    properdesktop::base::dbus::Object* object = nullptr;
 };
 
 template<typename T>
-void addMouseSetting(cutefish::base::dbus::Object& object, FakeMouse& fake, const std::string& name,
+void addMouseSetting(properdesktop::base::dbus::Object& object, FakeMouse& fake, const std::string& name,
                      const std::string& setter, T FakeMouse::*field)
 {
     object.addProperty(name, [&fake, field] {
@@ -42,10 +42,10 @@ void addMouseSetting(cutefish::base::dbus::Object& object, FakeMouse& fake, cons
     });
 }
 
-inline std::shared_ptr<void> serveMouse(cutefish::base::dbus::Connection& bus, FakeMouse& fake)
+inline std::shared_ptr<void> serveMouse(properdesktop::base::dbus::Connection& bus, FakeMouse& fake)
 {
     auto object =
-            std::make_shared<cutefish::base::dbus::Object>(&bus, "/org/cutefish/Mouse1", "org.cutefish.Mouse1");
+            std::make_shared<properdesktop::base::dbus::Object>(&bus, "/org/properdesktop/Mouse1", "org.properdesktop.Mouse1");
     object->addProperty("available", [] { return true; });
     object->addSignal("availableChanged", "");
     addMouseSetting(*object, fake, "leftHanded", "setLeftHanded", &FakeMouse::leftHanded);

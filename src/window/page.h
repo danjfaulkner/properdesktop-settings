@@ -7,7 +7,7 @@
 
 #include "ui/scroll_view.h"
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class ColumnLayout;
 }
 
@@ -18,7 +18,7 @@ class SettingsWindow;
 // A page of the window: a vertical scroll view whose content runs up under
 // the floating window header, with the page margins and the rhythm between
 // sections. The title is drawn by the window header.
-class Page : public cutefish::ui::ScrollView
+class Page : public properdesktop::ui::ScrollView
 {
 public:
     Page(SettingsWindow& window, std::string title);
@@ -28,18 +28,18 @@ public:
     SettingsWindow& settingsWindow() const { return m_settingsWindow; }
 
     // The column the page's sections go into.
-    cutefish::ui::ColumnLayout* content() const { return m_content; }
+    properdesktop::ui::ColumnLayout* content() const { return m_content; }
 
     // A wheel or touchpad scroll that landed on the header over the page.
-    bool scrollFromHeader(const cutefish::ui::ScrollEvent& event) { return scroll(event); }
+    bool scrollFromHeader(const properdesktop::ui::ScrollEvent& event) { return scroll(event); }
 
 protected:
-    void paint(cutefish::ui::Painter& painter) override;
+    void paint(properdesktop::ui::Painter& painter) override;
 
 private:
     SettingsWindow& m_settingsWindow;
     std::string m_title;
-    cutefish::ui::ColumnLayout* m_content;
+    properdesktop::ui::ColumnLayout* m_content;
 };
 
 // The page shown for an entry whose page is not ported yet.

@@ -7,7 +7,7 @@
 
 #include "window/options.h"
 
-using namespace cutefish::networkmanager;
+using namespace properdesktop::networkmanager;
 
 namespace settings::network {
 
@@ -61,7 +61,7 @@ std::vector<NetworkItem> mockNetworks()
     };
 
     std::vector<NetworkItem> items;
-    NetworkItem studio = wireless("Cutefish Studio", ConnectionStatus::Activated, SecurityType::Wpa2Psk,
+    NetworkItem studio = wireless("Proper Desktop Studio", ConnectionStatus::Activated, SecurityType::Wpa2Psk,
                                   "WPA2 Personal", "Wi-Fi 6 (802.11ax)", 92, "network-wireless-connected-100");
     studio.uuid = "mock-wifi-connected";
     studio.ipV4Address = "192.168.1.86";

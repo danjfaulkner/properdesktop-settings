@@ -6,7 +6,7 @@
 #include "pagetest.h"
 #include "ui/segmented_control.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 using settings::testing::findView;
 
 TEST(DockPage, DisplayModeGoesUnderItsLabelInANarrowWindow)

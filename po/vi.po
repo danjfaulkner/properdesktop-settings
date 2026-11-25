@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: cutefish-settings\n"
-"Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
+"Project-Id-Version: properdesktop-settings\n"
+"Report-Msgid-Bugs-To: https://github.com/danjfaulkner\n"
 "POT-Creation-Date: 2026-11-23 18:28+0800\n"
 "PO-Revision-Date: 2026-11-13 16:33+0800\n"
 "Last-Translator: \n"
@@ -141,8 +141,8 @@ msgid "Pointer acceleration curve"
 msgstr "Đường cong gia tốc con trỏ"
 
 #: src/pages/about/licensespage.cpp
-msgid "The source code of the pointer acceleration curve is available under the Apple Public Source License 2.0 at https://github.com/cutefishos/cutefish-compositor."
-msgstr "Mã nguồn của đường cong gia tốc con trỏ được phát hành theo Apple Public Source License 2.0 tại https://github.com/cutefishos/cutefish-compositor."
+msgid "The source code of the pointer acceleration curve is available under the Apple Public Source License 2.0 at https://github.com/danjfaulkner/properdesktop-compositor."
+msgstr "Mã nguồn của đường cong gia tốc con trỏ được phát hành theo Apple Public Source License 2.0 tại https://github.com/danjfaulkner/properdesktop-compositor."
 
 #: src/pages/accounts/accountspage.cpp src/window/pagelist.cpp
 msgid "Users"
@@ -1218,8 +1218,8 @@ msgid "Lock Screen"
 msgstr "Khóa màn hình"
 
 #: src/pages/hotcorners/hotcornerspage.cpp
-msgid "Hot corners are managed by the Cutefish compositor, which is not running."
-msgstr "Góc nóng do compositor Cutefish quản lý, nhưng compositor hiện không chạy."
+msgid "Hot corners are managed by the Proper Desktop compositor, which is not running."
+msgstr "Góc nóng do compositor Proper Desktop quản lý, nhưng compositor hiện không chạy."
 
 #: src/pages/hotcorners/hotcornerspage.cpp
 msgid "Top left"
@@ -1256,8 +1256,8 @@ msgid "Input method"
 msgstr "Phương thức nhập"
 
 #: src/pages/keyboard/keyboardpage.cpp
-msgid "Input methods can only be selected in a Cutefish Wayland session."
-msgstr "Chỉ có thể chọn phương thức nhập trong phiên Cutefish Wayland."
+msgid "Input methods can only be selected in a Proper Desktop Wayland session."
+msgstr "Chỉ có thể chọn phương thức nhập trong phiên Proper Desktop Wayland."
 
 #: src/pages/keyboard/keyboardpage.cpp
 msgid "The selected input method is not running."
@@ -2027,8 +2027,8 @@ msgid "Computer control"
 msgstr "Điều khiển máy tính"
 
 #: src/pages/privacy/privacypage.cpp
-msgid "Computer control is managed by the Cutefish compositor, which is not running."
-msgstr "Tính năng điều khiển máy tính do compositor Cutefish quản lý, nhưng compositor hiện không chạy."
+msgid "Computer control is managed by the Proper Desktop compositor, which is not running."
+msgstr "Tính năng điều khiển máy tính do compositor Proper Desktop quản lý, nhưng compositor hiện không chạy."
 
 #: src/pages/privacy/privacypage.cpp
 msgid "No apps are allowed to control this computer without asking."
@@ -2426,8 +2426,8 @@ msgid "The shortcut could not be changed."
 msgstr "Không thể thay đổi phím tắt."
 
 #: src/pages/shortcuts/shortcutspage.cpp
-msgid "Keyboard shortcuts are managed by the Cutefish compositor, which is not running."
-msgstr "Phím tắt do compositor Cutefish quản lý, nhưng compositor hiện không chạy."
+msgid "Keyboard shortcuts are managed by the Proper Desktop compositor, which is not running."
+msgstr "Phím tắt do compositor Proper Desktop quản lý, nhưng compositor hiện không chạy."
 
 #: src/pages/shortcuts/shortcutspage.cpp
 msgid "Restore all defaults"
@@ -2851,7 +2851,7 @@ msgid "license, copyright, source code, open source"
 msgstr "giấy phép, bản quyền, mã nguồn, nguồn mở, license, open source"
 
 #: src/window/settingswindow.cpp src/window/sidebar.cpp
-#: cutefish-settings.desktop
+#: properdesktop-settings.desktop
 msgid "Settings"
 msgstr "Cài đặt"
 

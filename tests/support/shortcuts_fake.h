@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2026 Reion Wong <reionwong@gmail.com>
 // SPDX-License-Identifier: BSD-3-Clause
 
-// A stand-in for the compositor's org.cutefish.Shortcuts1 service, answering
+// A stand-in for the compositor's org.properdesktop.Shortcuts1 service, answering
 // in the JSON the real one produces.
 
 #pragma once
@@ -34,7 +34,7 @@ struct FakeShortcuts
     std::vector<std::string> calls;
     std::string nextResult = "{\"result\":\"success\"}";
     // On the service thread only.
-    cutefish::base::dbus::Object* object = nullptr;
+    properdesktop::base::dbus::Object* object = nullptr;
 
     std::vector<std::string> takeCalls()
     {
@@ -54,14 +54,14 @@ struct FakeShortcuts
         return "{\"actions\":[{\"name\":\"lock-screen\",\"accelerators\":" + lock + ",\"defaults\":" + lock
                 + "},{\"name\":\"toggle-maximized\",\"accelerators\":" + maximize
                 + ",\"defaults\":" + maximizeDefaults
-                + "},{\"name\":\"not-a-cutefish-action\",\"accelerators\":[],\"defaults\":[]}]}";
+                + "},{\"name\":\"not-a-properdesktop-action\",\"accelerators\":[],\"defaults\":[]}]}";
     }
 };
 
-inline std::shared_ptr<void> serveShortcuts(cutefish::base::dbus::Connection& bus, FakeShortcuts& fake)
+inline std::shared_ptr<void> serveShortcuts(properdesktop::base::dbus::Connection& bus, FakeShortcuts& fake)
 {
-    auto object = std::make_shared<cutefish::base::dbus::Object>(&bus, "/org/cutefish/Shortcuts1",
-                                                                 "org.cutefish.Shortcuts1");
+    auto object = std::make_shared<properdesktop::base::dbus::Object>(&bus, "/org/properdesktop/Shortcuts1",
+                                                                 "org.properdesktop.Shortcuts1");
     object->addProperty("shortcutConvention", [&fake] {
         std::lock_guard guard(fake.mutex);
         return fake.convention;

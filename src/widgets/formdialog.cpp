@@ -10,7 +10,7 @@
 #include "widgets/metrics.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 
 namespace settings {
 

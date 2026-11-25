@@ -4,8 +4,8 @@
 #include "pages/accounts/userdialogs.h"
 
 #include "base/i18n.h"
-#include "cutefish/accounts/account_picture.h"
-#include "cutefish/accounts/accounts_manager.h"
+#include "properdesktop/accounts/account_picture.h"
+#include "properdesktop/accounts/accounts_manager.h"
 #include "pages/accounts/password.h"
 #include "ui/dialog_window.h"
 #include "ui/cell_layout.h"
@@ -17,9 +17,9 @@
 #include "widgets/rowcombobox.h"
 #include "widgets/sections.h"
 
-using namespace cutefish;
-using namespace cutefish::ui;
-using cutefish::i18n::tr;
+using namespace properdesktop;
+using namespace properdesktop::ui;
+using properdesktop::i18n::tr;
 
 namespace settings {
 

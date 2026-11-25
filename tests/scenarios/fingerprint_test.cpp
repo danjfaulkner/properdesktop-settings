@@ -14,8 +14,8 @@
 #include "scenario.h"
 #include "service_thread.h"
 
-using namespace cutefish::base;
-using namespace cutefish::ui;
+using namespace properdesktop::base;
+using namespace properdesktop::ui;
 using namespace settings;
 using settings::testing::FakeFprintd;
 using settings::testing::ServiceThread;

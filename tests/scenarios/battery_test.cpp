@@ -8,7 +8,7 @@
 #include "scenario.h"
 #include "window/options.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 using namespace settings;
 
 namespace {

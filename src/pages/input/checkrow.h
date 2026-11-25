@@ -7,7 +7,7 @@
 
 #include "widgets/listrow.h"
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class ThemeIcon;
 }
 
@@ -31,7 +31,7 @@ protected:
 
 private:
     TrailingIcon* m_check;
-    cutefish::ui::ThemeIcon* m_icon = nullptr;
+    properdesktop::ui::ThemeIcon* m_icon = nullptr;
     bool m_checked = false;
 };
 

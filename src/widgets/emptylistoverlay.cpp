@@ -7,7 +7,7 @@
 #include "ui/cell_layout.h"
 #include "ui/theme.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 
 namespace settings {
 

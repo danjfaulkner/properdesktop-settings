@@ -10,7 +10,7 @@
 #include "scenario.h"
 #include "widgets/sliderrow.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 using settings::SliderRow;
 
 // The row's value after the release and the settle after the last move,

@@ -7,10 +7,10 @@
 #include <string>
 
 #include "base/signal.h"
-#include "cutefish/fprint/fingerprint_reader.h"
+#include "properdesktop/fprint/fingerprint_reader.h"
 #include "widgets/formdialog.h"
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class Animation;
 class DialogButton;
 class Label;
@@ -28,8 +28,8 @@ class FingerprintView;
 class EnrollDialog : public FormDialog
 {
 public:
-    EnrollDialog(SettingsWindow& parent, cutefish::fprint::Reader& reader,
-                 std::unique_ptr<cutefish::fprint::Enrollment> enrollment);
+    EnrollDialog(SettingsWindow& parent, properdesktop::fprint::Reader& reader,
+                 std::unique_ptr<properdesktop::fprint::Enrollment> enrollment);
     ~EnrollDialog() override;
 
 private:
@@ -38,16 +38,16 @@ private:
     void tryAgain();
     void showAction(bool show);
 
-    cutefish::fprint::Reader& m_reader;
-    std::unique_ptr<cutefish::fprint::Enrollment> m_enrollment;
-    cutefish::base::Subscription m_changed;
+    properdesktop::fprint::Reader& m_reader;
+    std::unique_ptr<properdesktop::fprint::Enrollment> m_enrollment;
+    properdesktop::base::Subscription m_changed;
     FingerprintView* m_print;
-    cutefish::ui::Label* m_title;
-    cutefish::ui::Label* m_detail;
-    cutefish::ui::RowLayout* m_buttons;
-    std::unique_ptr<cutefish::ui::Animation> m_fade;
-    cutefish::ui::DialogButton* m_cancel;
-    cutefish::ui::DialogButton* m_action;
+    properdesktop::ui::Label* m_title;
+    properdesktop::ui::Label* m_detail;
+    properdesktop::ui::RowLayout* m_buttons;
+    std::unique_ptr<properdesktop::ui::Animation> m_fade;
+    properdesktop::ui::DialogButton* m_cancel;
+    properdesktop::ui::DialogButton* m_action;
 };
 
 } // namespace settings

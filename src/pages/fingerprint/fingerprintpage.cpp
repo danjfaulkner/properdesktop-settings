@@ -9,7 +9,7 @@
 #include "base/i18n.h"
 #include "base/signal.h"
 #include "base/timer.h"
-#include "cutefish/fprint/fingerprint_reader.h"
+#include "properdesktop/fprint/fingerprint_reader.h"
 #include "pages/fingerprint/enrolldialog.h"
 #include "pages/fingerprint/fingers.h"
 #include "ui/button.h"
@@ -27,13 +27,13 @@
 #include "window/pagelist.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish;
-using namespace cutefish::ui;
-using cutefish::fprint::Enrollment;
-using cutefish::fprint::Failure;
-using cutefish::fprint::Finger;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
+using namespace properdesktop;
+using namespace properdesktop::ui;
+using properdesktop::fprint::Enrollment;
+using properdesktop::fprint::Failure;
+using properdesktop::fprint::Finger;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
 
 namespace settings {
 

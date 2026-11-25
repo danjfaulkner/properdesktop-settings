@@ -9,10 +9,10 @@
 #include <vector>
 
 #include "base/geometry.h"
-#include "cutefish/timedate/time_date.h"
+#include "properdesktop/timedate/time_date.h"
 #include "pages/datetime/timezonemap.h"
 
-using namespace cutefish;
+using namespace properdesktop;
 using namespace settings;
 
 namespace {

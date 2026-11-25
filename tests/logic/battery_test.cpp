@@ -9,7 +9,7 @@
 #include "pages/battery/batteryhistory.h"
 #include "pages/battery/timeformat.h"
 
-using cutefish::upower::HistorySample;
+using properdesktop::upower::HistorySample;
 using namespace settings;
 
 TEST(BatteryHistoryTest, StartsWithTheValueInForce)

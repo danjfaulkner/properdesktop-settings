@@ -13,18 +13,18 @@ namespace settings::network {
 // A long form in a dialog: as tall as the form up to a limit, then scrolling.
 // It reaches `bleed` past its own sides, so the scroll bar runs along the
 // container's edge rather than the fields', which keep their inset.
-class FormScroll : public cutefish::ui::View
+class FormScroll : public properdesktop::ui::View
 {
 public:
-    FormScroll(std::unique_ptr<cutefish::ui::View> form, double bleed);
+    FormScroll(std::unique_ptr<properdesktop::ui::View> form, double bleed);
 
-    cutefish::ui::View* form() const { return m_form; }
+    properdesktop::ui::View* form() const { return m_form; }
     void scrollToTop();
 
     // The tallest it may be; unbounded while unset.
     std::function<double()> maximumHeight;
 
-    cutefish::ui::SizeF sizeHint() const override;
+    properdesktop::ui::SizeF sizeHint() const override;
     double heightForWidth(double width) const override;
 
 protected:
@@ -32,8 +32,8 @@ protected:
 
 private:
     double m_bleed;
-    cutefish::ui::ScrollView* m_scroll;
-    cutefish::ui::View* m_form;
+    properdesktop::ui::ScrollView* m_scroll;
+    properdesktop::ui::View* m_form;
 };
 
 } // namespace settings::network

@@ -8,8 +8,8 @@
 #include "base/i18n.h"
 #include "window/page.h"
 
-using namespace cutefish::ui;
-using cutefish::i18n::trNoop;
+using namespace properdesktop::ui;
+using properdesktop::i18n::trNoop;
 
 namespace settings {
 

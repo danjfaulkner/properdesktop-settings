@@ -9,11 +9,11 @@
 #include <string>
 #include <vector>
 
-#include "cutefish/networkmanager/handler.h"
+#include "properdesktop/networkmanager/handler.h"
 #include "pages/network/vpn/vpnformmodel.h"
 #include "ui/cell_layout.h"
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class TextField;
 }
 
@@ -31,19 +31,19 @@ class WireGuardEditor;
 // What a VPN profile is made of, for the Add VPN and details dialogs: its
 // name, the fields of its kind, and who may use it, filled from and typed
 // into its VpnFormModel.
-class VpnEditor : public cutefish::ui::ColumnLayout
+class VpnEditor : public properdesktop::ui::ColumnLayout
 {
 public:
     VpnEditor();
     ~VpnEditor() override;
 
-    void load(const cutefish::networkmanager::VpnForm& form);
-    void setSecrets(const cutefish::networkmanager::VpnSecrets& secrets);
-    cutefish::networkmanager::VpnValues collect() const;
+    void load(const properdesktop::networkmanager::VpnForm& form);
+    void setSecrets(const properdesktop::networkmanager::VpnSecrets& secrets);
+    properdesktop::networkmanager::VpnValues collect() const;
     void focusFirst();
 
     const VpnFormModel& model() const { return m_model; }
-    const cutefish::networkmanager::VpnForm& form() const { return m_model.form(); }
+    const properdesktop::networkmanager::VpnForm& form() const { return m_model.form(); }
     bool installed() const { return m_model.installed(); }
     bool complete() const;
 
@@ -59,7 +59,7 @@ private:
     Footnote* m_notInstalled;
     // The name, then the first rows of the profile's kind.
     Card* m_basic;
-    cutefish::ui::TextField* m_name;
+    properdesktop::ui::TextField* m_name;
     PluginForm* m_plugin = nullptr;
     WireGuardEditor* m_wireGuard = nullptr;
     Card* m_switches;

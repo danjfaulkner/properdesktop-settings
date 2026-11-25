@@ -8,8 +8,8 @@
 #include "window/page.h"
 #include "window/pagelist.h"
 
-using namespace cutefish::ui;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::i18n::tr;
 
 namespace settings {
 
@@ -21,10 +21,10 @@ public:
     explicit LicensesPage(SettingsWindow& window)
         : Page(window, tr("Open-Source Licenses"))
     {
-        Section* cutefish = content()->addChild<Section>("Cutefish");
-        Card* cutefishCard = cutefish->addChild<Card>(Card::Style::List);
-        cutefishCard->addChild<InfoRow>(tr("Desktop and applications"), "BSD-3-Clause")->setName("licenses:notice");
-        cutefish->addChild<Footnote>(tr("Terminal and the icon theme are under the GNU General Public License 3.0."))
+        Section* properdesktop = content()->addChild<Section>("Proper Desktop");
+        Card* properdesktopCard = properdesktop->addChild<Card>(Card::Style::List);
+        properdesktopCard->addChild<InfoRow>(tr("Desktop and applications"), "BSD-3-Clause")->setName("licenses:notice");
+        properdesktop->addChild<Footnote>(tr("Terminal and the icon theme are under the GNU General Public License 3.0."))
                 ->setName("licenses:footnote");
 
         Section* compositor = content()->addChild<Section>(tr("Compositor"));
@@ -39,7 +39,7 @@ public:
         // Apple Public Source License 2.0, section 2.3: the executable carries a notice of where its source is.
         compositor->addChild<Footnote>(
                 tr("The source code of the pointer acceleration curve is available under the Apple Public Source "
-                   "License 2.0 at https://github.com/cutefishos/cutefish-compositor."))
+                   "License 2.0 at https://github.com/danjfaulkner/properdesktop-compositor."))
                 ->setName("licenses:footnote");
     }
 };

@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 
-#include "cutefish/accounts/accounts_manager.h"
+#include "properdesktop/accounts/accounts_manager.h"
 #include "pages/accounts/picturedialog.h"
 #include "pages/accounts/userdetailsdialog.h"
 #include "pages/accounts/userdialogs.h"
@@ -19,8 +19,8 @@
 #include "ui/window.h"
 #include "widgets/card.h"
 
-using namespace cutefish;
-using namespace cutefish::ui;
+using namespace properdesktop;
+using namespace properdesktop::ui;
 using namespace settings;
 
 static bool isEnabled(TestDriver& driver, const std::string& name)

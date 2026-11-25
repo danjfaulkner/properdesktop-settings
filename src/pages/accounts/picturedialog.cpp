@@ -9,7 +9,7 @@
 #include "base/file.h"
 #include "base/i18n.h"
 #include "base/paths.h"
-#include "cutefish/accounts/account_picture.h"
+#include "properdesktop/accounts/account_picture.h"
 #include "ui/bitmap.h"
 #include "ui/cell_layout.h"
 #include "ui/dialog_window.h"
@@ -21,10 +21,10 @@
 #include "widgets/card.h"
 #include "widgets/metrics.h"
 
-using namespace cutefish;
-using namespace cutefish::ui;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
+using namespace properdesktop;
+using namespace properdesktop::ui;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
 
 namespace settings {
 
@@ -56,7 +56,7 @@ static std::string accountPicture(const std::string& path)
     const std::string runtime = base::paths::runtimeDirectory();
     if (!encoded || runtime.empty())
         return path;
-    const std::string target = runtime + "/cutefish-account-picture.png";
+    const std::string target = runtime + "/properdesktop-account-picture.png";
     return base::file::writeAtomically(target, *encoded) ? target : path;
 }
 

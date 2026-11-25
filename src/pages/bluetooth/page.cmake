@@ -1,5 +1,5 @@
-find_package(CutefishClients REQUIRED COMPONENTS bluez)
-target_link_libraries(settings-core PUBLIC Cutefish::BluezClient)
+find_package(ProperDesktopClients REQUIRED COMPONENTS bluez)
+target_link_libraries(settings-core PUBLIC ProperDesktop::BluezClient)
 
 if(BUILD_TESTING)
     # The scenario tests' fake BlueZ answers sd-bus calls for any object path.

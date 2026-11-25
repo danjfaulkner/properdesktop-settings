@@ -40,17 +40,17 @@ public:
     // The list is not updated here: the shell's applicationsChanged reloads it.
     void setApplicationMode(const std::string& key, int mode);
 
-    cutefish::base::Signal<> doNotDisturbChanged;
-    cutefish::base::Signal<> applicationsChanged;
+    properdesktop::base::Signal<> doNotDisturbChanged;
+    properdesktop::base::Signal<> applicationsChanged;
 
 private:
     void loadApplications();
 
-    cutefish::base::dbus::Proxy m_shell;
-    cutefish::base::dbus::Match m_doNotDisturbMatch;
-    cutefish::base::dbus::Match m_applicationsMatch;
-    cutefish::base::dbus::PendingCall m_doNotDisturbCall;
-    cutefish::base::dbus::PendingCall m_applicationsCall;
+    properdesktop::base::dbus::Proxy m_shell;
+    properdesktop::base::dbus::Match m_doNotDisturbMatch;
+    properdesktop::base::dbus::Match m_applicationsMatch;
+    properdesktop::base::dbus::PendingCall m_doNotDisturbCall;
+    properdesktop::base::dbus::PendingCall m_applicationsCall;
     bool m_doNotDisturb = false;
     std::vector<Application> m_applications;
 };

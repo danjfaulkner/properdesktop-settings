@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: cutefish-settings\n"
-"Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
+"Project-Id-Version: properdesktop-settings\n"
+"Report-Msgid-Bugs-To: https://github.com/danjfaulkner\n"
 "POT-Creation-Date: 2026-11-23 18:28+0800\n"
 "PO-Revision-Date: 2026-11-13 15:22+0800\n"
 "Last-Translator: \n"
@@ -141,8 +141,8 @@ msgid "Pointer acceleration curve"
 msgstr "Curva di accelerazione del puntatore"
 
 #: src/pages/about/licensespage.cpp
-msgid "The source code of the pointer acceleration curve is available under the Apple Public Source License 2.0 at https://github.com/cutefishos/cutefish-compositor."
-msgstr "Il codice sorgente della curva di accelerazione del puntatore è disponibile con la Apple Public Source License 2.0 su https://github.com/cutefishos/cutefish-compositor."
+msgid "The source code of the pointer acceleration curve is available under the Apple Public Source License 2.0 at https://github.com/danjfaulkner/properdesktop-compositor."
+msgstr "Il codice sorgente della curva di accelerazione del puntatore è disponibile con la Apple Public Source License 2.0 su https://github.com/danjfaulkner/properdesktop-compositor."
 
 #: src/pages/accounts/accountspage.cpp src/window/pagelist.cpp
 msgid "Users"
@@ -1223,8 +1223,8 @@ msgid "Lock Screen"
 msgstr "Blocca schermo"
 
 #: src/pages/hotcorners/hotcornerspage.cpp
-msgid "Hot corners are managed by the Cutefish compositor, which is not running."
-msgstr "Gli angoli attivi sono gestiti dal compositor di Cutefish, che non è in esecuzione."
+msgid "Hot corners are managed by the Proper Desktop compositor, which is not running."
+msgstr "Gli angoli attivi sono gestiti dal compositor di Proper Desktop, che non è in esecuzione."
 
 #: src/pages/hotcorners/hotcornerspage.cpp
 msgid "Top left"
@@ -1261,8 +1261,8 @@ msgid "Input method"
 msgstr "Metodo di input"
 
 #: src/pages/keyboard/keyboardpage.cpp
-msgid "Input methods can only be selected in a Cutefish Wayland session."
-msgstr "I metodi di input si possono scegliere solo in una sessione Cutefish Wayland."
+msgid "Input methods can only be selected in a Proper Desktop Wayland session."
+msgstr "I metodi di input si possono scegliere solo in una sessione Proper Desktop Wayland."
 
 #: src/pages/keyboard/keyboardpage.cpp
 msgid "The selected input method is not running."
@@ -2033,8 +2033,8 @@ msgid "Computer control"
 msgstr "Controllo del computer"
 
 #: src/pages/privacy/privacypage.cpp
-msgid "Computer control is managed by the Cutefish compositor, which is not running."
-msgstr "Il controllo del computer è gestito dal compositor di Cutefish, che non è in esecuzione."
+msgid "Computer control is managed by the Proper Desktop compositor, which is not running."
+msgstr "Il controllo del computer è gestito dal compositor di Proper Desktop, che non è in esecuzione."
 
 #: src/pages/privacy/privacypage.cpp
 msgid "No apps are allowed to control this computer without asking."
@@ -2432,8 +2432,8 @@ msgid "The shortcut could not be changed."
 msgstr "Impossibile modificare la scorciatoia."
 
 #: src/pages/shortcuts/shortcutspage.cpp
-msgid "Keyboard shortcuts are managed by the Cutefish compositor, which is not running."
-msgstr "Le scorciatoie da tastiera sono gestite dal compositor di Cutefish, che non è in esecuzione."
+msgid "Keyboard shortcuts are managed by the Proper Desktop compositor, which is not running."
+msgstr "Le scorciatoie da tastiera sono gestite dal compositor di Proper Desktop, che non è in esecuzione."
 
 #: src/pages/shortcuts/shortcutspage.cpp
 msgid "Restore all defaults"
@@ -2858,7 +2858,7 @@ msgid "license, copyright, source code, open source"
 msgstr "licenza, copyright, codice sorgente, open source"
 
 #: src/window/settingswindow.cpp src/window/sidebar.cpp
-#: cutefish-settings.desktop
+#: properdesktop-settings.desktop
 msgid "Settings"
 msgstr "Impostazioni"
 

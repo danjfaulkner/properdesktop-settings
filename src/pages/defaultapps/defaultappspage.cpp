@@ -11,8 +11,8 @@
 #include "window/page.h"
 #include "window/pagelist.h"
 
-using namespace cutefish::ui;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::i18n::tr;
 
 namespace settings {
 
@@ -60,7 +60,7 @@ private:
     }
 
     DefaultApplications m_applications;
-    cutefish::base::Subscription m_subscription;
+    properdesktop::base::Subscription m_subscription;
     std::array<std::pair<ListRow*, RowComboBox*>, DefaultApplications::KindCount> m_rows;
 };
 

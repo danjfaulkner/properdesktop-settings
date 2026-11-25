@@ -14,21 +14,21 @@ namespace settings {
 
 // Text lined up with a card's text: a section's title above its card, or a
 // footnote below it.
-class SectionLabel : public cutefish::ui::Column
+class SectionLabel : public properdesktop::ui::Column
 {
 public:
     explicit SectionLabel(std::string text = {});
 
-    cutefish::ui::Label* label() const { return m_label; }
+    properdesktop::ui::Label* label() const { return m_label; }
     void setText(std::string text) { m_label->setText(std::move(text)); }
 
 private:
-    cutefish::ui::Label* m_label;
+    properdesktop::ui::Label* m_label;
 };
 
 // A titled group on a page: a section label over its content, set tightly so
 // the text reads as belonging to that content.
-class Section : public cutefish::ui::ColumnLayout
+class Section : public properdesktop::ui::ColumnLayout
 {
 public:
     explicit Section(std::string title = {});
@@ -46,7 +46,7 @@ public:
     explicit Footnote(std::string text = {});
 
     // Unset: the theme's disabled text colour.
-    void setColor(std::optional<cutefish::ui::ColorRecipe> color);
+    void setColor(std::optional<properdesktop::ui::ColorRecipe> color);
 };
 
 } // namespace settings

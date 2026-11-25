@@ -7,8 +7,8 @@
 #include <cstdio>
 #include <unistd.h>
 
-using namespace cutefish;
-using namespace cutefish::base;
+using namespace properdesktop;
+using namespace properdesktop::base;
 
 namespace settings {
 

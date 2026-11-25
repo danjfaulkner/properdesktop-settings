@@ -21,16 +21,16 @@
 #include <vector>
 
 #include "base/paths.h"
-#include "cutefish/audio/backend.h"
+#include "properdesktop/audio/backend.h"
 #include "scenario.h"
 #include "sound_teststream.h"
 #include "widgets/sliderrow.h"
 
 extern char** environ;
 
-using namespace cutefish;
-using namespace cutefish::audio;
-using namespace cutefish::ui;
+using namespace properdesktop;
+using namespace properdesktop::audio;
+using namespace properdesktop::ui;
 using namespace settings;
 using namespace std::chrono_literals;
 
@@ -101,11 +101,11 @@ protected:
             if (const char* value = std::getenv(name))
                 saved[name] = value;
         }
-        char directory[] = "/tmp/cutefish-sound-test-XXXXXX";
+        char directory[] = "/tmp/properdesktop-sound-test-XXXXXX";
         runtime = ::mkdtemp(directory);
         ::setenv("XDG_RUNTIME_DIR", runtime.c_str(), 1);
         ::setenv("PIPEWIRE_RUNTIME_DIR", runtime.c_str(), 1);
-        ::setenv("PIPEWIRE_REMOTE", "cutefish-audio-test", 1);
+        ::setenv("PIPEWIRE_REMOTE", "properdesktop-audio-test", 1);
         ::setenv("XDG_CONFIG_HOME", (runtime + "/config").c_str(), 1);
         ::setenv("XDG_STATE_HOME", (runtime + "/state").c_str(), 1);
         ::setenv("XDG_CACHE_HOME", (runtime + "/cache").c_str(), 1);
@@ -136,7 +136,7 @@ protected:
         const std::string log = runtime + "/servers.log";
         ASSERT_TRUE(server.start(base::paths::findExecutable("pipewire"),
                                  {"-c", SETTINGS_SOURCE_DIR "/../tests/support/sound_pipewire.conf"}, log));
-        ASSERT_TRUE(waitFor([] { return std::filesystem::exists(runtime + "/cutefish-audio-test"); }));
+        ASSERT_TRUE(waitFor([] { return std::filesystem::exists(runtime + "/properdesktop-audio-test"); }));
         ASSERT_TRUE(policy.start(base::paths::findExecutable("wireplumber"), {"--profile=policy"}, log));
     }
 
@@ -152,7 +152,7 @@ protected:
         for (const char* name : {"test-output-a", "test-output-b", "test-input"}) {
             ASSERT_TRUE(waitFor([name] { return find(name) != nullptr; }, 10s));
             const auto node = find(name);
-            auto stream = std::make_unique<TestStream>(backend->core(), std::string("cutefish.internal.test-") + name,
+            auto stream = std::make_unique<TestStream>(backend->core(), std::string("properdesktop.internal.test-") + name,
                                                        node->property(PW_KEY_OBJECT_SERIAL),
                                                        node->kind() == AudioObject::Source);
             ASSERT_TRUE(stream->connected);

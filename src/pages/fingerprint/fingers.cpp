@@ -7,10 +7,10 @@
 
 #include "base/i18n.h"
 
-using namespace cutefish;
-using cutefish::fprint::Finger;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
+using namespace properdesktop;
+using properdesktop::fprint::Finger;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
 
 namespace settings {
 

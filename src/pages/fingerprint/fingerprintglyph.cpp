@@ -3,7 +3,7 @@
 
 #include "pages/fingerprint/fingerprintglyph.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 
 namespace settings {
 

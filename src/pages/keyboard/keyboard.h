@@ -24,7 +24,7 @@ const std::vector<KeyboardLayout>& keyboardLayouts();
 // Reads a rules file such as /usr/share/X11/xkb/rules/evdev.xml.
 std::vector<KeyboardLayout> readKeyboardLayouts(const std::string& path);
 
-// Client of the compositor's org.cutefish.Keyboard1 service.
+// Client of the compositor's org.properdesktop.Keyboard1 service.
 class Keyboard
 {
 public:
@@ -47,7 +47,7 @@ public:
     std::string shortcutConvention() const;
     void setShortcutConvention(const std::string& convention);
 
-    cutefish::base::Signal<>& changed() { return m_service.changed; }
+    properdesktop::base::Signal<>& changed() { return m_service.changed; }
 
 private:
     CompositorService m_service;

@@ -8,7 +8,7 @@
 
 #include "base/event_loop.h"
 
-using namespace cutefish::base;
+using namespace properdesktop::base;
 
 namespace settings {
 

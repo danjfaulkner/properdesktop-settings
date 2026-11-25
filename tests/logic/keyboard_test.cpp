@@ -49,7 +49,7 @@ TEST(KeyboardLayouts, ReadsLayoutsAndVariantsSortedByName)
     const int fd = mkstemp(path);
     ASSERT_GE(fd, 0);
     close(fd);
-    ASSERT_TRUE(cutefish::base::file::writeAtomically(path, kRules));
+    ASSERT_TRUE(properdesktop::base::file::writeAtomically(path, kRules));
     const std::vector<KeyboardLayout> layouts = readKeyboardLayouts(path);
     unlink(path);
 

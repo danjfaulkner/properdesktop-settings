@@ -7,7 +7,7 @@
 #include <memory>
 #include <string>
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class ColumnLayout;
 class DialogWindow;
 class RowLayout;
@@ -33,14 +33,14 @@ public:
     FormDialog& operator=(const FormDialog&) = delete;
 
     // Null once the dialog has closed.
-    cutefish::ui::Window* window() const;
+    properdesktop::ui::Window* window() const;
     // The dialog's ColumnLayout, inside its padding, with the dialog's
     // spacing.
-    cutefish::ui::ColumnLayout* content() const { return m_content; }
+    properdesktop::ui::ColumnLayout* content() const { return m_content; }
     void setTitle(std::string title);
     // A RowLayout of buttons aligned to the right, as the last item of the
     // content.
-    cutefish::ui::RowLayout* addButtonRow();
+    properdesktop::ui::RowLayout* addButtonRow();
 
     // The whole window's height; lets the content's filling items share the
     // space.
@@ -59,8 +59,8 @@ public:
     std::function<void()> onClosed;
 
 private:
-    std::unique_ptr<cutefish::ui::DialogWindow> m_dialog;
-    cutefish::ui::ColumnLayout* m_content;
+    std::unique_ptr<properdesktop::ui::DialogWindow> m_dialog;
+    properdesktop::ui::ColumnLayout* m_content;
 };
 
 } // namespace settings

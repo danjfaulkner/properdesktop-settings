@@ -21,8 +21,8 @@
 #include "window/pagelist.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish::ui;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::i18n::tr;
 
 namespace settings::network {
 
@@ -270,7 +270,7 @@ private:
 
     NetworkProxy m_proxy;
     FileChooser m_fileChooser;
-    cutefish::base::Subscription m_subscription;
+    properdesktop::base::Subscription m_subscription;
     ButtonGroup m_modes;
     bool m_needSave = false;
     bool m_saving = false;

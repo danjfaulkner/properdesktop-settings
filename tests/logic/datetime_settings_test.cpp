@@ -11,18 +11,18 @@
 
 #include "base/dbus.h"
 #include "base/file.h"
-#include "cutefish/timedate/time_date.h"
+#include "properdesktop/timedate/time_date.h"
 #include "pages/datetime/time.h"
 #include "service_thread.h"
 
-using namespace cutefish;
-using namespace cutefish::base;
+using namespace properdesktop;
+using namespace properdesktop::base;
 using settings::testing::ServiceThread;
 using settings::testing::waitFor;
 
 namespace {
 
-// timedated and cutefish-services on a private session bus: timedated
+// timedated and properdesktop-services on a private session bus: timedated
 // refuses to turn network time off, as a cancelled password does.
 struct TimeSettingsFixture : ::testing::Test
 {
@@ -30,7 +30,7 @@ struct TimeSettingsFixture : ::testing::Test
     {
         dbus::Connection* bus = dbus::Connection::session();
         const dbus::Proxy daemon(bus, "org.freedesktop.DBus", "/org/freedesktop/DBus", "org.freedesktop.DBus");
-        if (!bus || daemon.call("NameHasOwner", std::string("org.cutefish.Services")).value<bool>().value_or(true))
+        if (!bus || daemon.call("NameHasOwner", std::string("org.properdesktop.Services")).value<bool>().value_or(true))
             GTEST_SKIP() << "Needs a private session bus: run the tests in dbus-run-session";
 
         timedated = std::make_unique<ServiceThread>("org.freedesktop.timedate1", [this](dbus::Connection& bus) {
@@ -52,9 +52,9 @@ struct TimeSettingsFixture : ::testing::Test
             object->publish();
             return std::shared_ptr<void>(object);
         });
-        services = std::make_unique<ServiceThread>("org.cutefish.Services", [this](dbus::Connection& bus) {
-            auto object = std::make_shared<dbus::Object>(&bus, "/org/cutefish/Services/Language",
-                                                         "org.cutefish.Services.Language");
+        services = std::make_unique<ServiceThread>("org.properdesktop.Services", [this](dbus::Connection& bus) {
+            auto object = std::make_shared<dbus::Object>(&bus, "/org/properdesktop/Services/Language",
+                                                         "org.properdesktop.Services.Language");
             object->addMethod("setTwentyFourHour", [this](int32_t value) { twentyFour = value; });
             object->publish();
             return std::shared_ptr<void>(object);
@@ -75,7 +75,7 @@ struct TimeSettingsFixture : ::testing::Test
         if (services) {
             services->stop();
             timedated->stop();
-            settings::testing::waitForNameGone("org.cutefish.Services");
+            settings::testing::waitForNameGone("org.properdesktop.Services");
             settings::testing::waitForNameGone("org.freedesktop.timedate1");
         }
     }

@@ -10,7 +10,7 @@
 #include "base/timer.h"
 #include "widgets/formdialog.h"
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class ColumnLayout;
 class DialogButton;
 class Label;
@@ -36,15 +36,15 @@ private:
     void select(const std::string& code);
 
     Language& m_language;
-    std::vector<cutefish::base::Subscription> m_subscriptions;
-    cutefish::base::Timer m_searchTimer;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
+    properdesktop::base::Timer m_searchTimer;
     SearchField* m_search;
-    cutefish::ui::ScrollView* m_scroll;
-    cutefish::ui::ColumnLayout* m_rows;
-    cutefish::ui::Label* m_empty;
+    properdesktop::ui::ScrollView* m_scroll;
+    properdesktop::ui::ColumnLayout* m_rows;
+    properdesktop::ui::Label* m_empty;
     Footnote* m_error;
-    cutefish::ui::DialogButton* m_cancel;
-    cutefish::ui::DialogButton* m_add;
+    properdesktop::ui::DialogButton* m_cancel;
+    properdesktop::ui::DialogButton* m_add;
     std::string m_selectedCode;
     bool m_adding = false;
 };

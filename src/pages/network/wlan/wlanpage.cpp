@@ -7,9 +7,9 @@
 
 #include "base/i18n.h"
 #include "base/timer.h"
-#include "cutefish/networkmanager/connections.h"
-#include "cutefish/networkmanager/handler.h"
-#include "cutefish/networkmanager/hotspot.h"
+#include "properdesktop/networkmanager/connections.h"
+#include "properdesktop/networkmanager/handler.h"
+#include "properdesktop/networkmanager/hotspot.h"
 #include "pages/network/common/detailsdialog.h"
 #include "pages/network/common/networklist.h"
 #include "pages/network/common/rows.h"
@@ -28,10 +28,10 @@
 #include "window/pagelist.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 using namespace std::chrono_literals;
-using cutefish::i18n::tr;
-namespace nm = cutefish::networkmanager;
+using properdesktop::i18n::tr;
+namespace nm = properdesktop::networkmanager;
 
 namespace settings::network {
 
@@ -179,7 +179,7 @@ private:
             return;
         m_requestedWireless = checked;
         ++m_wirelessRequests;
-        m_handler.enableWireless(checked, [this](const cutefish::base::dbus::Reply& reply) {
+        m_handler.enableWireless(checked, [this](const properdesktop::base::dbus::Reply& reply) {
             --m_wirelessRequests;
             if (reply.isError())
                 m_requestedWireless.reset();
@@ -278,8 +278,8 @@ private:
     NetworkList m_list;
     nm::EnabledConnections m_enabled;
     nm::Handler m_handler;
-    cutefish::base::Timer m_scanTimer;
-    std::vector<cutefish::base::Subscription> m_subscriptions;
+    properdesktop::base::Timer m_scanTimer;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
     NewNetworkDialog m_newNetwork;
     std::unique_ptr<DetailsDialog> m_details;
     std::optional<bool> m_requestedWireless;
@@ -320,7 +320,7 @@ private:
     }
 
     nm::EnabledConnections m_enabled;
-    cutefish::base::Subscription m_subscription;
+    properdesktop::base::Subscription m_subscription;
     AvailabilityCallback m_callback;
 };
 

@@ -77,7 +77,7 @@ struct RulesReader
 
 std::vector<KeyboardLayout> readKeyboardLayouts(const std::string& path)
 {
-    const std::optional<std::string> contents = cutefish::base::file::read(path);
+    const std::optional<std::string> contents = properdesktop::base::file::read(path);
     if (!contents) {
         fprintf(stderr, "Cannot read keyboard layouts from %s\n", path.c_str());
         return {};
@@ -123,7 +123,7 @@ const std::vector<KeyboardLayout>& keyboardLayouts()
 }
 
 Keyboard::Keyboard()
-    : m_service("org.cutefish.Keyboard1")
+    : m_service("org.properdesktop.Keyboard1")
 {
 }
 
@@ -174,7 +174,7 @@ std::string Keyboard::layoutName() const
 
 void Keyboard::selectLayout(const std::string& id)
 {
-    m_service.callWithReply("setLayout", [this, id](const cutefish::base::dbus::Reply& reply) {
+    m_service.callWithReply("setLayout", [this, id](const properdesktop::base::dbus::Reply& reply) {
         if (!reply.isError() && !reply.value<bool>().value_or(false))
             fprintf(stderr, "Cannot select keyboard layout %s\n", id.c_str());
         m_service.changed.emit();

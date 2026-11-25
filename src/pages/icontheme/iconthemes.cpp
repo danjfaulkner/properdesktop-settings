@@ -13,7 +13,7 @@
 #include "base/settings.h"
 
 namespace fs = std::filesystem;
-using namespace cutefish::base;
+using namespace properdesktop::base;
 
 namespace settings {
 

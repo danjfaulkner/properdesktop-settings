@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(cutefish-settings
+project(properdesktop-settings
     VERSION 1.0
     LANGUAGES CXX
 )
@@ -11,11 +11,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include(GNUInstallDirs)
 include(CTest)
 
-find_package(CutefishToolkit REQUIRED)
+find_package(ProperDesktopToolkit REQUIRED)
 
 # Where the pictures are looked up; a scratch build that is never installed
 # can point it at src/ instead.
-set(SETTINGS_DATA_DIR ${CMAKE_INSTALL_FULL_DATADIR}/cutefish-settings CACHE PATH "Settings' installed data")
+set(SETTINGS_DATA_DIR ${CMAKE_INSTALL_FULL_DATADIR}/properdesktop-settings CACHE PATH "Settings' installed data")
 
 # Each page lives in src/pages/<page>/ and registers itself, so pages are
 # added without touching this file. A build may take some of them only.
@@ -81,7 +81,7 @@ foreach(source ${SETTINGS_CORE_PAGE_SOURCES})
 endforeach()
 add_library(settings-core STATIC ${SETTINGS_CORE_SOURCES})
 target_include_directories(settings-core PUBLIC src)
-target_link_libraries(settings-core PUBLIC Cutefish::ToolkitBase)
+target_link_libraries(settings-core PUBLIC ProperDesktop::ToolkitBase)
 
 # Objects rather than an archive: a page is only referenced by its static
 # registration, which a linker would drop from an archive.
@@ -109,7 +109,7 @@ add_library(settings-ui OBJECT
 )
 target_include_directories(settings-ui PUBLIC src)
 target_compile_definitions(settings-ui PUBLIC SETTINGS_DATA_DIR="${SETTINGS_DATA_DIR}")
-target_link_libraries(settings-ui PUBLIC settings-core Cutefish::Toolkit)
+target_link_libraries(settings-ui PUBLIC settings-core ProperDesktop::Toolkit)
 
 # A page's own dependencies: src/pages/<page>/page.cmake finds and links
 # them to settings-core, whose models need them, and through it to settings-ui.
@@ -125,15 +125,15 @@ target_link_libraries(${PROJECT_NAME} PRIVATE settings-ui)
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(DIRECTORY src/images/ DESTINATION ${SETTINGS_DATA_DIR}/images)
 
-cutefish_add_translations(cutefish-settings SOURCES src DESKTOP_FILES cutefish-settings.desktop)
+properdesktop_add_translations(properdesktop-settings SOURCES src DESKTOP_FILES properdesktop-settings.desktop)
 install(FILES
-    ${CMAKE_CURRENT_BINARY_DIR}/cutefish-settings.desktop
+    ${CMAKE_CURRENT_BINARY_DIR}/properdesktop-settings.desktop
     DESTINATION ${CMAKE_INSTALL_DATADIR}/applications
 )
 
 install(FILES
-    src/datetime/60-cutefish-datetime.rules
-    src/about/60-cutefish-device-name.rules
+    src/datetime/60-properdesktop-datetime.rules
+    src/about/60-properdesktop-device-name.rules
     DESTINATION ${CMAKE_INSTALL_DATADIR}/polkit-1/rules.d
 )
 

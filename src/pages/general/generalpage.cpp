@@ -16,8 +16,8 @@
 #include "window/pagelist.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish::ui;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::i18n::tr;
 
 namespace settings::general {
 
@@ -60,7 +60,7 @@ private:
     }
 
     std::vector<std::pair<std::string, NavigationItem*>> m_items;
-    cutefish::base::Subscription m_subscription;
+    properdesktop::base::Subscription m_subscription;
 };
 
 } // namespace

@@ -8,7 +8,7 @@
 #include <vector>
 
 #include "base/signal.h"
-#include "cutefish/networkmanager/network_model.h"
+#include "properdesktop/networkmanager/network_model.h"
 
 namespace settings::network {
 
@@ -21,23 +21,23 @@ public:
     ~NetworkList();
 
     bool isMock() const { return !m_model; }
-    const std::vector<cutefish::networkmanager::NetworkItem>& items() const;
+    const std::vector<properdesktop::networkmanager::NetworkItem>& items() const;
     // One type of row, sorted for a list.
-    std::vector<cutefish::networkmanager::NetworkItem> rows(cutefish::networkmanager::ConnectionType type) const;
+    std::vector<properdesktop::networkmanager::NetworkItem> rows(properdesktop::networkmanager::ConnectionType type) const;
     // The row whose key, connection path or SSID is the value.
-    std::optional<cutefish::networkmanager::NetworkItem> find(const std::string& connectionPath,
+    std::optional<properdesktop::networkmanager::NetworkItem> find(const std::string& connectionPath,
                                                               const std::string& ssid = {}) const;
 
-    cutefish::base::Signal<> changed;
+    properdesktop::base::Signal<> changed;
 
 private:
-    std::unique_ptr<cutefish::networkmanager::NetworkModel> m_model;
-    std::vector<cutefish::networkmanager::NetworkItem> m_mock;
-    cutefish::base::Subscription m_subscription;
+    std::unique_ptr<properdesktop::networkmanager::NetworkModel> m_model;
+    std::vector<properdesktop::networkmanager::NetworkItem> m_mock;
+    properdesktop::base::Subscription m_subscription;
 };
 
 // The sample networks: a connected and a saved Wi-Fi network, two others,
 // and two wired connections.
-std::vector<cutefish::networkmanager::NetworkItem> mockNetworks();
+std::vector<properdesktop::networkmanager::NetworkItem> mockNetworks();
 
 } // namespace settings::network

@@ -7,7 +7,7 @@
 
 #include "ui/layout.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 
 namespace settings::network {
 

@@ -21,11 +21,11 @@
 #include "widgets/rowcombobox.h"
 #include "widgets/sections.h"
 
-using namespace cutefish::ui;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
-namespace nm = cutefish::networkmanager;
-namespace schema = cutefish::networkmanager::vpn::schema;
+using namespace properdesktop::ui;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
+namespace nm = properdesktop::networkmanager;
+namespace schema = properdesktop::networkmanager::vpn::schema;
 
 namespace settings::network {
 
@@ -494,7 +494,7 @@ private:
             // The card holds the button being clicked.
             std::shared_ptr<View> gone = m_peers->takeChild(owner);
             update();
-            cutefish::base::EventLoop::current()->post([gone] {});
+            properdesktop::base::EventLoop::current()->post([gone] {});
         };
         card.publicKey = addField(card.card, tr("Public key"), tr("Required"),
                                   [this, owner](const std::string& text) { peerOf(owner).publicKey = text; });

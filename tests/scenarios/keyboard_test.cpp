@@ -6,7 +6,7 @@
 #include "pages/keyboard/keyboard.h"
 #include "scenario.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 using namespace settings;
 
 TEST(KeyboardLayoutPage, FiltersByNameOrIdAndSaysWhenNothingMatches)

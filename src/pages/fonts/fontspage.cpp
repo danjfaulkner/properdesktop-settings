@@ -10,7 +10,7 @@
 #include "base/paths.h"
 #include "base/settings.h"
 #include "base/thread_pool.h"
-#include "cutefish/appearance/appearance.h"
+#include "properdesktop/appearance/appearance.h"
 #include "pages/fonts/fontlist.h"
 #include "widgets/card.h"
 #include "widgets/listrow.h"
@@ -18,16 +18,16 @@
 #include "window/page.h"
 #include "window/pagelist.h"
 
-using namespace cutefish::ui;
-using cutefish::appearance::Appearance;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::appearance::Appearance;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
 
 namespace settings {
 
 namespace {
 
-// ThemeManager's fallback size in cutefish-core.
+// ThemeManager's fallback size in properdesktop-core.
 constexpr int kDefaultSize = 9;
 constexpr std::array<int, 11> kSizes = {8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 20};
 // Indexes are the hinting levels, as fontconfig names them.
@@ -36,7 +36,7 @@ constexpr std::array<const char*, 4> kHintStyles = {"hintnone", "hintslight", "h
 // The session's language as fontconfig names it, such as "en-US".
 std::string languageTag()
 {
-    std::string name = cutefish::base::Locale::system().name();
+    std::string name = properdesktop::base::Locale::system().name();
     std::replace(name.begin(), name.end(), '_', '-');
     return name;
 }
@@ -55,7 +55,7 @@ public:
     explicit FontsPage(SettingsWindow& window)
         : Page(window, tr("Fonts"))
     {
-        const cutefish::base::Settings services(cutefish::base::paths::cutefishConfig("services"));
+        const properdesktop::base::Settings services(properdesktop::base::paths::properdesktopConfig("services"));
         m_antiAliasing = services.boolValue("Appearance/FontAntialias", true);
         const std::string hintStyle = services.stringValue("Appearance/FontHintStyle", "hintfull");
         const auto hint = std::find(kHintStyles.begin(), kHintStyles.end(), hintStyle);
@@ -96,7 +96,7 @@ public:
 
         m_subscription = m_appearance.changed.connect([this] { update(); });
         update();
-        m_scan = cutefish::base::runInThread([language = languageTag()] { return FontList::scan(language); },
+        m_scan = properdesktop::base::runInThread([language = languageTag()] { return FontList::scan(language); },
                                              [this](FontList fonts) {
                                                  m_fonts = std::move(fonts);
                                                  m_general->setItems(m_fonts.general);
@@ -137,8 +137,8 @@ private:
     void save() { m_appearance.setFontRendering(m_antiAliasing, kHintStyles[size_t(m_hinting)]); }
 
     Appearance m_appearance;
-    cutefish::base::Subscription m_subscription;
-    cutefish::base::Job m_scan;
+    properdesktop::base::Subscription m_subscription;
+    properdesktop::base::Job m_scan;
     FontList m_fonts;
     RowComboBox* m_general;
     RowComboBox* m_fixed;

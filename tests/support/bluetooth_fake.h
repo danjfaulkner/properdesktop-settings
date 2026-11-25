@@ -16,7 +16,7 @@
 
 namespace fake {
 
-using namespace cutefish::base;
+using namespace properdesktop::base;
 
 inline const std::string adapter = "/org/bluez/hci0";
 inline const std::string device = adapter + "/dev_AA_BB_CC_DD_EE_FF";

@@ -7,7 +7,7 @@
 #include <functional>
 
 #include "base/i18n.h"
-#include "cutefish/appearance/appearance.h"
+#include "properdesktop/appearance/appearance.h"
 #include "ui/icon.h"
 #include "ui/layout.h"
 #include "ui/cell_layout.h"
@@ -24,9 +24,9 @@
 #include "window/pagelist.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish::ui;
-using cutefish::appearance::Appearance;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::appearance::Appearance;
+using properdesktop::i18n::tr;
 
 namespace settings {
 
@@ -260,7 +260,7 @@ private:
     }
 
     Appearance m_appearance;
-    cutefish::base::Subscription m_subscription;
+    properdesktop::base::Subscription m_subscription;
     ImageSelectionItem* m_light;
     ImageSelectionItem* m_dark;
     ImageSelectionItem* m_auto;

@@ -15,7 +15,7 @@
 namespace settings::testing {
 
 // The layout dump's line of the view with this name.
-inline std::string dumpLine(const cutefish::ui::Window& window, const std::string& name)
+inline std::string dumpLine(const properdesktop::ui::Window& window, const std::string& name)
 {
     const std::string dump = window.layoutDump();
     const size_t at = dump.find("\"" + name + "\"");
@@ -26,7 +26,7 @@ inline std::string dumpLine(const cutefish::ui::Window& window, const std::strin
 }
 
 // The view's logical rect in window coordinates, from its device pixels.
-inline cutefish::ui::RectF windowRect(const cutefish::ui::Window& window, const std::string& name)
+inline properdesktop::ui::RectF windowRect(const properdesktop::ui::Window& window, const std::string& name)
 {
     const std::string line = dumpLine(window, name);
     const size_t device = line.find(" device ");
@@ -38,13 +38,13 @@ inline cutefish::ui::RectF windowRect(const cutefish::ui::Window& window, const 
     return {x / scale, y / scale, width / scale, height / scale};
 }
 
-inline bool isHidden(const cutefish::ui::Window& window, const std::string& name)
+inline bool isHidden(const properdesktop::ui::Window& window, const std::string& name)
 {
     return dumpLine(window, name).ends_with(" hidden");
 }
 
-template<typename T = cutefish::ui::View>
-T* findView(cutefish::ui::View* view, const std::string& name)
+template<typename T = properdesktop::ui::View>
+T* findView(properdesktop::ui::View* view, const std::string& name)
 {
     if (view->name() == name)
         return dynamic_cast<T*>(view);

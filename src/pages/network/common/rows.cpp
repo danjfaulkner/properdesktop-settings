@@ -8,8 +8,8 @@
 #include "ui/theme.h"
 #include "widgets/iconbutton.h"
 
-using namespace cutefish::ui;
-namespace nm = cutefish::networkmanager;
+using namespace properdesktop::ui;
+namespace nm = properdesktop::networkmanager;
 
 namespace settings::network {
 

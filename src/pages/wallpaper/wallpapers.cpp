@@ -47,12 +47,12 @@ static void collect(const fs::path& directory, std::vector<std::string>& out)
 
 std::vector<std::string> system()
 {
-    const std::string userData = fs::path(cutefish::base::paths::dataHome()).lexically_normal().string();
+    const std::string userData = fs::path(properdesktop::base::paths::dataHome()).lexically_normal().string();
     std::vector<std::string> result;
-    for (const std::string& dataPath : cutefish::base::paths::dataDirectories()) {
+    for (const std::string& dataPath : properdesktop::base::paths::dataDirectories()) {
         if (fs::path(dataPath).lexically_normal().string() == userData)
             continue;
-        const fs::path directory = fs::path(dataPath) / "backgrounds/cutefishos";
+        const fs::path directory = fs::path(dataPath) / "backgrounds/properdesktop";
         std::error_code error;
         if (fs::is_directory(directory, error))
             collect(directory, result);

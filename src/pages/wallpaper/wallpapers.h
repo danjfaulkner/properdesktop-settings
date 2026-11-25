@@ -8,7 +8,7 @@
 
 namespace settings::wallpapers {
 
-// The images under backgrounds/cutefishos in the system's data directories.
+// The images under backgrounds/properdesktop in the system's data directories.
 std::vector<std::string> system();
 // Sorted by file name, not by path: a wallpaper library may hold
 // subdirectories, and what is read in the grid is the name.

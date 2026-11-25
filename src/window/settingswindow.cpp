@@ -32,8 +32,8 @@
 #include "window/pagelist.h"
 #include "window/sidebar.h"
 
-using namespace cutefish::ui;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::i18n::tr;
 
 namespace settings {
 
@@ -45,7 +45,7 @@ static constexpr const char* kSidebarWidthKey = "Sidebar/width";
 
 static std::string& configPath()
 {
-    static std::string path = cutefish::base::paths::cutefishConfig("settings");
+    static std::string path = properdesktop::base::paths::properdesktopConfig("settings");
     return path;
 }
 
@@ -154,7 +154,7 @@ public:
         divider = addChild<SidebarDivider>(metrics::sidebarMinimumWidth, metrics::sidebarWidth,
                                            metrics::sidebarWidth);
         divider->setName("sidebarDivider");
-        const cutefish::base::Settings settings(configPath());
+        const properdesktop::base::Settings settings(configPath());
         sidebarWidth = std::clamp(settings.doubleValue(kSidebarWidthKey, metrics::sidebarWidth),
                                   metrics::sidebarMinimumWidth, metrics::sidebarWidth);
         divider->onResized = [this](double width) {
@@ -164,7 +164,7 @@ public:
         divider->onFinished = [this](double width) {
             sidebarWidth = width;
             requestLayout();
-            cutefish::base::Settings settings(configPath());
+            properdesktop::base::Settings settings(configPath());
             settings.setValue(kSidebarWidthKey, width);
         };
     }
@@ -175,14 +175,14 @@ public:
         // event is done with it.
         while (!pages->children().empty()) {
             std::shared_ptr<View> old = pages->takeChild(pages->children().front().get());
-            cutefish::base::EventLoop::current()->post([old] {});
+            properdesktop::base::EventLoop::current()->post([old] {});
         }
         Page* view = page.get();
         pages->addChild(std::move(page));
         // FishUI's HeaderBackdrop over the page, under the header.
         if (backdrop) {
             std::shared_ptr<View> old = takeChild(backdrop);
-            cutefish::base::EventLoop::current()->post([old] {});
+            properdesktop::base::EventLoop::current()->post([old] {});
         }
         backdrop = addChild<HeaderBackdrop>(view);
         backdrop->setBaseColor(backdropBase);
@@ -227,7 +227,7 @@ protected:
 
 SettingsWindow::SettingsWindow()
     : m_window(std::make_unique<Window>())
-    , m_revealTimer(std::make_unique<cutefish::base::Timer>())
+    , m_revealTimer(std::make_unique<properdesktop::base::Timer>())
 {
     m_window->setTitle(tr("Settings"));
     m_window->resize({882, 600});

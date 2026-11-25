@@ -10,7 +10,7 @@
 
 #include "base/timer.h"
 
-namespace cutefish::base {
+namespace properdesktop::base {
 class EventLoop;
 }
 
@@ -38,7 +38,7 @@ public:
     // `timeout` is how long passwd may stay silent.
     explicit PasswordChanger(std::string program = "/usr/bin/passwd",
                              std::chrono::milliseconds timeout = std::chrono::seconds(20),
-                             cutefish::base::EventLoop* loop = nullptr);
+                             properdesktop::base::EventLoop* loop = nullptr);
     // Ends a passwd still running and waits for it.
     ~PasswordChanger();
 
@@ -65,10 +65,10 @@ private:
     void stop(Result result, std::string message, int signal);
     void closeAll();
 
-    cutefish::base::EventLoop& m_loop;
+    properdesktop::base::EventLoop& m_loop;
     std::string m_program;
     std::chrono::milliseconds m_timeout;
-    cutefish::base::Timer m_silence;
+    properdesktop::base::Timer m_silence;
     std::string m_current;
     std::string m_new;
     pid_t m_pid = -1;

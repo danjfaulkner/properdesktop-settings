@@ -29,7 +29,7 @@ static std::string trimmed(std::string_view text)
 static std::vector<std::string> readLines(const std::string& path)
 {
     std::vector<std::string> lines;
-    const std::optional<std::string> contents = cutefish::base::file::read(path);
+    const std::optional<std::string> contents = properdesktop::base::file::read(path);
     if (!contents)
         return lines;
     size_t start = 0;
@@ -144,7 +144,7 @@ bool writeGroup(const std::string& path, const std::string& group, const Group& 
     }
     contents += '\n';
     // GLib and KConfig replace these files atomically too; a partial write would read as empty.
-    return cutefish::base::file::writeAtomically(path, contents);
+    return properdesktop::base::file::writeAtomically(path, contents);
 }
 
 } // namespace keyfile
@@ -231,7 +231,7 @@ static std::string s_path;
 
 std::string path()
 {
-    return s_path.empty() ? cutefish::base::paths::configHome() + "/glib-2.0/settings/keyfile" : s_path;
+    return s_path.empty() ? properdesktop::base::paths::configHome() + "/glib-2.0/settings/keyfile" : s_path;
 }
 
 void setPath(std::string path)
@@ -457,7 +457,7 @@ NetworkProxy::NetworkProxy()
     const std::string path = gsettings::path();
     std::error_code error;
     std::filesystem::create_directories(std::filesystem::path(path).parent_path(), error);
-    m_watch = cutefish::base::FileWatch::file(path, [this] { m_reloadTimer.start(100ms); });
+    m_watch = properdesktop::base::FileWatch::file(path, [this] { m_reloadTimer.start(100ms); });
 }
 
 NetworkProxy::~NetworkProxy() = default;

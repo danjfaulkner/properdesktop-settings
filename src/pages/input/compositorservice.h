@@ -14,15 +14,15 @@
 
 namespace settings {
 
-// One of the compositor's input services, such as org.cutefish.Keyboard1:
+// One of the compositor's input services, such as org.properdesktop.Keyboard1:
 // its properties, read when it appears and again after each of its change
 // signals, and calls to its setters. The first read blocks, so a page shows
 // the service's values from its first frame.
 class CompositorService
 {
 public:
-    // The object path follows the name: org.cutefish.Mouse1 lives at
-    // /org/cutefish/Mouse1, and its interface has the same name.
+    // The object path follows the name: org.properdesktop.Mouse1 lives at
+    // /org/properdesktop/Mouse1, and its interface has the same name.
     explicit CompositorService(std::string name);
     ~CompositorService();
 
@@ -38,7 +38,7 @@ public:
     std::string stringValue(const std::string& name, const std::string& fallback = {}) const;
     std::vector<std::string> stringListValue(const std::string& name) const;
 
-    const cutefish::base::dbus::Proxy& proxy() const { return m_proxy; }
+    const properdesktop::base::dbus::Proxy& proxy() const { return m_proxy; }
 
     // Calls a setter. When the service refuses, every property is read
     // again, so the page goes back to what the service has. done, when
@@ -49,13 +49,13 @@ public:
         callWithReply(method, {}, args...);
     }
     template<typename... Args>
-    void callWithReply(const std::string& method, std::function<void(const cutefish::base::dbus::Reply&)> done,
+    void callWithReply(const std::string& method, std::function<void(const properdesktop::base::dbus::Reply&)> done,
                        const Args&... args)
     {
         if (!m_available)
             return;
         const uint64_t id = ++m_lastCall;
-        m_calls[id] = m_proxy.callAsync(method, [this, id, method, done](const cutefish::base::dbus::Reply& reply) {
+        m_calls[id] = m_proxy.callAsync(method, [this, id, method, done](const properdesktop::base::dbus::Reply& reply) {
             finishCall(id, method, reply);
             if (done)
                 done(reply);
@@ -63,22 +63,22 @@ public:
     }
 
     // After the values were read again, or the service came or went.
-    cutefish::base::Signal<> changed;
+    properdesktop::base::Signal<> changed;
 
 private:
-    const cutefish::base::dbus::Variant* find(const std::string& name) const;
+    const properdesktop::base::dbus::Variant* find(const std::string& name) const;
     void reload();
-    void finishCall(uint64_t id, const std::string& method, const cutefish::base::dbus::Reply& reply);
+    void finishCall(uint64_t id, const std::string& method, const properdesktop::base::dbus::Reply& reply);
 
-    cutefish::base::dbus::Proxy m_proxy;
-    cutefish::base::dbus::NameWatch m_watch;
-    cutefish::base::dbus::Match m_signals;
-    cutefish::base::dbus::PendingCall m_reload;
-    std::map<uint64_t, cutefish::base::dbus::PendingCall> m_calls;
+    properdesktop::base::dbus::Proxy m_proxy;
+    properdesktop::base::dbus::NameWatch m_watch;
+    properdesktop::base::dbus::Match m_signals;
+    properdesktop::base::dbus::PendingCall m_reload;
+    std::map<uint64_t, properdesktop::base::dbus::PendingCall> m_calls;
     uint64_t m_lastCall = 0;
     // Tells a posted task whether this is still there.
     std::shared_ptr<int> m_alive = std::make_shared<int>(0);
-    cutefish::base::dbus::VariantMap m_properties;
+    properdesktop::base::dbus::VariantMap m_properties;
     bool m_available = false;
 };
 

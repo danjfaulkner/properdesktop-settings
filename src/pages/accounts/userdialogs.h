@@ -10,11 +10,11 @@
 #include "pages/accounts/passwordchanger.h"
 #include "widgets/formdialog.h"
 
-namespace cutefish::accounts {
+namespace properdesktop::accounts {
 class AccountsManager;
 }
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class DialogButton;
 class TextField;
 }
@@ -45,12 +45,12 @@ private:
 
     std::unique_ptr<PasswordChanger> m_changer;
     Card* m_form;
-    cutefish::ui::TextField* m_current = nullptr;
-    cutefish::ui::TextField* m_password;
-    cutefish::ui::TextField* m_verify;
+    properdesktop::ui::TextField* m_current = nullptr;
+    properdesktop::ui::TextField* m_password;
+    properdesktop::ui::TextField* m_verify;
     Footnote* m_error = nullptr;
-    cutefish::ui::DialogButton* m_cancel;
-    cutefish::ui::DialogButton* m_change;
+    properdesktop::ui::DialogButton* m_cancel;
+    properdesktop::ui::DialogButton* m_change;
 };
 
 // A new account: its name, password and type. Stays open, and refuses to
@@ -58,22 +58,22 @@ private:
 class AddUserDialog : public FormDialog
 {
 public:
-    AddUserDialog(SettingsWindow& parent, cutefish::accounts::AccountsManager& manager);
+    AddUserDialog(SettingsWindow& parent, properdesktop::accounts::AccountsManager& manager);
 
 private:
     void update();
     void add();
     void setWaiting(bool waiting);
 
-    cutefish::accounts::AccountsManager& m_manager;
+    properdesktop::accounts::AccountsManager& m_manager;
     Card* m_form;
-    cutefish::ui::TextField* m_name;
-    cutefish::ui::TextField* m_password;
-    cutefish::ui::TextField* m_verify;
+    properdesktop::ui::TextField* m_name;
+    properdesktop::ui::TextField* m_password;
+    properdesktop::ui::TextField* m_verify;
     RowComboBox* m_type;
     Footnote* m_error;
-    cutefish::ui::DialogButton* m_cancel;
-    cutefish::ui::DialogButton* m_add;
+    properdesktop::ui::DialogButton* m_cancel;
+    properdesktop::ui::DialogButton* m_add;
     bool m_waiting = false;
 };
 

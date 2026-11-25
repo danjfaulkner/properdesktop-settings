@@ -7,9 +7,9 @@
 #include <memory>
 
 #include "base/signal.h"
-#include "cutefish/accounts/user_account.h"
+#include "properdesktop/accounts/user_account.h"
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class DialogButton;
 class DialogWindow;
 }
@@ -26,15 +26,15 @@ class SettingsWindow;
 class UserDetailsDialog
 {
 public:
-    UserDetailsDialog(SettingsWindow& window, std::shared_ptr<cutefish::accounts::UserAccount> account,
+    UserDetailsDialog(SettingsWindow& window, std::shared_ptr<properdesktop::accounts::UserAccount> account,
                       int64_t loggedInUid);
     ~UserDetailsDialog();
 
     UserDetailsDialog(const UserDetailsDialog&) = delete;
     UserDetailsDialog& operator=(const UserDetailsDialog&) = delete;
 
-    const std::shared_ptr<cutefish::accounts::UserAccount>& account() const { return m_account; }
-    cutefish::ui::DialogWindow* dialog() const { return m_dialog.get(); }
+    const std::shared_ptr<properdesktop::accounts::UserAccount>& account() const { return m_account; }
+    properdesktop::ui::DialogWindow* dialog() const { return m_dialog.get(); }
 
     void show();
     void close();
@@ -46,13 +46,13 @@ public:
 private:
     void update();
 
-    std::shared_ptr<cutefish::accounts::UserAccount> m_account;
+    std::shared_ptr<properdesktop::accounts::UserAccount> m_account;
     int64_t m_loggedInUid;
-    std::unique_ptr<cutefish::ui::DialogWindow> m_dialog;
-    cutefish::base::Subscription m_changed;
+    std::unique_ptr<properdesktop::ui::DialogWindow> m_dialog;
+    properdesktop::base::Subscription m_changed;
     InfoRow* m_type = nullptr;
     ListRow* m_password = nullptr;
-    cutefish::ui::DialogButton* m_delete = nullptr;
+    properdesktop::ui::DialogButton* m_delete = nullptr;
 };
 
 } // namespace settings

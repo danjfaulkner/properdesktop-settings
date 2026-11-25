@@ -12,7 +12,7 @@
 
 namespace settings::testing {
 
-// cutefish-services' settings with the given languages, in a directory of its own.
+// properdesktop-services' settings with the given languages, in a directory of its own.
 class LanguageConfig
 {
 public:
@@ -21,7 +21,7 @@ public:
         char pattern[] = "/tmp/settings-language-XXXXXX";
         m_directory = mkdtemp(pattern);
         path = m_directory + "/services.conf";
-        cutefish::base::Settings settings(path);
+        properdesktop::base::Settings settings(path);
         settings.setValue("Language/language", codes.front());
         settings.setValue("Language/preferredLanguages", codes);
     }

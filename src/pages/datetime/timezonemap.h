@@ -9,7 +9,7 @@
 #include "base/geometry.h"
 #include "base/signal.h"
 
-namespace cutefish::timedate {
+namespace properdesktop::timedate {
 class TimeDate;
 }
 
@@ -43,7 +43,7 @@ public:
         std::string difference;
     };
 
-    explicit TimeZoneMap(cutefish::timedate::TimeDate& timeDate);
+    explicit TimeZoneMap(properdesktop::timedate::TimeDate& timeDate);
     ~TimeZoneMap();
 
     // Picks the zones close enough to a click on a map of the given size, or
@@ -55,7 +55,7 @@ public:
     void select(const std::string& id);
 
     // Where the zone sits on a map of the given size; (-1, -1) if unknown.
-    cutefish::base::PointF position(const std::string& id, int width, int height) const;
+    properdesktop::base::PointF position(const std::string& id, int width, int height) const;
     // The zone nearest to a point on a map of the given size; empty if there
     // are no zones.
     std::string nearest(int x, int y, int width, int height) const;
@@ -78,8 +78,8 @@ public:
     // The clock in the zone at the given UTC time, in the user's locale.
     static std::string shortTime(const std::string& id, int64_t utcSeconds);
 
-    cutefish::base::Signal<> availableListChanged;
-    cutefish::base::Signal<> currentTimeZoneChanged;
+    properdesktop::base::Signal<> availableListChanged;
+    properdesktop::base::Signal<> currentTimeZoneChanged;
 
 private:
     struct Item
@@ -94,8 +94,8 @@ private:
     int nearestIndex(int x, int y, int width, int height) const;
     const Item* find(const std::string& id) const;
 
-    cutefish::timedate::TimeDate& m_timeDate;
-    cutefish::base::Subscription m_timeDateChanged;
+    properdesktop::timedate::TimeDate& m_timeDate;
+    properdesktop::base::Subscription m_timeDateChanged;
     std::vector<Item> m_list;
     std::string m_currentTimeZone;
     std::vector<std::string> m_currentList;

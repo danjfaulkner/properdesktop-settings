@@ -8,7 +8,7 @@
 #include "pages/fingerprint/fingers.h"
 
 using namespace settings;
-using cutefish::fprint::Finger;
+using properdesktop::fprint::Finger;
 
 TEST(Fingerprint, NewFingerprintsTakeTheIndexFingersFirst)
 {
@@ -29,8 +29,8 @@ TEST(Fingerprint, AFreedFingerIsTakenAgain)
 TEST(Fingerprint, NoFingerIsFreeOnceAllAreStored)
 {
     std::vector<Finger> enrolled;
-    for (int i = 0; i < cutefish::fprint::kFingerCount; ++i)
-        enrolled.push_back(cutefish::fprint::Finger(i));
+    for (int i = 0; i < properdesktop::fprint::kFingerCount; ++i)
+        enrolled.push_back(properdesktop::fprint::Finger(i));
     EXPECT_FALSE(freeFinger(enrolled));
 }
 

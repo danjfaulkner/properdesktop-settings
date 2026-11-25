@@ -8,7 +8,7 @@
 #include "ui/window.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 using namespace settings;
 using settings::testing::windowRect;
 

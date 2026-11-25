@@ -12,11 +12,11 @@
 #include "base/json.h"
 
 
-using namespace cutefish::base;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
-using cutefish::i18n::trc;
-using cutefish::i18n::trNoop;
+using namespace properdesktop::base;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
+using properdesktop::i18n::trc;
+using properdesktop::i18n::trNoop;
 
 namespace settings {
 
@@ -100,7 +100,7 @@ static const std::map<uint32_t, uint32_t> kServiceKeysyms = {
 };
 
 ShortcutsModel::ShortcutsModel()
-    : m_service("org.cutefish.Shortcuts1")
+    : m_service("org.properdesktop.Shortcuts1")
 {
     // The service's acceleratorsChanged, and its coming and going, end up here.
     m_serviceChanged = m_service.changed.connect([this] { reload(); });

@@ -7,7 +7,7 @@
 
 namespace settings {
 
-// When cutefish-services turns the display off and whether the computer
+// When properdesktop-services turns the display off and whether the computer
 // may sleep then. The values are read from the service's settings file;
 // changes go to the service, which owns them.
 class PowerSettings
@@ -27,7 +27,7 @@ public:
     void setACPreventSleep(bool prevent);
 
 private:
-    cutefish::base::dbus::Proxy m_service;
+    properdesktop::base::dbus::Proxy m_service;
     int m_batteryScreenOff;
     int m_acScreenOff;
     bool m_acPreventSleep;

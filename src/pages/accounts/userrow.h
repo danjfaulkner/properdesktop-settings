@@ -8,10 +8,10 @@
 #include <string>
 
 #include "base/signal.h"
-#include "cutefish/accounts/user_account.h"
+#include "properdesktop/accounts/user_account.h"
 #include "widgets/listrow.h"
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class Label;
 }
 
@@ -25,10 +25,10 @@ class UserAvatar;
 class UserRow : public ListRow
 {
 public:
-    UserRow(std::shared_ptr<cutefish::accounts::UserAccount> account, int64_t loggedInUid);
+    UserRow(std::shared_ptr<properdesktop::accounts::UserAccount> account, int64_t loggedInUid);
     ~UserRow() override;
 
-    const std::shared_ptr<cutefish::accounts::UserAccount>& account() const { return m_account; }
+    const std::shared_ptr<properdesktop::accounts::UserAccount>& account() const { return m_account; }
     // Shows a picture before the account has it.
     void showPicture(const std::string& path);
 
@@ -41,13 +41,13 @@ protected:
 private:
     void update();
 
-    std::shared_ptr<cutefish::accounts::UserAccount> m_account;
+    std::shared_ptr<properdesktop::accounts::UserAccount> m_account;
     int64_t m_loggedInUid;
-    cutefish::base::Subscription m_changed;
+    properdesktop::base::Subscription m_changed;
     UserAvatar* m_avatar;
-    cutefish::ui::Label* m_userName;
-    cutefish::ui::Label* m_realName;
-    cutefish::ui::Label* m_loggedIn;
+    properdesktop::ui::Label* m_userName;
+    properdesktop::ui::Label* m_realName;
+    properdesktop::ui::Label* m_loggedIn;
     IconButton* m_info;
 };
 

@@ -3,13 +3,13 @@
 
 #include <gtest/gtest.h>
 
-#include "cutefish/timedate/time_date.h"
+#include "properdesktop/timedate/time_date.h"
 #include "pages/datetime/timezonedialog.h"
 #include "pages/datetime/timezonemap.h"
 #include "scenario.h"
 #include "ui/keys.h"
 
-using namespace cutefish;
+using namespace properdesktop;
 using namespace settings;
 
 namespace {

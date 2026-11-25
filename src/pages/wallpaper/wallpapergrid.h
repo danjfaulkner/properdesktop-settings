@@ -9,7 +9,7 @@
 
 #include "ui/view.h"
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class Icon;
 class Label;
 class RowLayout;
@@ -25,7 +25,7 @@ class WallpaperTile;
 // A titled section of wallpapers: one row of thumbnails, or all of them once
 // shown in full. Thumbnails stay 160 wide while they fit; a column is added
 // once every column can be at least 128 wide.
-class WallpaperGrid : public cutefish::ui::View
+class WallpaperGrid : public properdesktop::ui::View
 {
 public:
     // icon: a glyph before the title, for sections that stand for something
@@ -43,12 +43,12 @@ public:
     // A close button after the hovered title.
     void setClosable(bool closable);
 
-    cutefish::ui::SizeF sizeHint() const override;
+    properdesktop::ui::SizeF sizeHint() const override;
     double heightForWidth(double width) const override;
 
     std::function<void(const std::string& path)> onSelected;
     // At the point of the window where the add tile was clicked.
-    std::function<void(cutefish::ui::PointF position)> onAddRequested;
+    std::function<void(properdesktop::ui::PointF position)> onAddRequested;
     std::function<void(const std::string& path)> onRemoveRequested;
     std::function<void()> onCloseRequested;
 
@@ -81,26 +81,26 @@ private:
     bool m_closable = false;
     bool m_expanded = false;
 
-    cutefish::ui::RowLayout* m_header;
-    cutefish::ui::View* m_title;
-    cutefish::ui::Icon* m_icon;
-    cutefish::ui::Label* m_label;
-    cutefish::ui::Label* m_count;
+    properdesktop::ui::RowLayout* m_header;
+    properdesktop::ui::View* m_title;
+    properdesktop::ui::Icon* m_icon;
+    properdesktop::ui::Label* m_label;
+    properdesktop::ui::Label* m_count;
     WallpaperCloseButton* m_close;
     WallpaperLinkButton* m_showAll;
-    cutefish::ui::View* m_tiles;
+    properdesktop::ui::View* m_tiles;
     std::vector<WallpaperTile*> m_tileViews;
 };
 
 // The plain colours a background can be.
-class ColorSwatches : public cutefish::ui::View
+class ColorSwatches : public properdesktop::ui::View
 {
 public:
     ColorSwatches();
 
     void setCurrent(const std::string& color, bool colorSelected);
 
-    cutefish::ui::SizeF sizeHint() const override;
+    properdesktop::ui::SizeF sizeHint() const override;
     double heightForWidth(double width) const override;
 
     std::function<void(const std::string& color)> onSelected;

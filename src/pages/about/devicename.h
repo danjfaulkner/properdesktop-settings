@@ -8,7 +8,7 @@
 
 #include "base/dbus.h"
 #include "base/signal.h"
-#include "cutefish/bluez/manager.h"
+#include "properdesktop/bluez/manager.h"
 
 namespace settings {
 
@@ -17,7 +17,7 @@ namespace settings {
 class DeviceName
 {
 public:
-    explicit DeviceName(cutefish::base::dbus::Connection* bus = cutefish::base::dbus::Connection::system());
+    explicit DeviceName(properdesktop::base::dbus::Connection* bus = properdesktop::base::dbus::Connection::system());
 
     DeviceName(const DeviceName&) = delete;
     DeviceName& operator=(const DeviceName&) = delete;
@@ -30,17 +30,17 @@ public:
     static std::string chooseName(const std::string& pretty, const std::string& staticName,
                                   const std::string& hostname);
 
-    cutefish::base::Signal<> changed;
+    properdesktop::base::Signal<> changed;
 
 private:
     std::string value(const char* name) const;
 
-    cutefish::base::dbus::Proxy m_service;
-    cutefish::base::dbus::Match m_propertiesMatch;
-    cutefish::base::dbus::PendingCall m_call;
-    cutefish::base::dbus::VariantMap m_values;
+    properdesktop::base::dbus::Proxy m_service;
+    properdesktop::base::dbus::Match m_propertiesMatch;
+    properdesktop::base::dbus::PendingCall m_call;
+    properdesktop::base::dbus::VariantMap m_values;
     // Kept so the adapters are known by the time the name changes.
-    std::shared_ptr<cutefish::bluez::Manager> m_bluetooth;
+    std::shared_ptr<properdesktop::bluez::Manager> m_bluetooth;
 };
 
 } // namespace settings

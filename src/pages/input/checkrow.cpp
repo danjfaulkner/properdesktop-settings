@@ -6,7 +6,7 @@
 #include "ui/icon.h"
 #include "ui/theme.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 
 namespace settings {
 

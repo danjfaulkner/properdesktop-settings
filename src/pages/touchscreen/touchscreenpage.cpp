@@ -13,21 +13,21 @@
 #include "window/page.h"
 #include "window/pagelist.h"
 
-using namespace cutefish;
-using namespace cutefish::ui;
-using cutefish::i18n::tr;
+using namespace properdesktop;
+using namespace properdesktop::ui;
+using properdesktop::i18n::tr;
 
 namespace settings {
 
 namespace {
 
-// The compositor's org.cutefish.Touchscreen1 service: the touch screens by
+// The compositor's org.properdesktop.Touchscreen1 service: the touch screens by
 // name, and those turned off.
 class Touchscreen
 {
 public:
     Touchscreen()
-        : m_service("org.cutefish.Touchscreen1")
+        : m_service("org.properdesktop.Touchscreen1")
     {
     }
 

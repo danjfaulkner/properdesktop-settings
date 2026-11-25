@@ -9,8 +9,8 @@
 
 #include "base/i18n.h"
 #include "base/signal.h"
-#include "cutefish/bluez/devices_model.h"
-#include "cutefish/bluez/manager.h"
+#include "properdesktop/bluez/devices_model.h"
+#include "properdesktop/bluez/manager.h"
 #include "pages/bluetooth/bluetoothdialogs.h"
 #include "ui/button.h"
 #include "ui/icon.h"
@@ -28,11 +28,11 @@
 #include "window/pagelist.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish;
-using namespace cutefish::bluez;
-using namespace cutefish::ui;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
+using namespace properdesktop;
+using namespace properdesktop::bluez;
+using namespace properdesktop::ui;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
 
 namespace settings {
 

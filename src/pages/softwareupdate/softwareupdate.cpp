@@ -6,13 +6,13 @@
 #include <cstdint>
 #include <tuple>
 
-using namespace cutefish::base;
+using namespace properdesktop::base;
 
 namespace settings {
 
-static constexpr const char* kService = "org.cutefish.Services";
-static constexpr const char* kPath = "/org/cutefish/Services/SoftwareUpdate";
-static constexpr const char* kInterface = "org.cutefish.Services.SoftwareUpdate";
+static constexpr const char* kService = "org.properdesktop.Services";
+static constexpr const char* kPath = "/org/properdesktop/Services/SoftwareUpdate";
+static constexpr const char* kInterface = "org.properdesktop.Services.SoftwareUpdate";
 
 static dbus::Connection* s_packageKitBus = nullptr;
 

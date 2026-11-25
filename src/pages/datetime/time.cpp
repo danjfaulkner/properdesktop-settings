@@ -4,24 +4,24 @@
 #include "pages/datetime/time.h"
 
 #include "base/paths.h"
-#include "cutefish/timedate/time_date.h"
+#include "properdesktop/timedate/time_date.h"
 #include "pages/language/region.h"
 
-using namespace cutefish;
-using namespace cutefish::base;
+using namespace properdesktop;
+using namespace properdesktop::base;
 
 namespace settings {
 
 std::string TimeSettings::defaultConfigPath()
 {
-    return paths::cutefishConfig("services");
+    return paths::properdesktopConfig("services");
 }
 
 TimeSettings::TimeSettings(timedate::TimeDate& timeDate, std::string configPath)
     : m_timeDate(timeDate)
     , m_configPath(std::move(configPath))
-    , m_service(dbus::Connection::session(), "org.cutefish.Services", "/org/cutefish/Services/Language",
-                "org.cutefish.Services.Language")
+    , m_service(dbus::Connection::session(), "org.properdesktop.Services", "/org/properdesktop/Services/Language",
+                "org.properdesktop.Services.Language")
     , m_canNtp(timeDate.canNtp())
     , m_useNtp(timeDate.ntp())
 {

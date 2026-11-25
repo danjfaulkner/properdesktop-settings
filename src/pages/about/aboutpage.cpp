@@ -18,9 +18,9 @@
 #include "window/pagelist.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish::ui;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
 
 namespace settings {
 
@@ -42,14 +42,11 @@ public:
         LayoutHints brandHints{.horizontalAlignment = Alignment::Center};
         brandHints.margins.top = metrics::l;
         brand->setLayoutHints(brandHints);
-        Picture* logo = brand->addChild<Picture>(dataPath("images/logo.svg"));
-        logo->setLayoutHints({.preferredWidth = 140, .preferredHeight = 72,
-                              .horizontalAlignment = Alignment::Center, .verticalAlignment = Alignment::Start});
-        Label* name = brand->addChild<Label>("Cutefish");
-        name->setFontSize(metrics::points(22));
-        name->setWeight(700);
-        name->setColor(Color::rgb(0x3385FF));
-        name->setLayoutHints({.horizontalAlignment = Alignment::Center, .verticalAlignment = Alignment::Start});
+        // The wordmark carries the name; its ink follows the theme (see layout()).
+        m_wordmark = brand->addChild<Picture>();
+        m_wordmark->setName("about:wordmark");
+        m_wordmark->setLayoutHints({.preferredWidth = 266, .preferredHeight = 40,
+                                    .horizontalAlignment = Alignment::Center, .verticalAlignment = Alignment::Start});
         m_runningOn = brand->addChild<Label>(
                 format(tr("Running on {system}"), {{"system", about::prettyProductName()}}));
         m_runningOn->setLayoutHints({.horizontalAlignment = Alignment::Center, .verticalAlignment = Alignment::Start});
@@ -112,7 +109,9 @@ public:
 protected:
     void layout() override
     {
-        m_runningOn->setColor(Theme::current().disabledText);
+        const Theme& theme = Theme::current();
+        m_wordmark->setPath(dataPath(std::string("images/") + (theme.darkMode ? "dark/" : "light/") + "wordmark.svg"));
+        m_runningOn->setColor(theme.disabledText);
         // As wide as an InfoRow's value may grow, and as tall as a row
         // leaves, so the name sits where the values do; a right-aligned field
         // keeps 1.5 px past its text for the caret.
@@ -129,11 +128,12 @@ protected:
 
 private:
     DeviceName m_deviceName;
+    Picture* m_wordmark;
     Label* m_runningOn;
     ListRow* m_nameRow;
     TextField* m_name;
     bool m_selectOnFinish = false;
-    cutefish::base::Subscription m_nameChanged;
+    properdesktop::base::Subscription m_nameChanged;
 };
 
 } // namespace

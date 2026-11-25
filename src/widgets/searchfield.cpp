@@ -6,15 +6,15 @@
 #include "base/i18n.h"
 #include "widgets/metrics.h"
 
-using namespace cutefish::ui;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::i18n::tr;
 
 namespace settings {
 
 static constexpr double kHeight = 28;
 
 SearchField::SearchField()
-    : cutefish::ui::SearchField(tr("Search"))
+    : properdesktop::ui::SearchField(tr("Search"))
 {
     setIconMetrics(metrics::s, metrics::xs, metrics::xs);
     setLayoutHints({.fillWidth = true});
@@ -22,7 +22,7 @@ SearchField::SearchField()
 
 SizeF SearchField::sizeHint() const
 {
-    return {cutefish::ui::SearchField::sizeHint().width, kHeight};
+    return {properdesktop::ui::SearchField::sizeHint().width, kHeight};
 }
 
 } // namespace settings

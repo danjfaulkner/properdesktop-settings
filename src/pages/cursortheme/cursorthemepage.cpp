@@ -5,7 +5,7 @@
 #include <cmath>
 
 #include "base/i18n.h"
-#include "cutefish/appearance/appearance.h"
+#include "properdesktop/appearance/appearance.h"
 #include "pages/cursortheme/cursorthemes.h"
 #include "ui/image_view.h"
 #include "ui/label.h"
@@ -21,9 +21,9 @@
 #include "window/page.h"
 #include "window/pagelist.h"
 
-using namespace cutefish::ui;
-using cutefish::appearance::Appearance;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::appearance::Appearance;
+using properdesktop::i18n::tr;
 
 namespace settings {
 
@@ -105,7 +105,7 @@ private:
     }
 
     Appearance m_appearance;
-    cutefish::base::Subscription m_subscription;
+    properdesktop::base::Subscription m_subscription;
     CursorTheme::List m_themes;
     std::vector<ImageSelectionItem*> m_items;
     RowSlider* m_slider;

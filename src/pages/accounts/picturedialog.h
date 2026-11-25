@@ -8,10 +8,10 @@
 #include <string>
 #include <vector>
 
-#include "cutefish/accounts/user_account.h"
+#include "properdesktop/accounts/user_account.h"
 #include "widgets/formdialog.h"
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class DialogButton;
 class FileChooser;
 }
@@ -26,7 +26,7 @@ class PictureTile;
 class PictureDialog : public FormDialog
 {
 public:
-    PictureDialog(SettingsWindow& parent, std::shared_ptr<cutefish::accounts::UserAccount> account);
+    PictureDialog(SettingsWindow& parent, std::shared_ptr<properdesktop::accounts::UserAccount> account);
     ~PictureDialog() override;
 
     // The picture given to the account, before the service has copied it.
@@ -37,13 +37,13 @@ private:
     void chooseFile();
     void save();
 
-    std::shared_ptr<cutefish::accounts::UserAccount> m_account;
+    std::shared_ptr<properdesktop::accounts::UserAccount> m_account;
     PicturePreview* m_preview;
     std::vector<PictureTile*> m_tiles;
     std::string m_initial;
     std::string m_selected;
-    cutefish::ui::DialogButton* m_save;
-    std::unique_ptr<cutefish::ui::FileChooser> m_chooser;
+    properdesktop::ui::DialogButton* m_save;
+    std::unique_ptr<properdesktop::ui::FileChooser> m_chooser;
 };
 
 } // namespace settings

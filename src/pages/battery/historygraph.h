@@ -12,7 +12,7 @@
 #include "ui/path.h"
 #include "ui/view.h"
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class Animation;
 class Label;
 }
@@ -23,7 +23,7 @@ namespace settings {
 // curve, coloured by whether the computer was plugged in, with a legend, a
 // value axis on the right and a time axis below. The pointer reads the curve
 // off: a marker on it, and the value and time in place of the legend.
-class HistoryGraph : public cutefish::ui::View
+class HistoryGraph : public properdesktop::ui::View
 {
 public:
     struct Point
@@ -47,7 +47,7 @@ public:
 
 protected:
     void layout() override;
-    void paint(cutefish::ui::Painter& painter) override;
+    void paint(properdesktop::ui::Painter& painter) override;
 
 private:
     class Legend;
@@ -60,10 +60,10 @@ private:
         std::vector<double> ys;
         std::vector<double> tangents;
         std::vector<uint32_t> states;
-        cutefish::ui::Path batteryLine;
-        cutefish::ui::Path powerLine;
-        cutefish::ui::Path batteryArea;
-        cutefish::ui::Path powerArea;
+        properdesktop::ui::Path batteryLine;
+        properdesktop::ui::Path powerLine;
+        properdesktop::ui::Path batteryArea;
+        properdesktop::ui::Path powerArea;
     };
 
     struct ProbePoint
@@ -88,10 +88,10 @@ private:
     double yFor(double value) const;
     void startReveal();
     void setHoverX(std::optional<double> x);
-    cutefish::ui::Color batteryColor() const;
-    cutefish::ui::Color powerColor() const;
+    properdesktop::ui::Color batteryColor() const;
+    properdesktop::ui::Color powerColor() const;
     double labelFontSize() const;
-    cutefish::ui::Label* addAxisLabel();
+    properdesktop::ui::Label* addAxisLabel();
 
     std::vector<Point> m_points;
     double m_end = 0;
@@ -104,10 +104,10 @@ private:
     Curve m_curve;
     bool m_curveDirty = true;
     double m_reveal = 0;
-    std::unique_ptr<cutefish::ui::Animation> m_revealAnimation;
+    std::unique_ptr<properdesktop::ui::Animation> m_revealAnimation;
 
     // Where the plot sits in the graph, from the last layout.
-    cutefish::ui::RectF m_plot;
+    properdesktop::ui::RectF m_plot;
     double m_headerHeight = 0;
     double m_textBaseline = 0;
     Ticks m_ticks;
@@ -118,13 +118,13 @@ private:
     Legend* m_legend;
     PlotArea* m_plotArea;
     Readout* m_readout;
-    std::vector<cutefish::ui::Label*> m_valueLabels;
-    std::vector<cutefish::ui::Label*> m_tickLabels;
+    std::vector<properdesktop::ui::Label*> m_valueLabels;
+    std::vector<properdesktop::ui::Label*> m_tickLabels;
     // For measuring only, never shown.
-    cutefish::ui::Label* m_digits;
-    cutefish::ui::Label* m_maximumLabel;
-    cutefish::ui::Label* m_timeLabel;
-    cutefish::ui::Label* m_dayLabel;
+    properdesktop::ui::Label* m_digits;
+    properdesktop::ui::Label* m_maximumLabel;
+    properdesktop::ui::Label* m_timeLabel;
+    properdesktop::ui::Label* m_dayLabel;
 };
 
 } // namespace settings

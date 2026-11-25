@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 #include "base/i18n.h"
-#include "cutefish/networkmanager/handler.h"
+#include "properdesktop/networkmanager/handler.h"
 #include "pages/network/common/networklist.h"
 #include "pages/network/common/rows.h"
 #include "pages/network/vpn/vpndialogs.h"
@@ -22,10 +22,10 @@
 #include "window/pagelist.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish::ui;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
-namespace nm = cutefish::networkmanager;
+using namespace properdesktop::ui;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
+namespace nm = properdesktop::networkmanager;
 
 namespace settings::network {
 
@@ -232,7 +232,7 @@ private:
 
     NetworkList m_list;
     nm::Handler m_handler;
-    std::vector<cutefish::base::Subscription> m_subscriptions;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
     AddVpnDialog m_addDialog;
     std::unique_ptr<VpnDetailsDialog> m_details;
     FileChooser m_importChooser;

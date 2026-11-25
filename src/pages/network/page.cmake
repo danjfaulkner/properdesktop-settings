@@ -1,2 +1,2 @@
-find_package(CutefishClients REQUIRED COMPONENTS networkmanager)
-target_link_libraries(settings-core PUBLIC Cutefish::NetworkManagerClient)
+find_package(ProperDesktopClients REQUIRED COMPONENTS networkmanager)
+target_link_libraries(settings-core PUBLIC ProperDesktop::NetworkManagerClient)

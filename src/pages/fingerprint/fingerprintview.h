@@ -8,7 +8,7 @@
 #include "ui/path.h"
 #include "ui/view.h"
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class Animation;
 }
 
@@ -17,7 +17,7 @@ namespace settings {
 // A print of dashed ridges. It starts grey and takes the
 // accent colour from the middle outwards as the print is recorded; a
 // complete print turns green.
-class FingerprintView : public cutefish::ui::View
+class FingerprintView : public properdesktop::ui::View
 {
 public:
     FingerprintView();
@@ -31,20 +31,20 @@ public:
     double shownProgress() const { return m_shown; }
     void setComplete(bool complete);
 
-    cutefish::ui::SizeF sizeHint() const override { return {kSize, kSize}; }
+    properdesktop::ui::SizeF sizeHint() const override { return {kSize, kSize}; }
 
     static constexpr double kSize = 160;
 
 protected:
     void layout() override;
-    void paint(cutefish::ui::Painter& painter) override;
+    void paint(properdesktop::ui::Painter& painter) override;
 
 private:
     void build();
 
-    cutefish::ui::Path m_glyph;
-    cutefish::ui::SizeF m_builtFor;
-    std::unique_ptr<cutefish::ui::Animation> m_animation;
+    properdesktop::ui::Path m_glyph;
+    properdesktop::ui::SizeF m_builtFor;
+    std::unique_ptr<properdesktop::ui::Animation> m_animation;
     double m_target = 0;
     double m_shown = 0;
     double m_from = 0;

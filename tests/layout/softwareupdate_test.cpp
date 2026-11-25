@@ -23,8 +23,8 @@
 #include "window/page.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish;
-using namespace cutefish::ui;
+using namespace properdesktop;
+using namespace properdesktop::ui;
 using namespace settings;
 using namespace std::chrono_literals;
 using settings::testing::FakeService;

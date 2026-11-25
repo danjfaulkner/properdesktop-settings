@@ -5,7 +5,7 @@
 
 #include <algorithm>
 
-using namespace cutefish;
+using namespace properdesktop;
 
 namespace settings {
 

@@ -8,7 +8,7 @@
 
 namespace settings {
 
-// Client of the compositor's org.cutefish.Mouse1 service.
+// Client of the compositor's org.properdesktop.Mouse1 service.
 class Mouse
 {
 public:
@@ -30,7 +30,7 @@ public:
     double pointerAcceleration() const;
     void setPointerAcceleration(double value);
 
-    cutefish::base::Signal<>& changed() { return m_service.changed; }
+    properdesktop::base::Signal<>& changed() { return m_service.changed; }
 
 private:
     CompositorService m_service;

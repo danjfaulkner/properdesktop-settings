@@ -9,6 +9,6 @@ int main(int argc, char** argv)
 {
     testing::InitGoogleTest(&argc, argv);
     // For the models' D-Bus connections and timers, as an application's.
-    cutefish::base::EventLoop loop;
+    properdesktop::base::EventLoop loop;
     return RUN_ALL_TESTS();
 }

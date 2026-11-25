@@ -11,7 +11,7 @@
 
 namespace settings {
 
-// The compositor's org.cutefish.ComputerControl1: the apps whose agents may
+// The compositor's org.properdesktop.ComputerControl1: the apps whose agents may
 // control the computer without asking.
 class ComputerControl
 {
@@ -30,16 +30,16 @@ public:
     const std::vector<App>& allowedApps() const { return m_apps; }
     void forget(const std::string& path);
 
-    cutefish::base::Signal<> changed;
+    properdesktop::base::Signal<> changed;
 
 private:
     void reload();
 
-    cutefish::base::dbus::Proxy m_control;
-    cutefish::base::dbus::NameWatch m_watch;
-    cutefish::base::dbus::Match m_changedMatch;
-    cutefish::base::dbus::PendingCall m_reload;
-    cutefish::base::dbus::PendingCall m_forget;
+    properdesktop::base::dbus::Proxy m_control;
+    properdesktop::base::dbus::NameWatch m_watch;
+    properdesktop::base::dbus::Match m_changedMatch;
+    properdesktop::base::dbus::PendingCall m_reload;
+    properdesktop::base::dbus::PendingCall m_forget;
     std::vector<App> m_apps;
     bool m_available = false;
 };

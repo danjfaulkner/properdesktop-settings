@@ -1,2 +1,2 @@
-find_package(CutefishClients REQUIRED COMPONENTS upower powerprofiles)
-target_link_libraries(settings-core PUBLIC Cutefish::UPowerClient Cutefish::PowerProfilesClient)
+find_package(ProperDesktopClients REQUIRED COMPONENTS upower powerprofiles)
+target_link_libraries(settings-core PUBLIC ProperDesktop::UPowerClient ProperDesktop::PowerProfilesClient)

@@ -9,14 +9,14 @@
 #include "base/paths.h"
 #include "base/settings.h"
 
-using namespace cutefish::base;
+using namespace properdesktop::base;
 
 namespace settings {
 
 DockSettings::DockSettings()
-    : m_dock(dbus::Connection::session(), "org.cutefish.Dock", "/Dock", "org.cutefish.Dock")
+    : m_dock(dbus::Connection::session(), "org.properdesktop.Dock", "/Dock", "org.properdesktop.Dock")
 {
-    const Settings shell(paths::cutefishConfig("shell"));
+    const Settings shell(paths::properdesktopConfig("shell"));
     m_iconSize = int(shell.intValue("Dock/IconSize"));
     m_direction = int(shell.intValue("Dock/Direction"));
     m_visibility = int(shell.intValue("Dock/Visibility"));

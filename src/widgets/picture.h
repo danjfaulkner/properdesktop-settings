@@ -18,21 +18,21 @@ void setDataDirectory(std::string directory);
 
 // One of settings' own pictures, drawn to fill the view, optionally tinted
 // and clipped to rounded corners.
-class Picture : public cutefish::ui::View
+class Picture : public properdesktop::ui::View
 {
 public:
     explicit Picture(std::string path = {});
 
     void setPath(std::string path);
-    void setTint(std::optional<cutefish::ui::ColorRecipe> tint);
+    void setTint(std::optional<properdesktop::ui::ColorRecipe> tint);
     void setCornerRadius(double radius);
 
 protected:
-    void paint(cutefish::ui::Painter& painter) override;
+    void paint(properdesktop::ui::Painter& painter) override;
 
 private:
     std::string m_path;
-    std::optional<cutefish::ui::ColorRecipe> m_tint;
+    std::optional<properdesktop::ui::ColorRecipe> m_tint;
     double m_radius = 0;
 };
 

@@ -12,8 +12,8 @@
 #include "scenario.h"
 #include "service_thread.h"
 
-using namespace cutefish::base;
-using namespace cutefish::ui;
+using namespace properdesktop::base;
+using namespace properdesktop::ui;
 using settings::testing::ServiceThread;
 
 namespace {
@@ -40,8 +40,8 @@ TEST(MenuBarPage, AClickOnAnAvailableRowTellsTheMenuBar)
     if (!settings::testing::hasSessionBus())
         GTEST_SKIP() << "no session bus";
     FakeMenuBar fake;
-    ServiceThread service("org.cutefish.MenuBar", [&fake](dbus::Connection& bus) {
-        auto object = std::make_shared<dbus::Object>(&bus, "/MenuBar", "org.cutefish.MenuBar");
+    ServiceThread service("org.properdesktop.MenuBar", [&fake](dbus::Connection& bus) {
+        auto object = std::make_shared<dbus::Object>(&bus, "/MenuBar", "org.properdesktop.MenuBar");
         object->addMethod("setControlShown", [&fake](const std::string& control, bool shown) {
             std::lock_guard guard(fake.mutex);
             fake.calls.emplace_back(control, shown);

@@ -6,8 +6,8 @@
 #include <memory>
 #include <string>
 
-#include "cutefish/accounts/account_picture.h"
-#include "cutefish/accounts/user_account.h"
+#include "properdesktop/accounts/account_picture.h"
+#include "properdesktop/accounts/user_account.h"
 #include "pages/accounts/userrow.h"
 #include "service_thread.h"
 #include "ui/image_view.h"
@@ -17,8 +17,8 @@
 #include "widgets/card.h"
 #include "widgets/iconbutton.h"
 
-using namespace cutefish;
-using namespace cutefish::ui;
+using namespace properdesktop;
+using namespace properdesktop::ui;
 using namespace settings;
 
 namespace {
@@ -119,7 +119,7 @@ TEST(Accounts, ThePictureReplacesTheAccountColourOnceDecoded)
     const auto pixel = [&] { return window.grab().pixel(int(middle.x * 1.5), int(middle.y * 1.5)); };
     EXPECT_EQ(pixel(), Color::rgb(accounts::pictureColor(fixture.account->userName())));
 
-    fixture.row->showPicture(std::string(SETTINGS_SOURCE_DIR) + "/images/logo.svg");
+    fixture.row->showPicture(std::string(SETTINGS_SOURCE_DIR) + "/images/light/wordmark.svg");
     ASSERT_TRUE(settings::testing::waitFor([&] {
         return pixel() != Color::rgb(accounts::pictureColor(fixture.account->userName()));
     }));

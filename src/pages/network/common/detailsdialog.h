@@ -10,14 +10,14 @@
 #include <vector>
 
 #include "base/signal.h"
-#include "cutefish/networkmanager/network_model.h"
+#include "properdesktop/networkmanager/network_model.h"
 
-namespace cutefish::networkmanager {
+namespace properdesktop::networkmanager {
 class ConnectionSettings;
 class Handler;
 }
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class ColumnLayout;
 class DialogButton;
 class DialogWindow;
@@ -49,21 +49,21 @@ public:
 
     // A saved network is followed by its connection, others by name.
     DetailsDialog(SettingsWindow& window, NetworkList& list, Kind kind,
-                  const cutefish::networkmanager::NetworkItem& item);
+                  const properdesktop::networkmanager::NetworkItem& item);
     ~DetailsDialog();
 
     DetailsDialog(const DetailsDialog&) = delete;
     DetailsDialog& operator=(const DetailsDialog&) = delete;
 
     void show();
-    cutefish::ui::DialogWindow* dialog() const { return m_dialog.get(); }
+    properdesktop::ui::DialogWindow* dialog() const { return m_dialog.get(); }
 
     std::function<void()> onClosed;
 
 private:
     class Content;
 
-    std::optional<cutefish::networkmanager::NetworkItem> find() const;
+    std::optional<properdesktop::networkmanager::NetworkItem> find() const;
     void update();
     void showIpSettings(bool shown);
     void setSaved(bool saved);
@@ -74,29 +74,29 @@ private:
     Kind m_kind;
     std::string m_connectionPath;
     std::string m_ssid;
-    std::unique_ptr<cutefish::networkmanager::Handler> m_handler;
-    std::unique_ptr<cutefish::networkmanager::ConnectionSettings> m_settings;
-    std::unique_ptr<cutefish::ui::DialogWindow> m_dialog;
-    cutefish::base::Subscription m_subscription;
-    cutefish::networkmanager::NetworkItem m_row;
+    std::unique_ptr<properdesktop::networkmanager::Handler> m_handler;
+    std::unique_ptr<properdesktop::networkmanager::ConnectionSettings> m_settings;
+    std::unique_ptr<properdesktop::ui::DialogWindow> m_dialog;
+    properdesktop::base::Subscription m_subscription;
+    properdesktop::networkmanager::NetworkItem m_row;
     bool m_found = false;
     bool m_saved = false;
     bool m_ipSettingsShown = false;
 
     Content* m_content = nullptr;
-    cutefish::ui::ColumnLayout* m_details = nullptr;
-    cutefish::ui::ColumnLayout* m_savedCard = nullptr;
+    properdesktop::ui::ColumnLayout* m_details = nullptr;
+    properdesktop::ui::ColumnLayout* m_savedCard = nullptr;
     SwitchRow* m_autoConnect = nullptr;
     InfoRow* m_wifiType = nullptr;
     InfoRow* m_security = nullptr;
     InfoRow* m_signal = nullptr;
-    cutefish::ui::ColumnLayout* m_addressCard = nullptr;
+    properdesktop::ui::ColumnLayout* m_addressCard = nullptr;
     InfoRow* m_ipv4 = nullptr;
     InfoRow* m_ipv6 = nullptr;
     InfoRow* m_mac = nullptr;
     InfoRow* m_gateway = nullptr;
     InfoRow* m_dns = nullptr;
-    cutefish::ui::DialogButton* m_disconnect = nullptr;
+    properdesktop::ui::DialogButton* m_disconnect = nullptr;
     ListRow* m_forget = nullptr;
     IpSettingsView* m_ipSettings = nullptr;
 };

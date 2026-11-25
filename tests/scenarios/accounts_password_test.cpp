@@ -13,7 +13,7 @@
 #include "scenario.h"
 #include "ui/text_field.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 using namespace settings;
 using namespace std::chrono_literals;
 using settings::testing::FakePasswd;

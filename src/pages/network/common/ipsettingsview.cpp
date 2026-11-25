@@ -6,7 +6,7 @@
 #include <cctype>
 
 #include "base/i18n.h"
-#include "cutefish/networkmanager/handler.h"
+#include "properdesktop/networkmanager/handler.h"
 #include "ui/dialog_window.h"
 #include "ui/text_field.h"
 #include "ui/theme.h"
@@ -16,9 +16,9 @@
 #include "widgets/rowcombobox.h"
 #include "widgets/sections.h"
 
-using namespace cutefish::ui;
-using cutefish::i18n::tr;
-namespace nm = cutefish::networkmanager;
+using namespace properdesktop::ui;
+using properdesktop::i18n::tr;
+namespace nm = properdesktop::networkmanager;
 
 namespace settings::network {
 

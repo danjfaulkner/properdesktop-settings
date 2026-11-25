@@ -10,11 +10,11 @@
 
 #include "base/signal.h"
 
-namespace cutefish::base {
+namespace properdesktop::base {
 class Timer;
 }
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class HeaderButton;
 class Label;
 class Window;
@@ -44,13 +44,13 @@ public:
     // scratch file.
     static void setConfigPath(std::string path);
 
-    cutefish::ui::Window& window() const { return *m_window; }
+    properdesktop::ui::Window& window() const { return *m_window; }
 
     // Shown once the entries that come and go with hardware have settled, or
     // after half a second.
     void reveal();
     bool isRevealed() const { return m_revealed; }
-    cutefish::base::Signal<> revealedChanged;
+    properdesktop::base::Signal<> revealedChanged;
 
     // A sidebar page or a named sub page, as -m and switchToPage() name them.
     // A shown window comes forward, with the activation token another
@@ -62,12 +62,12 @@ public:
     std::string takePendingWifiJoin();
     // After joinWifi() switched pages, also when the Wi-Fi page was already
     // shown and so was not made again.
-    cutefish::base::Signal<> wifiJoinRequested;
+    properdesktop::base::Signal<> wifiJoinRequested;
 
     // Whether a sub page's service is there, as its availability watch last
     // told; true while none has answered.
     bool isSubPageAvailable(const std::string& id) const;
-    cutefish::base::Signal<> subPageAvailabilityChanged;
+    properdesktop::base::Signal<> subPageAvailabilityChanged;
 
     // Opens a sub page of the current sidebar page.
     void pushPage(const std::string& id);
@@ -80,7 +80,7 @@ public:
 
     bool isActive() const;
     // After the window's active state changed.
-    cutefish::base::Signal<> activeChanged;
+    properdesktop::base::Signal<> activeChanged;
 
 private:
     struct HistoryEntry
@@ -101,12 +101,12 @@ private:
     bool isReady() const;
     void retranslate();
 
-    std::unique_ptr<cutefish::ui::Window> m_window;
+    std::unique_ptr<properdesktop::ui::Window> m_window;
     SettingsRoot* m_root;
     Sidebar* m_sidebar;
-    cutefish::ui::HeaderButton* m_back;
-    cutefish::ui::HeaderButton* m_forward;
-    cutefish::ui::Label* m_title;
+    properdesktop::ui::HeaderButton* m_back;
+    properdesktop::ui::HeaderButton* m_forward;
+    properdesktop::ui::Label* m_title;
     Page* m_page = nullptr;
     std::vector<HistoryEntry> m_history;
     int m_historyIndex = -1;
@@ -116,9 +116,9 @@ private:
     std::vector<std::string> m_unanswered;
     std::string m_pendingPage;
     std::string m_pendingWifiJoin;
-    std::unique_ptr<cutefish::base::Timer> m_revealTimer;
+    std::unique_ptr<properdesktop::base::Timer> m_revealTimer;
     bool m_revealed = false;
-    cutefish::base::Subscription m_languageChanged;
+    properdesktop::base::Subscription m_languageChanged;
 };
 
 } // namespace settings

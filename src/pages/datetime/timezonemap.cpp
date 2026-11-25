@@ -17,12 +17,12 @@
 #include "base/file.h"
 #include "base/i18n.h"
 #include "base/locale.h"
-#include "cutefish/timedate/time_date.h"
+#include "properdesktop/timedate/time_date.h"
 
-using namespace cutefish;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
-using cutefish::i18n::trn;
+using namespace properdesktop;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
+using properdesktop::i18n::trn;
 
 namespace settings {
 

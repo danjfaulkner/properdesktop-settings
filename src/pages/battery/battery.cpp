@@ -13,15 +13,15 @@
 #include "base/i18n.h"
 #include "base/paths.h"
 #include "base/settings.h"
-#include "cutefish/upower/battery_status.h"
-#include "cutefish/upower/device.h"
+#include "properdesktop/upower/battery_status.h"
+#include "properdesktop/upower/device.h"
 #include "pages/battery/timeformat.h"
 #include "window/options.h"
 
-using namespace cutefish;
-using namespace cutefish::base;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
+using namespace properdesktop;
+using namespace properdesktop::base;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
 
 namespace settings {
 
@@ -157,7 +157,7 @@ bool Battery::showPercent() const
     if (m_mock)
         return true;
 
-    Settings settings(paths::cutefishConfig("shell"));
+    Settings settings(paths::properdesktopConfig("shell"));
     return settings.boolValue("MenuBar/BatteryPercentage", false);
 }
 
@@ -166,7 +166,7 @@ void Battery::setPercentEnabled(bool enabled)
     if (m_mock)
         return;
 
-    dbus::Proxy(dbus::Connection::session(), "org.cutefish.MenuBar", "/MenuBar", "org.cutefish.MenuBar")
+    dbus::Proxy(dbus::Connection::session(), "org.properdesktop.MenuBar", "/MenuBar", "org.properdesktop.MenuBar")
             .send("setBatteryPercentage", enabled);
 }
 

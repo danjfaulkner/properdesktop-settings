@@ -8,9 +8,9 @@
 #include <vector>
 
 #include "base/i18n.h"
-#include "cutefish/audio/audio_model.h"
-#include "cutefish/audio/backend.h"
-#include "cutefish/audio/volume_monitor.h"
+#include "properdesktop/audio/audio_model.h"
+#include "properdesktop/audio/backend.h"
+#include "properdesktop/audio/volume_monitor.h"
 #include "base/signal.h"
 #include "ui/button.h"
 #include "ui/icon.h"
@@ -25,12 +25,12 @@
 #include "window/page.h"
 #include "window/pagelist.h"
 
-using namespace cutefish;
-using namespace cutefish::audio;
-using namespace cutefish::ui;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
-using cutefish::i18n::trc;
+using namespace properdesktop;
+using namespace properdesktop::audio;
+using namespace properdesktop::ui;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
+using properdesktop::i18n::trc;
 
 namespace settings {
 

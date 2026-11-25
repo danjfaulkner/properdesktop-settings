@@ -5,12 +5,12 @@
 
 #include <cstdio>
 
-using namespace cutefish::base;
+using namespace properdesktop::base;
 
 namespace settings {
 
-static constexpr const char* kService = "org.cutefish.ComputerControl1";
-static constexpr const char* kPath = "/org/cutefish/ComputerControl1";
+static constexpr const char* kService = "org.properdesktop.ComputerControl1";
+static constexpr const char* kPath = "/org/properdesktop/ComputerControl1";
 
 static std::vector<ComputerControl::App> appsOf(const dbus::Reply& reply)
 {

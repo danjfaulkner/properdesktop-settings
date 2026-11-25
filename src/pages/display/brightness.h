@@ -26,14 +26,14 @@ public:
     void setValue(int value);
 
     // available() or value() changed.
-    cutefish::base::Signal<> changed;
+    properdesktop::base::Signal<> changed;
 
 private:
     void refresh();
     void handleValueChanged(const std::string& display, int value);
 
-    cutefish::base::dbus::Proxy m_service;
-    std::vector<cutefish::base::dbus::Match> m_matches;
+    properdesktop::base::dbus::Proxy m_service;
+    std::vector<properdesktop::base::dbus::Match> m_matches;
     std::string m_display;
     bool m_available = false;
     int m_value = 0;

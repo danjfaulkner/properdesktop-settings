@@ -22,9 +22,9 @@
 #include "window/page.h"
 #include "window/pagelist.h"
 
-using namespace cutefish;
-using namespace cutefish::ui;
-using cutefish::i18n::tr;
+using namespace properdesktop;
+using namespace properdesktop::ui;
+using properdesktop::i18n::tr;
 
 namespace settings {
 

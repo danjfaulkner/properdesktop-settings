@@ -13,8 +13,8 @@
 #include "base/locale.h"
 #include "base/signal.h"
 #include "base/timer.h"
-#include "cutefish/display/night_light.h"
-#include "cutefish/display/screen.h"
+#include "properdesktop/display/night_light.h"
+#include "properdesktop/display/screen.h"
 #include "pages/display/brightness.h"
 #include "ui/dialog_window.h"
 #include "ui/label.h"
@@ -34,14 +34,14 @@
 #include "window/pagelist.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish;
-using namespace cutefish::display;
-using namespace cutefish::ui;
+using namespace properdesktop;
+using namespace properdesktop::display;
+using namespace properdesktop::ui;
 using namespace std::chrono_literals;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
-using cutefish::i18n::trc;
-using cutefish::i18n::trn;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
+using properdesktop::i18n::trc;
+using properdesktop::i18n::trn;
 
 namespace settings {
 

@@ -12,7 +12,7 @@
 #include "pages/shortcuts/shortcutsmodel.h"
 #include "widgets/formdialog.h"
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class DialogButton;
 class Label;
 struct KeyEvent;
@@ -35,8 +35,8 @@ public:
     ~ShortcutEditDialog() override;
 
     // What the recorder does with a key, from the keyboard or a test.
-    void keyPressed(const cutefish::ui::KeyEvent& event);
-    void keyReleased(const cutefish::ui::KeyEvent& event);
+    void keyPressed(const properdesktop::ui::KeyEvent& event);
+    void keyReleased(const properdesktop::ui::KeyEvent& event);
     void startRecording(std::optional<ShortcutsModel::Accelerator> replacing);
     void stopRecording();
     bool isRecording() const { return m_recording; }
@@ -52,7 +52,7 @@ private:
 
     ShortcutsModel& m_model;
     std::string m_action;
-    cutefish::base::Subscription m_modelChanged;
+    properdesktop::base::Subscription m_modelChanged;
     std::vector<ShortcutsModel::Accelerator> m_accelerators;
     bool m_isDefault = true;
     bool m_recording = false;
@@ -66,12 +66,12 @@ private:
     bool m_metaTapCandidate = false;
 
     Card* m_empty;
-    cutefish::ui::Label* m_noShortcut;
+    properdesktop::ui::Label* m_noShortcut;
     Card* m_list;
     ShortcutRecorder* m_recorder;
     Footnote* m_messageLabel;
-    cutefish::ui::DialogButton* m_add;
-    cutefish::ui::DialogButton* m_restore;
+    properdesktop::ui::DialogButton* m_add;
+    properdesktop::ui::DialogButton* m_restore;
 };
 
 } // namespace settings

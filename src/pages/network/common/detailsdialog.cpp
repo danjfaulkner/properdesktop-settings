@@ -5,8 +5,8 @@
 
 #include "base/event_loop.h"
 #include "base/i18n.h"
-#include "cutefish/networkmanager/connections.h"
-#include "cutefish/networkmanager/handler.h"
+#include "properdesktop/networkmanager/connections.h"
+#include "properdesktop/networkmanager/handler.h"
 #include "pages/network/common/ipsettingsview.h"
 #include "pages/network/common/networklist.h"
 #include "ui/dialog_window.h"
@@ -19,10 +19,10 @@
 #include "widgets/metrics.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish::ui;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
-namespace nm = cutefish::networkmanager;
+using namespace properdesktop::ui;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
+namespace nm = properdesktop::networkmanager;
 
 namespace settings::network {
 
@@ -230,7 +230,7 @@ void DetailsDialog::showIpSettings(bool shown)
         // Not destroyed from inside its own callback.
         std::shared_ptr<View> gone = m_content->takeChild(m_ipSettings);
         m_ipSettings = nullptr;
-        cutefish::base::EventLoop::current()->post([gone] {});
+        properdesktop::base::EventLoop::current()->post([gone] {});
     }
     m_dialog->setBackVisible(shown);
     m_dialog->setTitle(shown ? std::string(tr("IP Settings")) : m_row.uniqueName);

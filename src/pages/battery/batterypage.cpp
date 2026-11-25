@@ -18,7 +18,7 @@
 #include "ui/cell_layout.h"
 #include "ui/segmented_control.h"
 #include "ui/theme.h"
-#include "cutefish/upower/battery_status.h"
+#include "properdesktop/upower/battery_status.h"
 #include "widgets/card.h"
 #include "widgets/listrow.h"
 #include "widgets/metrics.h"
@@ -28,10 +28,10 @@
 #include "window/pagelist.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish;
-using namespace cutefish::ui;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
+using namespace properdesktop;
+using namespace properdesktop::ui;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
 
 namespace settings {
 
@@ -266,7 +266,7 @@ private:
     Footnote* m_chargeLimitNote;
 };
 
-// The page is there while cutefish-services reports a battery; until the
+// The page is there while properdesktop-services reports a battery; until the
 // service has answered, there is none either way.
 class BatteryWatch : public AvailabilityWatch
 {

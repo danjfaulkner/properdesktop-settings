@@ -6,11 +6,11 @@
 #include <algorithm>
 
 #include "base/i18n.h"
-#include "cutefish/networkmanager/types.h"
+#include "properdesktop/networkmanager/types.h"
 
-using cutefish::i18n::tr;
-namespace nm = cutefish::networkmanager;
-namespace schema = cutefish::networkmanager::vpn::schema;
+using properdesktop::i18n::tr;
+namespace nm = properdesktop::networkmanager;
+namespace schema = properdesktop::networkmanager::vpn::schema;
 
 namespace settings::network {
 

@@ -6,7 +6,7 @@
 #include "scenario.h"
 #include "window/options.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 using namespace settings;
 
 namespace {
@@ -26,8 +26,8 @@ TEST_F(MockNetwork, WifiSplitsTheNetworks)
     TestDriver& driver = scenario.driver;
     EXPECT_TRUE(driver.shows("wlan:switch"));
     // The network in use shares the switch's card.
-    EXPECT_TRUE(driver.shows("wifi:Cutefish Studio"));
-    EXPECT_LT(driver.frame("wifi:Cutefish Studio").y, driver.frame("wlan:known").y);
+    EXPECT_TRUE(driver.shows("wifi:Proper Desktop Studio"));
+    EXPECT_LT(driver.frame("wifi:Proper Desktop Studio").y, driver.frame("wlan:known").y);
     // A saved network is known; the others follow, with the way to add a hidden one last.
     EXPECT_TRUE(driver.shows("wlan:known"));
     EXPECT_GT(driver.frame("wifi:Coffee Shop").y, driver.frame("wlan:known").y);

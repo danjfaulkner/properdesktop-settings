@@ -12,7 +12,7 @@
 #include "base/timer.h"
 #include "pages/datetime/timezonemap.h"
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class Window;
 }
 
@@ -32,7 +32,7 @@ public:
     TimeZoneDialog(const TimeZoneDialog&) = delete;
     TimeZoneDialog& operator=(const TimeZoneDialog&) = delete;
 
-    cutefish::ui::Window* window() const { return m_window.get(); }
+    properdesktop::ui::Window* window() const { return m_window.get(); }
 
     void show();
     // The window goes once the event being handled is over.
@@ -58,9 +58,9 @@ public:
     void apply();
 
     // After the selection, its candidates, the hovered zone or the clock changed.
-    cutefish::base::Signal<> changed;
+    properdesktop::base::Signal<> changed;
     // A new selection, or the dialog shown: the pin ripples.
-    cutefish::base::Signal<> selectionStarted;
+    properdesktop::base::Signal<> selectionStarted;
 
 private:
     class Root;
@@ -68,11 +68,11 @@ private:
     void updateInfo();
 
     TimeZoneMap& m_map;
-    std::unique_ptr<cutefish::ui::Window> m_window;
+    std::unique_ptr<properdesktop::ui::Window> m_window;
     Root* m_root = nullptr;
-    std::vector<cutefish::base::Subscription> m_subscriptions;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
     // Keeps the times shown up with the clock while open.
-    cutefish::base::Timer m_tick;
+    properdesktop::base::Timer m_tick;
     std::string m_selectedZone;
     std::vector<std::string> m_nearbyZones;
     std::string m_hoveredZone;

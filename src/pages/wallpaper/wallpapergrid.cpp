@@ -20,9 +20,9 @@
 #include "widgets/colors.h"
 #include "widgets/metrics.h"
 
-using namespace cutefish::ui;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
 
 namespace settings {
 

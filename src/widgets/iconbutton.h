@@ -10,7 +10,7 @@
 #include "ui/color_mixer.h"
 #include "widgets/listrow.h"
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class Icon;
 }
 
@@ -22,15 +22,15 @@ class Picture;
 // whitens by half while pressed. A name ending in ".svg" is a path to one of
 // settings' pictures instead of a toolkit glyph. At the end of a row its
 // drawing, not its box, ends where a switch does.
-class IconButton : public cutefish::ui::View, public TrailingOverhang
+class IconButton : public properdesktop::ui::View, public TrailingOverhang
 {
 public:
     explicit IconButton(std::string glyph, double size = 22);
 
     // Unset: the theme's text colour.
-    void setColor(std::optional<cutefish::ui::ColorRecipe> color);
+    void setColor(std::optional<properdesktop::ui::ColorRecipe> color);
 
-    cutefish::ui::SizeF sizeHint() const override { return {m_size, m_size}; }
+    properdesktop::ui::SizeF sizeHint() const override { return {m_size, m_size}; }
     bool acceptsPointer() const override { return true; }
     double trailingOverhang() const override;
 
@@ -38,17 +38,17 @@ public:
 
 protected:
     void layout() override;
-    void pointerPress(const cutefish::ui::PointerEvent& event) override;
-    void pointerMove(const cutefish::ui::PointerEvent& event) override;
-    void pointerRelease(const cutefish::ui::PointerEvent& event) override;
+    void pointerPress(const properdesktop::ui::PointerEvent& event) override;
+    void pointerMove(const properdesktop::ui::PointerEvent& event) override;
+    void pointerRelease(const properdesktop::ui::PointerEvent& event) override;
 
 private:
     void setPressedInside(bool inside);
 
     std::string m_glyph;
     double m_size;
-    cutefish::ui::Icon* m_icon = nullptr;
-    cutefish::ui::Icon* m_overlay = nullptr;
+    properdesktop::ui::Icon* m_icon = nullptr;
+    properdesktop::ui::Icon* m_overlay = nullptr;
     Picture* m_picture = nullptr;
     Picture* m_pictureOverlay = nullptr;
     bool m_pressed = false;

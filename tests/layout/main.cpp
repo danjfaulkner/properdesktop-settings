@@ -13,7 +13,7 @@
 int main(int argc, char** argv)
 {
     testing::InitGoogleTest(&argc, argv);
-    cutefish::ui::Application application(argc, argv, cutefish::ui::Application::Platform::Headless);
+    properdesktop::ui::Application application(argc, argv, properdesktop::ui::Application::Platform::Headless);
     settings::setDataDirectory(SETTINGS_SOURCE_DIR);
     // The user's saved sidebar width would move every page.
     char scratch[] = "/tmp/settings-layout-tests-XXXXXX";

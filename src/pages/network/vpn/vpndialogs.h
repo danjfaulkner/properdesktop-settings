@@ -9,9 +9,9 @@
 #include <vector>
 
 #include "base/signal.h"
-#include "cutefish/networkmanager/handler.h"
+#include "properdesktop/networkmanager/handler.h"
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class ColumnLayout;
 class DialogButton;
 class DialogWindow;
@@ -39,7 +39,7 @@ class VpnEditor;
 class AddVpnDialog
 {
 public:
-    AddVpnDialog(SettingsWindow& window, cutefish::networkmanager::Handler& handler);
+    AddVpnDialog(SettingsWindow& window, properdesktop::networkmanager::Handler& handler);
     ~AddVpnDialog();
 
     void show();
@@ -52,19 +52,19 @@ private:
     void update();
 
     SettingsWindow& m_window;
-    cutefish::networkmanager::Handler& m_handler;
+    properdesktop::networkmanager::Handler& m_handler;
     std::unique_ptr<FormDialog> m_dialog;
-    std::vector<cutefish::base::Subscription> m_subscriptions;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
     // Read again each time the dialog opens, so a plugin installed meanwhile shows up.
-    std::vector<cutefish::networkmanager::vpn::Kind> m_kinds;
+    std::vector<properdesktop::networkmanager::vpn::Kind> m_kinds;
     bool m_adding = false;
     std::string m_error;
     RowComboBox* m_kindBox = nullptr;
     FormScroll* m_scroll = nullptr;
     VpnEditor* m_editor = nullptr;
     Footnote* m_errorLabel = nullptr;
-    cutefish::ui::DialogButton* m_cancelButton = nullptr;
-    cutefish::ui::DialogButton* m_addButton = nullptr;
+    properdesktop::ui::DialogButton* m_cancelButton = nullptr;
+    properdesktop::ui::DialogButton* m_addButton = nullptr;
 };
 
 // One VPN's settings, state, and the ways to export or remove it. Changes are
@@ -73,12 +73,12 @@ private:
 class VpnDetailsDialog
 {
 public:
-    VpnDetailsDialog(SettingsWindow& window, NetworkList& list, cutefish::networkmanager::Handler& handler,
+    VpnDetailsDialog(SettingsWindow& window, NetworkList& list, properdesktop::networkmanager::Handler& handler,
                      std::string connectionPath);
     ~VpnDetailsDialog();
 
     void show();
-    cutefish::ui::DialogWindow* dialog() const { return m_dialog.get(); }
+    properdesktop::ui::DialogWindow* dialog() const { return m_dialog.get(); }
 
 private:
     void update();
@@ -87,26 +87,26 @@ private:
 
     SettingsWindow& m_window;
     NetworkList& m_list;
-    cutefish::networkmanager::Handler& m_handler;
+    properdesktop::networkmanager::Handler& m_handler;
     std::string m_connectionPath;
-    std::unique_ptr<cutefish::ui::DialogWindow> m_dialog;
-    std::unique_ptr<cutefish::ui::FileChooser> m_exportChooser;
-    std::vector<cutefish::base::Subscription> m_subscriptions;
+    std::unique_ptr<properdesktop::ui::DialogWindow> m_dialog;
+    std::unique_ptr<properdesktop::ui::FileChooser> m_exportChooser;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
     bool m_found = false;
     bool m_saving = false;
     std::string m_error;
     std::string m_statusMessage;
-    cutefish::ui::ColumnLayout* m_content = nullptr;
+    properdesktop::ui::ColumnLayout* m_content = nullptr;
     FormScroll* m_scroll = nullptr;
     VpnEditor* m_editor = nullptr;
-    cutefish::ui::ColumnLayout* m_statusCard = nullptr;
+    properdesktop::ui::ColumnLayout* m_statusCard = nullptr;
     InfoRow* m_type = nullptr;
     InfoRow* m_status = nullptr;
     InfoRow* m_address = nullptr;
     ListRow* m_export = nullptr;
     Footnote* m_message = nullptr;
-    cutefish::ui::DialogButton* m_cancelButton = nullptr;
-    cutefish::ui::DialogButton* m_saveButton = nullptr;
+    properdesktop::ui::DialogButton* m_cancelButton = nullptr;
+    properdesktop::ui::DialogButton* m_saveButton = nullptr;
 };
 
 } // namespace settings::network

@@ -12,7 +12,7 @@
 #include "widgets/listrow.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 using namespace settings;
 using settings::testing::isHidden;
 using settings::testing::windowRect;

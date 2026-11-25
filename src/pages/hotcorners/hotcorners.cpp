@@ -8,13 +8,13 @@
 
 #include "base/i18n.h"
 
-using namespace cutefish::base;
-using cutefish::i18n::trc;
+using namespace properdesktop::base;
+using properdesktop::i18n::trc;
 
 namespace settings {
 
-static constexpr const char* kService = "org.cutefish.HotCorners1";
-static constexpr const char* kPath = "/org/cutefish/HotCorners1";
+static constexpr const char* kService = "org.properdesktop.HotCorners1";
+static constexpr const char* kPath = "/org/properdesktop/HotCorners1";
 
 // The compositor's modifier bits, as in the shortcuts service.
 static constexpr int kShiftDown = 1 << 0;
@@ -49,7 +49,7 @@ HotCorners::HotCorners()
         m_properties = reply.value<dbus::VariantMap>().value_or(dbus::VariantMap());
         m_available = true;
     }
-    const dbus::Proxy shortcuts(bus, "org.cutefish.Shortcuts1", "/org/cutefish/Shortcuts1", "org.cutefish.Shortcuts1");
+    const dbus::Proxy shortcuts(bus, "org.properdesktop.Shortcuts1", "/org/properdesktop/Shortcuts1", "org.properdesktop.Shortcuts1");
     m_commandKeys = shortcuts.property<std::string>("shortcutConvention").value_or(std::string()) == "command";
     m_changedMatch = m_corners.onSignal("changed", [this](const dbus::Message&) { reload(); });
     m_watch = bus->watchName(kService, [this](const std::string& owner) {

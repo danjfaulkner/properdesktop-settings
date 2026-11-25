@@ -14,7 +14,7 @@ namespace settings {
 class MenuBarSettings
 {
 public:
-    // The names org.cutefish.MenuBar takes.
+    // The names org.properdesktop.MenuBar takes.
     static constexpr const char* kWiFi = "wifi";
     static constexpr const char* kBattery = "battery";
     static constexpr const char* kSound = "sound";
@@ -26,7 +26,7 @@ public:
     void setControlShown(const std::string& control, bool shown);
 
 private:
-    cutefish::base::dbus::Proxy m_menuBar;
+    properdesktop::base::dbus::Proxy m_menuBar;
     bool m_wifi = true;
     bool m_battery = true;
     bool m_sound = true;

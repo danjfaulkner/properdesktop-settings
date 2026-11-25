@@ -9,6 +9,6 @@ namespace settings {
 
 // A print of dashed ridges whorled around a curled core, as the area its
 // strokes cover, centred in a square of the given side.
-cutefish::ui::Path fingerprintGlyph(double size);
+properdesktop::ui::Path fingerprintGlyph(double size);
 
 } // namespace settings

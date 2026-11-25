@@ -24,8 +24,8 @@
 #include "ui/icon.h"
 #include "ui/progress_bar.h"
 
-using namespace cutefish;
-using namespace cutefish::ui;
+using namespace properdesktop;
+using namespace properdesktop::ui;
 using namespace settings;
 using namespace std::chrono_literals;
 using settings::testing::FakeService;

@@ -49,7 +49,7 @@ public:
     void setDefault(Kind kind, int index);
 
     // After the lists or the defaults changed.
-    cutefish::base::Signal<> changed;
+    properdesktop::base::Signal<> changed;
 
 private:
     void load();
@@ -58,9 +58,9 @@ private:
 
     std::vector<Application> m_lists[KindCount];
     int m_defaults[KindCount] = {-1, -1, -1, -1, -1, -1, -1};
-    cutefish::base::Subscription m_registry;
-    std::vector<cutefish::base::FileWatch> m_watches;
-    cutefish::base::Timer m_reload;
+    properdesktop::base::Subscription m_registry;
+    std::vector<properdesktop::base::FileWatch> m_watches;
+    properdesktop::base::Timer m_reload;
 };
 
 } // namespace settings

@@ -9,7 +9,7 @@
 #include "base/file.h"
 #include "base/paths.h"
 
-using namespace cutefish::base;
+using namespace properdesktop::base;
 
 namespace settings {
 
@@ -37,7 +37,7 @@ static InputMethod::Method describe(const std::string& id)
 }
 
 InputMethod::InputMethod()
-    : m_service("org.cutefish.InputMethod1")
+    : m_service("org.properdesktop.InputMethod1")
 {
     refreshMethods();
     m_wasAvailable = m_service.isAvailable();

@@ -15,7 +15,7 @@ public:
     OnceWatch(bool available, AvailabilityCallback callback)
     {
         // Not from inside the factory: the window is still adding entries.
-        cutefish::base::EventLoop::current()->post(
+        properdesktop::base::EventLoop::current()->post(
                 [available, callback = std::move(callback), alive = std::weak_ptr<int>(m_alive)] {
                     if (alive.lock())
                         callback(available);

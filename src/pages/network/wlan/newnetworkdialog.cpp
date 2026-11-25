@@ -18,11 +18,11 @@
 #include "widgets/rowcombobox.h"
 #include "widgets/sections.h"
 
-using namespace cutefish::ui;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
-using cutefish::i18n::trNoop;
-namespace nm = cutefish::networkmanager;
+using namespace properdesktop::ui;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
+using properdesktop::i18n::trNoop;
+namespace nm = properdesktop::networkmanager;
 
 namespace settings::network {
 

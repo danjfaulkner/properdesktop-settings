@@ -18,7 +18,7 @@
 #include "pages/language/region.h"
 #include "service_thread.h"
 
-using namespace cutefish;
+using namespace properdesktop;
 using namespace settings;
 using settings::testing::LanguageConfig;
 using namespace std::chrono_literals;
@@ -149,7 +149,7 @@ TEST(Language, SavingWithoutTheServiceReportsAnError)
     // Never against the live session, whose languages this would change.
     const base::dbus::Proxy daemon(base::dbus::Connection::session(), "org.freedesktop.DBus",
                                    "/org/freedesktop/DBus", "org.freedesktop.DBus");
-    if (daemon.call("NameHasOwner", std::string("org.cutefish.Services")).value<bool>().value_or(false))
+    if (daemon.call("NameHasOwner", std::string("org.properdesktop.Services")).value<bool>().value_or(false))
         GTEST_SKIP() << "Needs a private session bus: run the tests in dbus-run-session";
     LanguageConfig config({"en_US", "de_DE"});
     Language language(config.path);

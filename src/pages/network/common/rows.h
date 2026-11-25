@@ -9,10 +9,10 @@
 #include <string>
 #include <vector>
 
-#include "cutefish/networkmanager/network_model.h"
+#include "properdesktop/networkmanager/network_model.h"
 #include "widgets/listrow.h"
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class BusyIndicator;
 class Icon;
 }
@@ -24,7 +24,7 @@ class IconButton;
 namespace settings::network {
 
 // Puts the views in this order at the end of their parent's children.
-void arrange(cutefish::ui::View* parent, const std::vector<cutefish::ui::View*>& order);
+void arrange(properdesktop::ui::View* parent, const std::vector<properdesktop::ui::View*>& order);
 
 // The rows a card shows for a list of networks, one per network key, kept
 // across changes so a row's state and animation carry on.
@@ -32,13 +32,13 @@ template<typename RowType>
 class KeyedRows
 {
 public:
-    explicit KeyedRows(std::function<RowType*(cutefish::ui::View* parent)> make)
+    explicit KeyedRows(std::function<RowType*(properdesktop::ui::View* parent)> make)
         : m_make(std::move(make))
     {
     }
 
     // The rows for the keys in this order; rows of other keys go.
-    std::vector<RowType*> update(cutefish::ui::View* parent, const std::vector<std::string>& keys)
+    std::vector<RowType*> update(properdesktop::ui::View* parent, const std::vector<std::string>& keys)
     {
         std::map<std::string, RowType*> kept;
         std::vector<RowType*> rows;
@@ -57,7 +57,7 @@ public:
     }
 
 private:
-    std::function<RowType*(cutefish::ui::View* parent)> m_make;
+    std::function<RowType*(properdesktop::ui::View* parent)> m_make;
     std::map<std::string, RowType*> m_rows;
 };
 
@@ -69,10 +69,10 @@ public:
     WifiRow();
 
     // `displayed` is the state the row shows, which may lag behind NetworkManager's.
-    void setItem(const cutefish::networkmanager::NetworkItem& item,
-                 cutefish::networkmanager::ConnectionStatus displayed);
-    const cutefish::networkmanager::NetworkItem& item() const { return m_item; }
-    cutefish::networkmanager::ConnectionStatus displayedState() const { return m_displayed; }
+    void setItem(const properdesktop::networkmanager::NetworkItem& item,
+                 properdesktop::networkmanager::ConnectionStatus displayed);
+    const properdesktop::networkmanager::NetworkItem& item() const { return m_item; }
+    properdesktop::networkmanager::ConnectionStatus displayedState() const { return m_displayed; }
 
     std::function<void(WifiRow* row)> onInfo;
 
@@ -80,16 +80,16 @@ protected:
     void layout() override;
 
 private:
-    cutefish::networkmanager::NetworkItem m_item;
-    cutefish::networkmanager::ConnectionStatus m_displayed = cutefish::networkmanager::ConnectionStatus::Deactivated;
-    cutefish::ui::Icon* m_icon;
-    cutefish::ui::BusyIndicator* m_busy;
-    cutefish::ui::Icon* m_check;
-    cutefish::ui::Icon* m_lock;
+    properdesktop::networkmanager::NetworkItem m_item;
+    properdesktop::networkmanager::ConnectionStatus m_displayed = properdesktop::networkmanager::ConnectionStatus::Deactivated;
+    properdesktop::ui::Icon* m_icon;
+    properdesktop::ui::BusyIndicator* m_busy;
+    properdesktop::ui::Icon* m_check;
+    properdesktop::ui::Icon* m_lock;
     IconButton* m_info;
 };
 
 // Joined with a user name, which the join window asks for.
-bool isEnterprise(cutefish::networkmanager::SecurityType type);
+bool isEnterprise(properdesktop::networkmanager::SecurityType type);
 
 } // namespace settings::network

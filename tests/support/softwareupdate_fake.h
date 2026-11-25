@@ -18,17 +18,17 @@ namespace settings::testing {
 
 using UpdateEntry = std::tuple<std::string, std::string, std::string>;
 
-// cutefish-services' software update object, and PackageKit's name when
+// properdesktop-services' software update object, and PackageKit's name when
 // the test wants it, on a connection of their own on the test's session bus.
 class FakeService
 {
 public:
     FakeService()
-        : m_bus(cutefish::base::dbus::Connection::open(cutefish::base::dbus::Connection::Bus::Session,
-                                                       &cutefish::ui::Application::instance()->loop()))
+        : m_bus(properdesktop::base::dbus::Connection::open(properdesktop::base::dbus::Connection::Bus::Session,
+                                                       &properdesktop::ui::Application::instance()->loop()))
     {
-        m_object = std::make_unique<cutefish::base::dbus::Object>(
-                m_bus.get(), "/org/cutefish/Services/SoftwareUpdate", "org.cutefish.Services.SoftwareUpdate");
+        m_object = std::make_unique<properdesktop::base::dbus::Object>(
+                m_bus.get(), "/org/properdesktop/Services/SoftwareUpdate", "org.properdesktop.Services.SoftwareUpdate");
         m_object->addProperty("state", [this] { return state; });
         m_object->addProperty("updates", [this] { return updates; });
         m_object->addProperty("phase", [this] { return phase; });
@@ -40,7 +40,7 @@ public:
         m_object->addMethod("cancel", [this] { calls.push_back("cancel"); });
         m_object->addMethod("restart", [this] { calls.push_back("restart"); });
         EXPECT_TRUE(m_object->publish());
-        EXPECT_TRUE(m_bus->requestName("org.cutefish.Services"));
+        EXPECT_TRUE(m_bus->requestName("org.properdesktop.Services"));
     }
 
     bool ownPackageKit() { return m_bus->requestName("org.freedesktop.PackageKit"); }
@@ -62,8 +62,8 @@ public:
     std::vector<std::string> calls;
 
 private:
-    std::unique_ptr<cutefish::base::dbus::Connection> m_bus;
-    std::unique_ptr<cutefish::base::dbus::Object> m_object;
+    std::unique_ptr<properdesktop::base::dbus::Connection> m_bus;
+    std::unique_ptr<properdesktop::base::dbus::Object> m_object;
 };
 
 } // namespace settings::testing

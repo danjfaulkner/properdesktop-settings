@@ -10,7 +10,7 @@
 #include "base/paths.h"
 #include "base/settings.h"
 
-using namespace cutefish::base;
+using namespace properdesktop::base;
 
 namespace settings {
 
@@ -25,10 +25,10 @@ static int readTimeout(const Settings& settings, const std::string& key, int fal
 }
 
 PowerSettings::PowerSettings()
-    : m_service(dbus::Connection::session(), "org.cutefish.Services", "/org/cutefish/Services/Power",
-                "org.cutefish.Services.Power")
+    : m_service(dbus::Connection::session(), "org.properdesktop.Services", "/org/properdesktop/Services/Power",
+                "org.properdesktop.Services.Power")
 {
-    const Settings settings(paths::cutefishConfig("services"));
+    const Settings settings(paths::properdesktopConfig("services"));
     m_batteryScreenOff = readTimeout(settings, "Power/BatteryScreenOff", kDefaultBatteryScreenOff);
     m_acScreenOff = readTimeout(settings, "Power/ACScreenOff", kDefaultACScreenOff);
     m_acPreventSleep = settings.boolValue("Power/ACPreventSleep", false);

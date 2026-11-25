@@ -17,8 +17,8 @@
 #include "ui/theme.h"
 #include "widgets/metrics.h"
 
-using namespace cutefish::ui;
-using cutefish::i18n::trc;
+using namespace properdesktop::ui;
+using properdesktop::i18n::trc;
 
 namespace settings {
 
@@ -228,7 +228,7 @@ void RowSlider::layout()
 
 SliderRow::SliderRow(std::string text)
     : ListRow(std::move(text))
-    , m_settle(std::make_unique<cutefish::base::Timer>())
+    , m_settle(std::make_unique<properdesktop::base::Timer>())
 {
     setInteractive(false);
     setMinimumRowHeight(metrics::controlRowHeight);

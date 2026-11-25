@@ -3,7 +3,7 @@
 
 #include "base/event_loop.h"
 #include "base/i18n.h"
-#include "cutefish/timedate/time_date.h"
+#include "properdesktop/timedate/time_date.h"
 #include "pages/datetime/time.h"
 #include "pages/datetime/timezonedialog.h"
 #include "pages/datetime/timezonemap.h"
@@ -15,9 +15,9 @@
 #include "window/page.h"
 #include "window/pagelist.h"
 
-using namespace cutefish;
-using namespace cutefish::ui;
-using cutefish::i18n::tr;
+using namespace properdesktop;
+using namespace properdesktop::ui;
+using properdesktop::i18n::tr;
 
 namespace settings {
 

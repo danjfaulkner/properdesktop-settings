@@ -9,7 +9,7 @@
 TEST(HotCornersPage, ExplainsWhenTheCompositorIsMissing)
 {
     Scenario scenario("hotcorners");
-    cutefish::ui::TestDriver& driver = scenario.driver;
+    properdesktop::ui::TestDriver& driver = scenario.driver;
     EXPECT_TRUE(driver.shows("hotcorners:unavailable"));
     EXPECT_EQ(driver.countShown("hotcorners:corner"), 0u);
     EXPECT_FALSE(driver.shows("hotcorners:note"));

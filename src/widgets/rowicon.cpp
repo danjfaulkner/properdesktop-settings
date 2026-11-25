@@ -7,7 +7,7 @@
 #include "ui/painter.h"
 #include "widgets/picture.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 
 namespace settings {
 

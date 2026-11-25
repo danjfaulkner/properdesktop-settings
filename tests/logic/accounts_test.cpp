@@ -11,7 +11,7 @@
 #include "pages/accounts/accountorder.h"
 #include "pages/accounts/password.h"
 
-using namespace cutefish;
+using namespace properdesktop;
 using namespace settings;
 
 TEST(Accounts, PasswordsAreSha512WithAFreshSalt)

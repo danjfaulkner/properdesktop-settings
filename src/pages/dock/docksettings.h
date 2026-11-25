@@ -36,7 +36,7 @@ public:
     void setMagnifiedIconSize(int size);
 
 private:
-    cutefish::base::dbus::Proxy m_dock;
+    properdesktop::base::dbus::Proxy m_dock;
     int m_iconSize = 0;
     int m_direction = 0;
     int m_visibility = 0;

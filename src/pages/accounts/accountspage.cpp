@@ -5,7 +5,7 @@
 #include <memory>
 #include <unistd.h>
 
-#include "cutefish/accounts/accounts_manager.h"
+#include "properdesktop/accounts/accounts_manager.h"
 #include "base/event_loop.h"
 #include "base/i18n.h"
 #include "pages/accounts/accountorder.h"
@@ -24,10 +24,10 @@
 #include "window/pagelist.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish;
-using namespace cutefish::ui;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
+using namespace properdesktop;
+using namespace properdesktop::ui;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
 
 namespace settings {
 

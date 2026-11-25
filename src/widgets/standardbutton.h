@@ -9,7 +9,7 @@
 
 #include "ui/view.h"
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class Label;
 }
 
@@ -17,16 +17,16 @@ namespace settings {
 
 // A full-width button standing alone between cards: a flat plate that only
 // darkens while pressed.
-class StandardButton : public cutefish::ui::View
+class StandardButton : public properdesktop::ui::View
 {
 public:
     explicit StandardButton(std::string text = {});
 
     void setText(std::string text);
     // Unset: #363636 in dark mode, white otherwise.
-    void setBackgroundColor(std::optional<cutefish::ui::Color> color);
+    void setBackgroundColor(std::optional<properdesktop::ui::Color> color);
 
-    cutefish::ui::SizeF sizeHint() const override;
+    properdesktop::ui::SizeF sizeHint() const override;
     bool acceptsPointer() const override { return true; }
     bool acceptsFocus() const override { return true; }
 
@@ -34,16 +34,16 @@ public:
 
 protected:
     void layout() override;
-    void paint(cutefish::ui::Painter& painter) override;
-    void pointerPress(const cutefish::ui::PointerEvent& event) override;
-    void pointerRelease(const cutefish::ui::PointerEvent& event) override;
-    bool keyPress(const cutefish::ui::KeyEvent& event) override;
+    void paint(properdesktop::ui::Painter& painter) override;
+    void pointerPress(const properdesktop::ui::PointerEvent& event) override;
+    void pointerRelease(const properdesktop::ui::PointerEvent& event) override;
+    bool keyPress(const properdesktop::ui::KeyEvent& event) override;
 
 private:
-    cutefish::ui::Color backgroundColor() const;
+    properdesktop::ui::Color backgroundColor() const;
 
-    cutefish::ui::Label* m_label;
-    std::optional<cutefish::ui::Color> m_background;
+    properdesktop::ui::Label* m_label;
+    std::optional<properdesktop::ui::Color> m_background;
     bool m_pressed = false;
 };
 

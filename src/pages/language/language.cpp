@@ -16,14 +16,14 @@
 #include "base/paths.h"
 #include "base/settings.h"
 
-using namespace cutefish::base;
-using cutefish::i18n::tr;
+using namespace properdesktop::base;
+using properdesktop::i18n::tr;
 
 namespace settings {
 
-static constexpr const char* kService = "org.cutefish.Services";
-static constexpr const char* kPath = "/org/cutefish/Services/Language";
-static constexpr const char* kInterface = "org.cutefish.Services.Language";
+static constexpr const char* kService = "org.properdesktop.Services";
+static constexpr const char* kPath = "/org/properdesktop/Services/Language";
+static constexpr const char* kInterface = "org.properdesktop.Services.Language";
 
 static icu::UnicodeString folded(const std::string& text)
 {
@@ -47,7 +47,7 @@ std::string Language::systemLanguage()
 
 std::string Language::defaultConfigPath()
 {
-    return paths::cutefishConfig("services");
+    return paths::properdesktopConfig("services");
 }
 
 std::vector<std::string> Language::preferredLanguageCodes(const std::string& configPath)
@@ -66,7 +66,7 @@ std::vector<std::string> Language::preferredLanguageCodes(const std::string& con
 
 std::string Language::displayLanguage()
 {
-    return cutefish::base::Locale::system().name();
+    return properdesktop::base::Locale::system().name();
 }
 
 std::vector<LanguageEntry> Language::catalog(const std::string& displayCode)

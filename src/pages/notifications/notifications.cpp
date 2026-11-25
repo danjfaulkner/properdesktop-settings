@@ -5,13 +5,13 @@
 
 #include <cstdint>
 
-using namespace cutefish::base;
+using namespace properdesktop::base;
 
 namespace settings {
 
 Notifications::Notifications()
-    : m_shell(dbus::Connection::session(), "org.cutefish.Notification", "/Notification",
-              "org.cutefish.Notification")
+    : m_shell(dbus::Connection::session(), "org.properdesktop.Notification", "/Notification",
+              "org.properdesktop.Notification")
 {
     m_doNotDisturb = m_shell.property<bool>("doNotDisturb").value_or(false);
     m_doNotDisturbMatch = m_shell.onSignal("doNotDisturbChanged", [this](const dbus::Message&) {

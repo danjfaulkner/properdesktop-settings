@@ -9,9 +9,9 @@
 #include <string>
 #include <vector>
 
-#include "cutefish/networkmanager/handler.h"
+#include "properdesktop/networkmanager/handler.h"
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class DialogButton;
 class TextField;
 }
@@ -39,7 +39,7 @@ public:
 
     // An enterprise network in range; shows nothing once the access point is gone.
     void openNetwork(const std::string& accessPoint,
-                     const std::optional<cutefish::networkmanager::WirelessNetwork>& network);
+                     const std::optional<properdesktop::networkmanager::WirelessNetwork>& network);
     void show();
     void close();
     bool isOpen() const;
@@ -51,10 +51,10 @@ public:
     bool canJoin() const;
     void join();
 
-    cutefish::ui::TextField* nameField() const { return m_name; }
+    properdesktop::ui::TextField* nameField() const { return m_name; }
     RowComboBox* securityBox() const { return m_security; }
-    cutefish::ui::TextField* userNameField() const { return m_userName; }
-    cutefish::ui::TextField* passwordField() const { return m_password; }
+    properdesktop::ui::TextField* userNameField() const { return m_userName; }
+    properdesktop::ui::TextField* passwordField() const { return m_password; }
     FormDialog* dialog() const { return m_dialog.get(); }
 
     // Joining a hidden network: its name, the user name of an enterprise
@@ -82,15 +82,15 @@ private:
 
     Card* m_form = nullptr;
     TextFieldRow* m_nameRow = nullptr;
-    cutefish::ui::TextField* m_name = nullptr;
+    properdesktop::ui::TextField* m_name = nullptr;
     ListRow* m_securityRow = nullptr;
     RowComboBox* m_security = nullptr;
     TextFieldRow* m_userNameRow = nullptr;
-    cutefish::ui::TextField* m_userName = nullptr;
+    properdesktop::ui::TextField* m_userName = nullptr;
     TextFieldRow* m_passwordRow = nullptr;
-    cutefish::ui::TextField* m_password = nullptr;
+    properdesktop::ui::TextField* m_password = nullptr;
     Footnote* m_certificateNote = nullptr;
-    cutefish::ui::DialogButton* m_joinButton = nullptr;
+    properdesktop::ui::DialogButton* m_joinButton = nullptr;
 };
 
 } // namespace settings::network

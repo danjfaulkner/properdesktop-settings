@@ -8,7 +8,7 @@
 TEST(NotificationsPage, ShowsTheEmptyCardWithoutApplications)
 {
     Scenario scenario("notifications");
-    cutefish::ui::TestDriver& driver = scenario.driver;
+    properdesktop::ui::TestDriver& driver = scenario.driver;
     EXPECT_TRUE(driver.shows("notifications:doNotDisturb"));
     EXPECT_TRUE(driver.shows("notifications:empty"));
     EXPECT_EQ(driver.countShown("notifications:mode"), 0u);

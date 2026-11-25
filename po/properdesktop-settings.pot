@@ -1,8 +1,8 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: cutefish-settings\n"
-"Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
+"Project-Id-Version: properdesktop-settings\n"
+"Report-Msgid-Bugs-To: https://github.com/danjfaulkner\n"
 "POT-Creation-Date: 2026-11-23 18:28+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: \n"
@@ -142,7 +142,7 @@ msgid "Pointer acceleration curve"
 msgstr ""
 
 #: src/pages/about/licensespage.cpp
-msgid "The source code of the pointer acceleration curve is available under the Apple Public Source License 2.0 at https://github.com/cutefishos/cutefish-compositor."
+msgid "The source code of the pointer acceleration curve is available under the Apple Public Source License 2.0 at https://github.com/danjfaulkner/properdesktop-compositor."
 msgstr ""
 
 #: src/pages/accounts/accountspage.cpp src/window/pagelist.cpp
@@ -1224,7 +1224,7 @@ msgid "Lock Screen"
 msgstr ""
 
 #: src/pages/hotcorners/hotcornerspage.cpp
-msgid "Hot corners are managed by the Cutefish compositor, which is not running."
+msgid "Hot corners are managed by the Proper Desktop compositor, which is not running."
 msgstr ""
 
 #: src/pages/hotcorners/hotcornerspage.cpp
@@ -1262,7 +1262,7 @@ msgid "Input method"
 msgstr ""
 
 #: src/pages/keyboard/keyboardpage.cpp
-msgid "Input methods can only be selected in a Cutefish Wayland session."
+msgid "Input methods can only be selected in a Proper Desktop Wayland session."
 msgstr ""
 
 #: src/pages/keyboard/keyboardpage.cpp
@@ -2034,7 +2034,7 @@ msgid "Computer control"
 msgstr ""
 
 #: src/pages/privacy/privacypage.cpp
-msgid "Computer control is managed by the Cutefish compositor, which is not running."
+msgid "Computer control is managed by the Proper Desktop compositor, which is not running."
 msgstr ""
 
 #: src/pages/privacy/privacypage.cpp
@@ -2433,7 +2433,7 @@ msgid "The shortcut could not be changed."
 msgstr ""
 
 #: src/pages/shortcuts/shortcutspage.cpp
-msgid "Keyboard shortcuts are managed by the Cutefish compositor, which is not running."
+msgid "Keyboard shortcuts are managed by the Proper Desktop compositor, which is not running."
 msgstr ""
 
 #: src/pages/shortcuts/shortcutspage.cpp
@@ -2859,7 +2859,7 @@ msgid "license, copyright, source code, open source"
 msgstr ""
 
 #: src/window/settingswindow.cpp src/window/sidebar.cpp
-#: cutefish-settings.desktop
+#: properdesktop-settings.desktop
 msgid "Settings"
 msgstr ""
 

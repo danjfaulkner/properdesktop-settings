@@ -23,9 +23,9 @@
 #include "window/pagelist.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish;
-using namespace cutefish::ui;
-using cutefish::i18n::tr;
+using namespace properdesktop;
+using namespace properdesktop::ui;
+using properdesktop::i18n::tr;
 
 namespace settings {
 
@@ -130,7 +130,7 @@ public:
         : Page(window, tr("Keyboard Shortcuts"))
     {
         m_unavailable = content()->addChild<NoteCard>(
-                tr("Keyboard shortcuts are managed by the Cutefish compositor, which is not running."));
+                tr("Keyboard shortcuts are managed by the Proper Desktop compositor, which is not running."));
         m_intro = content()->addChild<Footnote>();
         for (const std::string& category : ShortcutsModel::categories()) {
             Section* section = content()->addChild<Section>(tr(category.c_str()));

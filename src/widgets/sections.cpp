@@ -6,7 +6,7 @@
 #include "ui/color_mixer.h"
 #include "widgets/metrics.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 
 namespace settings {
 

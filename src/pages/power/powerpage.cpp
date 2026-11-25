@@ -9,10 +9,10 @@
 #include "base/i18n.h"
 #include "base/signal.h"
 #include "pages/power/powersettings.h"
-#include "cutefish/powerprofiles/power_profiles.h"
+#include "properdesktop/powerprofiles/power_profiles.h"
 #include "ui/layout.h"
 #include "ui/cell_layout.h"
-#include "cutefish/upower/battery_status.h"
+#include "properdesktop/upower/battery_status.h"
 #include "widgets/card.h"
 #include "widgets/imageselectionitem.h"
 #include "widgets/listrow.h"
@@ -25,11 +25,11 @@
 #include "window/pagelist.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish;
-using namespace cutefish::ui;
-using cutefish::i18n::tr;
-using cutefish::i18n::trn;
-using cutefish::i18n::trNoop;
+using namespace properdesktop;
+using namespace properdesktop::ui;
+using properdesktop::i18n::tr;
+using properdesktop::i18n::trn;
+using properdesktop::i18n::trNoop;
 
 namespace settings {
 

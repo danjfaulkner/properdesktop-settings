@@ -9,7 +9,7 @@
 #include <vector>
 
 #include "base/dbus.h"
-#include "cutefish/fprint/fingerprint_finger.h"
+#include "properdesktop/fprint/fingerprint_finger.h"
 
 namespace settings {
 
@@ -18,20 +18,20 @@ namespace settings {
 inline constexpr size_t kMaxFingerprints = 5;
 
 // The system bus fprintd is on; tests point it at their own.
-cutefish::base::dbus::Connection* fingerprintBus();
-void setFingerprintBus(cutefish::base::dbus::Connection* bus);
+properdesktop::base::dbus::Connection* fingerprintBus();
+void setFingerprintBus(properdesktop::base::dbus::Connection* bus);
 
 // The fingers in the order new fingerprints take them: the index fingers
 // first, then the middle ones, the thumbs, and the rest.
-const std::vector<cutefish::fprint::Finger>& fingerOrder();
+const std::vector<properdesktop::fprint::Finger>& fingerOrder();
 
 // The stored fingers in that order, which is the order of the page's list.
-std::vector<cutefish::fprint::Finger> inFingerOrder(const std::vector<cutefish::fprint::Finger>& enrolled);
+std::vector<properdesktop::fprint::Finger> inFingerOrder(const std::vector<properdesktop::fprint::Finger>& enrolled);
 
 // The finger a new fingerprint is stored under: the first of fingerOrder()
 // that has none yet. The page numbers its fingerprints, so which finger it
 // is does not matter to the user.
-std::optional<cutefish::fprint::Finger> freeFinger(const std::vector<cutefish::fprint::Finger>& enrolled);
+std::optional<properdesktop::fprint::Finger> freeFinger(const std::vector<properdesktop::fprint::Finger>& enrolled);
 
 // "Fingerprint 1" for the first row of the list.
 std::string fingerprintName(int number);

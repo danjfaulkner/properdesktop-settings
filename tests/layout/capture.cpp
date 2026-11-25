@@ -12,7 +12,7 @@
 #include "window/pagelist.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 
 // A fixed frame time, so captures show animations at one phase.
 static constexpr uint64_t kFrameNs = 1000000000;

@@ -7,7 +7,7 @@
 
 #include "ui/view.h"
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class Icon;
 }
 
@@ -18,23 +18,23 @@ class Picture;
 // The sidebar's tile: a coloured rounded square with a white glyph, for the
 // sidebar and a list row's leading slot. The glyph is one of settings'
 // sidebar pictures, or a toolkit glyph when the name has no ".svg".
-class RowIcon : public cutefish::ui::View
+class RowIcon : public properdesktop::ui::View
 {
 public:
-    RowIcon(std::string glyph, cutefish::ui::Color tint);
+    RowIcon(std::string glyph, properdesktop::ui::Color tint);
 
-    void set(std::string glyph, cutefish::ui::Color tint);
+    void set(std::string glyph, properdesktop::ui::Color tint);
 
-    cutefish::ui::SizeF sizeHint() const override { return {24, 24}; }
+    properdesktop::ui::SizeF sizeHint() const override { return {24, 24}; }
 
 protected:
     void layout() override;
-    void paint(cutefish::ui::Painter& painter) override;
+    void paint(properdesktop::ui::Painter& painter) override;
 
 private:
-    cutefish::ui::Color m_tint;
+    properdesktop::ui::Color m_tint;
     Picture* m_picture;
-    cutefish::ui::Icon* m_glyph;
+    properdesktop::ui::Icon* m_glyph;
 };
 
 } // namespace settings

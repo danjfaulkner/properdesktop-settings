@@ -11,7 +11,7 @@
 
 namespace settings {
 
-// Client of the compositor's org.cutefish.InputMethod1 service.
+// Client of the compositor's org.properdesktop.InputMethod1 service.
 class InputMethod
 {
 public:
@@ -34,13 +34,13 @@ public:
     // An empty id turns the input method off.
     void select(const std::string& id);
 
-    cutefish::base::Signal<>& changed() { return m_service.changed; }
+    properdesktop::base::Signal<>& changed() { return m_service.changed; }
 
 private:
     void refreshMethods();
 
     CompositorService m_service;
-    cutefish::base::Subscription m_serviceChanged;
+    properdesktop::base::Subscription m_serviceChanged;
     bool m_wasAvailable = false;
     std::vector<Method> m_methods;
 };

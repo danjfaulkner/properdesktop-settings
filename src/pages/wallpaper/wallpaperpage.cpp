@@ -6,7 +6,7 @@
 #include <vector>
 
 #include "base/i18n.h"
-#include "cutefish/appearance/appearance.h"
+#include "properdesktop/appearance/appearance.h"
 #include "pages/wallpaper/wallpapergrid.h"
 #include "pages/wallpaper/wallpapers.h"
 #include "ui/file_chooser.h"
@@ -20,11 +20,11 @@
 #include "window/pagelist.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish;
-using namespace cutefish::ui;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
-using cutefish::i18n::trc;
+using namespace properdesktop;
+using namespace properdesktop::ui;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
+using properdesktop::i18n::trc;
 
 namespace settings {
 

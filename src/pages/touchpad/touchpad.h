@@ -8,7 +8,7 @@
 
 namespace settings {
 
-// Client of the compositor's org.cutefish.Touchpad1 service. Without the
+// Client of the compositor's org.properdesktop.Touchpad1 service. Without the
 // service every value is the compositor's default.
 class Touchpad
 {
@@ -48,7 +48,7 @@ public:
     bool twoFingerSecondaryClick() const;
     void setTwoFingerSecondaryClick(bool enabled);
 
-    cutefish::base::Signal<>& changed() { return m_service.changed; }
+    properdesktop::base::Signal<>& changed() { return m_service.changed; }
 
 private:
     CompositorService m_service;

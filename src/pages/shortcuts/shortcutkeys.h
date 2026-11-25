@@ -8,14 +8,14 @@
 
 #include "ui/view.h"
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class Label;
 }
 
 namespace settings {
 
 // One shortcut drawn as key caps: [Ctrl] + [Shift] + [Q].
-class ShortcutKeys : public cutefish::ui::View
+class ShortcutKeys : public properdesktop::ui::View
 {
 public:
     explicit ShortcutKeys(std::vector<std::string> parts = {});
@@ -24,17 +24,17 @@ public:
     // Half-transparent caps, for a shortcut being replaced or a disabled row.
     void setDimmed(bool dimmed);
 
-    cutefish::ui::SizeF sizeHint() const override;
+    properdesktop::ui::SizeF sizeHint() const override;
 
 protected:
     void layout() override;
-    void paint(cutefish::ui::Painter& painter) override;
+    void paint(properdesktop::ui::Painter& painter) override;
 
 private:
     struct Part
     {
-        cutefish::ui::Label* plus = nullptr;
-        cutefish::ui::Label* cap = nullptr;
+        properdesktop::ui::Label* plus = nullptr;
+        properdesktop::ui::Label* cap = nullptr;
         // The cap's box, which its label is centred in.
         double capX = 0;
     };

@@ -6,14 +6,14 @@
 #include "base/paths.h"
 #include "base/settings.h"
 
-using namespace cutefish::base;
+using namespace properdesktop::base;
 
 namespace settings {
 
 MenuBarSettings::MenuBarSettings()
-    : m_menuBar(dbus::Connection::session(), "org.cutefish.MenuBar", "/MenuBar", "org.cutefish.MenuBar")
+    : m_menuBar(dbus::Connection::session(), "org.properdesktop.MenuBar", "/MenuBar", "org.properdesktop.MenuBar")
 {
-    const Settings shell(paths::cutefishConfig("shell"));
+    const Settings shell(paths::properdesktopConfig("shell"));
     m_wifi = shell.boolValue("MenuBar/ShowWiFi", true);
     m_battery = shell.boolValue("MenuBar/ShowBattery", true);
     m_sound = shell.boolValue("MenuBar/ShowSound", true);

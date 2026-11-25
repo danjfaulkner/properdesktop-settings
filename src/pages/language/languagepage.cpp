@@ -25,11 +25,11 @@
 #include "window/page.h"
 #include "window/pagelist.h"
 
-using namespace cutefish;
-using namespace cutefish::ui;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
-using cutefish::i18n::trc;
+using namespace properdesktop;
+using namespace properdesktop::ui;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
+using properdesktop::i18n::trc;
 
 namespace settings {
 

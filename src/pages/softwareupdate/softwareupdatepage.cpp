@@ -12,7 +12,7 @@
 #include "base/desktop_entry.h"
 #include "base/i18n.h"
 #include "base/signal.h"
-#include "cutefish/packagekit/updates.h"
+#include "properdesktop/packagekit/updates.h"
 #include "pages/softwareupdate/softwareupdate.h"
 #include "ui/button.h"
 #include "ui/color_mixer.h"
@@ -32,11 +32,11 @@
 #include "window/pagelist.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish;
-using namespace cutefish::ui;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
-using cutefish::i18n::trn;
+using namespace properdesktop;
+using namespace properdesktop::ui;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
+using properdesktop::i18n::trn;
 
 namespace settings {
 

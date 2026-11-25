@@ -7,12 +7,12 @@
 #include <memory>
 #include <vector>
 
-#include "cutefish/accounts/user_account.h"
+#include "properdesktop/accounts/user_account.h"
 
 namespace settings {
 
 // The accounts in the service's order, the one logged in first.
-std::vector<std::shared_ptr<cutefish::accounts::UserAccount>>
-loggedInFirst(const std::vector<std::shared_ptr<cutefish::accounts::UserAccount>>& accounts, int64_t loggedInUid);
+std::vector<std::shared_ptr<properdesktop::accounts::UserAccount>>
+loggedInFirst(const std::vector<std::shared_ptr<properdesktop::accounts::UserAccount>>& accounts, int64_t loggedInUid);
 
 } // namespace settings

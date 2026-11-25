@@ -1,13 +1,13 @@
 # Settings
 
-The System Settings application for Cutefish Desktop.
+The System Settings application for Proper Desktop.
 
 <img src="screenshots/settings.png" alt="Settings" width="937">
 
 ## Dependencies
 
-Settings is built on [cutefish-toolkit](https://github.com/cutefishos/cutefish-toolkit)
-and the clients of [cutefish-framework](https://github.com/cutefishos/cutefish-framework);
+Settings is built on [properdesktop-toolkit](https://github.com/danjfaulkner/properdesktop-toolkit)
+and the clients of [properdesktop-framework](https://github.com/danjfaulkner/properdesktop-framework);
 install those first.
 
 Arch/Manjaro Dependencies:

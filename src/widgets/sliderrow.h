@@ -9,11 +9,11 @@
 
 #include "widgets/listrow.h"
 
-namespace cutefish::base {
+namespace properdesktop::base {
 class Timer;
 }
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class Slider;
 }
 
@@ -24,20 +24,20 @@ class SliderControls;
 // A slider whose visible track, not its handle's travel, spans its place in a
 // row, as on the Sound page: the track ends where switches and combo boxes
 // do, and the handle overhangs those ends.
-class RowSlider : public cutefish::ui::View
+class RowSlider : public properdesktop::ui::View
 {
 public:
     RowSlider();
 
-    cutefish::ui::Slider* slider() const { return m_slider; }
+    properdesktop::ui::Slider* slider() const { return m_slider; }
 
-    cutefish::ui::SizeF sizeHint() const override;
+    properdesktop::ui::SizeF sizeHint() const override;
 
 protected:
     void layout() override;
 
 private:
-    cutefish::ui::Slider* m_slider;
+    properdesktop::ui::Slider* m_slider;
 };
 
 // A labelled slider row for a list card, with optional end icons, captions
@@ -67,7 +67,7 @@ public:
     // negative shows the slider.
     void setMeterLevel(double level);
 
-    cutefish::ui::Slider* slider() const;
+    properdesktop::ui::Slider* slider() const;
     // The handle is held.
     bool isPressed() const;
 
@@ -79,7 +79,7 @@ protected:
 
 private:
     SliderControls* m_controls;
-    std::unique_ptr<cutefish::base::Timer> m_settle;
+    std::unique_ptr<properdesktop::base::Timer> m_settle;
     bool m_settling = false;
     double m_value = 0;
 };

@@ -9,12 +9,12 @@ namespace settings {
 
 // Settings' search field: the toolkit's pill at 28 high, its glyphs 8 from
 // the ends and 4 from the text.
-class SearchField : public cutefish::ui::SearchField
+class SearchField : public properdesktop::ui::SearchField
 {
 public:
     SearchField();
 
-    cutefish::ui::SizeF sizeHint() const override;
+    properdesktop::ui::SizeF sizeHint() const override;
 };
 
 } // namespace settings

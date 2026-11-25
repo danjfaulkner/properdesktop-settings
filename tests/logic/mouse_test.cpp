@@ -9,7 +9,7 @@
 #include "pages/mouse/mouse.h"
 #include "service_thread.h"
 
-using namespace cutefish::base;
+using namespace properdesktop::base;
 using namespace settings;
 using settings::testing::FakeMouse;
 using settings::testing::ServiceThread;
@@ -23,7 +23,7 @@ struct MouseTest : ::testing::Test
     {
         if (!settings::testing::hasSessionBus())
             GTEST_SKIP() << "no session bus";
-        service.emplace("org.cutefish.Mouse1",
+        service.emplace("org.properdesktop.Mouse1",
                         [this](dbus::Connection& bus) { return settings::testing::serveMouse(bus, fake); });
     }
 
@@ -32,7 +32,7 @@ struct MouseTest : ::testing::Test
         if (!service)
             return;
         service.reset();
-        settings::testing::waitForNameGone("org.cutefish.Mouse1");
+        settings::testing::waitForNameGone("org.properdesktop.Mouse1");
     }
 
     FakeMouse fake;

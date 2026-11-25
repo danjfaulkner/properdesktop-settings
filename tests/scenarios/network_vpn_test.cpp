@@ -7,15 +7,15 @@
 #include <memory>
 #include <string>
 
-#include "cutefish/networkmanager/handler.h"
-#include "cutefish/networkmanager/vpn_schema.h"
+#include "properdesktop/networkmanager/handler.h"
+#include "properdesktop/networkmanager/vpn_schema.h"
 #include "pages/network/vpn/vpneditor.h"
 #include "scenario.h"
 #include "ui/window.h"
 
 using namespace settings::network;
-namespace nm = cutefish::networkmanager;
-namespace schema = cutefish::networkmanager::vpn::schema;
+namespace nm = properdesktop::networkmanager;
+namespace schema = properdesktop::networkmanager::vpn::schema;
 
 // The editor alone in a headless window, loaded with the form.
 struct EditorWindow
@@ -32,9 +32,9 @@ struct EditorWindow
         driver.layout();
     }
 
-    cutefish::ui::Window window;
+    properdesktop::ui::Window window;
     VpnEditor* editor = nullptr;
-    cutefish::ui::TestDriver driver{window, scenarioFailure};
+    properdesktop::ui::TestDriver driver{window, scenarioFailure};
 };
 
 TEST(VpnEditor, TypingFillsThePluginForm)

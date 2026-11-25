@@ -37,7 +37,7 @@ struct PageInfo
     std::string title;
     // A file under images/sidebar/dark, or a toolkit glyph name.
     std::string icon;
-    cutefish::ui::Color iconColor;
+    properdesktop::ui::Color iconColor;
     // Sidebar pages only: the group they sit in, numbered from 1 in sidebar
     // order; 0 for sub pages.
     int group = 0;

@@ -6,7 +6,7 @@
 #include "ui/painter.h"
 #include "widgets/card.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 
 namespace settings {
 

@@ -10,8 +10,8 @@
 
 #include "window/options.h"
 
-using cutefish::upower::Device;
-using cutefish::upower::HistorySample;
+using properdesktop::upower::Device;
+using properdesktop::upower::HistorySample;
 
 namespace settings {
 

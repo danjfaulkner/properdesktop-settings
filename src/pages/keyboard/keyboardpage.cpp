@@ -19,10 +19,10 @@
 #include "window/pagelist.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish;
-using namespace cutefish::ui;
-using cutefish::i18n::tr;
-using cutefish::i18n::trc;
+using namespace properdesktop;
+using namespace properdesktop::ui;
+using properdesktop::i18n::tr;
+using properdesktop::i18n::trc;
 
 namespace settings {
 
@@ -72,7 +72,7 @@ public:
     {
         Section* inputMethods = content()->addChild<Section>(tr("Input method"));
         m_noInputMethods = inputMethods->addChild<NoteCard>(
-                tr("Input methods can only be selected in a Cutefish Wayland session."));
+                tr("Input methods can only be selected in a Proper Desktop Wayland session."));
         m_inputMethodCard = inputMethods->addChild<Card>(Card::Style::List);
         m_inputMethodCard->setName("keyboard:inputMethods");
         m_notRunning = inputMethods->addChild<Footnote>(tr("The selected input method is not running."));

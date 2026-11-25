@@ -22,12 +22,12 @@ struct LanguageEntry
     std::string searchText;
 };
 
-// The languages of the session, most preferred first, as cutefish-services
+// The languages of the session, most preferred first, as properdesktop-services
 // keeps them, and the catalog of languages that can be added.
 class Language
 {
 public:
-    // Reads the languages from cutefish-services' settings at the path.
+    // Reads the languages from properdesktop-services' settings at the path.
     explicit Language(std::string configPath = defaultConfigPath());
 
     // The first one is the system language.
@@ -47,17 +47,17 @@ public:
     void removeLanguage(int index);
     void moveLanguage(int from, int to);
 
-    cutefish::base::Signal<> preferredLanguagesChanged;
+    properdesktop::base::Signal<> preferredLanguagesChanged;
     // The catalog arrived, the search changed or the preferred languages did.
-    cutefish::base::Signal<> availableLanguagesChanged;
-    cutefish::base::Signal<> loadingChanged;
-    cutefish::base::Signal<> savingChanged;
-    cutefish::base::Signal<> errorMessageChanged;
+    properdesktop::base::Signal<> availableLanguagesChanged;
+    properdesktop::base::Signal<> loadingChanged;
+    properdesktop::base::Signal<> savingChanged;
+    properdesktop::base::Signal<> errorMessageChanged;
 
     // The system's default language, until the user picks one.
     static std::string systemLanguage();
     static std::string defaultConfigPath();
-    // From cutefish-services' settings, most preferred first.
+    // From properdesktop-services' settings, most preferred first.
     static std::vector<std::string> preferredLanguageCodes(const std::string& configPath);
     // The locale names are shown in.
     static std::string displayLanguage();
@@ -69,10 +69,10 @@ private:
     void saveLanguages(const std::vector<std::string>& codes);
 
     std::string m_configPath;
-    cutefish::base::dbus::Proxy m_service;
-    cutefish::base::dbus::Match m_changedMatch;
-    cutefish::base::dbus::PendingCall m_saveCall;
-    cutefish::base::Job m_catalogJob;
+    properdesktop::base::dbus::Proxy m_service;
+    properdesktop::base::dbus::Match m_changedMatch;
+    properdesktop::base::dbus::PendingCall m_saveCall;
+    properdesktop::base::Job m_catalogJob;
     std::vector<std::string> m_preferredCodes;
     std::vector<LanguageEntry> m_preferred;
     std::vector<LanguageEntry> m_catalog;

@@ -24,8 +24,8 @@
 #include "widgets/metrics.h"
 #include "widgets/sections.h"
 
-using namespace cutefish::ui;
-using cutefish::i18n::tr;
+using namespace properdesktop::ui;
+using properdesktop::i18n::tr;
 
 namespace settings {
 
@@ -238,7 +238,7 @@ void ShortcutEditDialog::update()
     while (!m_list->children().empty())
         gone.push_back(m_list->takeChild(m_list->children().back().get()));
     if (!gone.empty())
-        cutefish::base::EventLoop::current()->post([gone] {});
+        properdesktop::base::EventLoop::current()->post([gone] {});
     m_list->setVisible(!m_accelerators.empty());
     for (const ShortcutsModel::Accelerator& accelerator : m_accelerators) {
         ListRow* row = m_list->addChild<ListRow>();

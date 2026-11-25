@@ -11,7 +11,7 @@
 #include "widgets/metrics.h"
 #include "widgets/picture.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 
 namespace settings {
 

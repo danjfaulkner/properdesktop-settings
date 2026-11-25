@@ -8,7 +8,7 @@
 #include "ui/keys.h"
 #include "ui/text_field.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 
 TEST(AboutPage, ShowsTheSystemRows)
 {

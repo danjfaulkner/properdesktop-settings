@@ -16,11 +16,11 @@
 #include "widgets/listrow.h"
 #include "widgets/metrics.h"
 
-using namespace cutefish;
-using namespace cutefish::ui;
-using cutefish::i18n::tr;
-using cutefish::i18n::trc;
-using cutefish::i18n::trNoop;
+using namespace properdesktop;
+using namespace properdesktop::ui;
+using properdesktop::i18n::tr;
+using properdesktop::i18n::trc;
+using properdesktop::i18n::trNoop;
 
 namespace settings {
 

@@ -18,7 +18,7 @@ struct CursorTheme
     std::string path;
     // The theme's example cursor, its drawing centred in a square with 2 px
     // around it, as 36 px artwork.
-    cutefish::ui::Image preview() const;
+    properdesktop::ui::Image preview() const;
 
     struct List
     {

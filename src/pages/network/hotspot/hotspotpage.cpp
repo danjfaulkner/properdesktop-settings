@@ -2,9 +2,9 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 #include "base/i18n.h"
-#include "cutefish/networkmanager/connections.h"
-#include "cutefish/networkmanager/handler.h"
-#include "cutefish/networkmanager/hotspot.h"
+#include "properdesktop/networkmanager/connections.h"
+#include "properdesktop/networkmanager/handler.h"
+#include "properdesktop/networkmanager/hotspot.h"
 #include "pages/network/common/textchecks.h"
 #include "ui/dialog_window.h"
 #include "ui/label.h"
@@ -22,10 +22,10 @@
 #include "window/pagelist.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish::ui;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
-namespace nm = cutefish::networkmanager;
+using namespace properdesktop::ui;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
+namespace nm = properdesktop::networkmanager;
 
 namespace settings::network {
 
@@ -246,7 +246,7 @@ private:
     nm::Handler m_handler;
     nm::EnabledConnections m_enabled;
     nm::HotspotConfiguration* m_configuration;
-    std::vector<cutefish::base::Subscription> m_subscriptions;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
     std::unique_ptr<ConfirmDialog> m_confirm;
     std::string m_errorMessage;
     SwitchRow* m_switch;
@@ -277,7 +277,7 @@ private:
 
     nm::Handler m_handler;
     nm::EnabledConnections m_enabled;
-    std::vector<cutefish::base::Subscription> m_subscriptions;
+    std::vector<properdesktop::base::Subscription> m_subscriptions;
     AvailabilityCallback m_callback;
 };
 

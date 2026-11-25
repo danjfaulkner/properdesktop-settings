@@ -11,12 +11,12 @@
 #include <vector>
 
 #include "bluetooth_fake.h"
-#include "cutefish/bluez/manager.h"
+#include "properdesktop/bluez/manager.h"
 #include "scenario.h"
 #include "ui/application.h"
 
-using namespace cutefish;
-using namespace cutefish::ui;
+using namespace properdesktop;
+using namespace properdesktop::ui;
 using namespace settings;
 using namespace std::chrono_literals;
 

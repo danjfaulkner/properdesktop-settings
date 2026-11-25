@@ -11,7 +11,7 @@
 #include "ui/layout.h"
 #include "ui/cell_layout.h"
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class Animation;
 class Icon;
 class Label;
@@ -36,7 +36,7 @@ public:
 // its visible sibling rows; a separator runs between rows. Content goes into
 // the row after the label, a leading view before it, and details unfold
 // below the row while it is expanded.
-class ListRow : public cutefish::ui::View
+class ListRow : public properdesktop::ui::View
 {
 public:
     explicit ListRow(std::string text = {});
@@ -50,7 +50,7 @@ public:
     {
         return m_row->addChild<T>(std::forward<Args>(args)...);
     }
-    cutefish::ui::RowLayout* contentRow() const { return m_row; }
+    properdesktop::ui::RowLayout* contentRow() const { return m_row; }
     void setContentSpacing(double spacing);
 
     // Goes before the label: an icon, a colour swatch.
@@ -62,10 +62,10 @@ public:
         setLeadingView(std::move(view));
         return leading;
     }
-    void setLeadingView(std::unique_ptr<cutefish::ui::View> view);
+    void setLeadingView(std::unique_ptr<properdesktop::ui::View> view);
 
     // A panel that unfolds below the row while the row is expanded.
-    cutefish::ui::ColumnLayout* details();
+    properdesktop::ui::ColumnLayout* details();
     void setExpanded(bool expanded);
     bool isExpanded() const { return m_expanded; }
 
@@ -86,13 +86,13 @@ public:
     // For a row a ListView made: the view reuses rows, so they are not
     // siblings in row order, and the row's neighbours come from the view.
     // Call from bindItem with the row's index; a null view drops it.
-    void setViewIndex(cutefish::ui::ListView* view, int index);
+    void setViewIndex(properdesktop::ui::ListView* view, int index);
 
     bool isHighlighted() const;
     // The row itself, without its details.
     double rowHeight() const;
 
-    cutefish::ui::SizeF sizeHint() const override;
+    properdesktop::ui::SizeF sizeHint() const override;
     double heightForWidth(double width) const override;
     bool acceptsPointer() const override { return m_interactive; }
     bool acceptsFocus() const override { return m_interactive; }
@@ -104,14 +104,14 @@ public:
 
 protected:
     void layout() override;
-    void paint(cutefish::ui::Painter& painter) override;
+    void paint(properdesktop::ui::Painter& painter) override;
     void enabledChanged() override;
     void hoverChanged() override;
-    void pointerPress(const cutefish::ui::PointerEvent& event) override;
-    void pointerRelease(const cutefish::ui::PointerEvent& event) override;
-    bool keyPress(const cutefish::ui::KeyEvent& event) override;
+    void pointerPress(const properdesktop::ui::PointerEvent& event) override;
+    void pointerRelease(const properdesktop::ui::PointerEvent& event) override;
+    bool keyPress(const properdesktop::ui::KeyEvent& event) override;
 
-    cutefish::ui::Label* label() const { return m_label; }
+    properdesktop::ui::Label* label() const { return m_label; }
 
 private:
     // The visible list rows among the parent's children, around this one.
@@ -130,14 +130,14 @@ private:
     void updateLabelHints();
 
     std::string m_text;
-    cutefish::ui::RowLayout* m_row;
+    properdesktop::ui::RowLayout* m_row;
     // QML's Row of leading items, shown while it holds one.
-    cutefish::ui::Row* m_leadingBox;
-    cutefish::ui::View* m_leading = nullptr;
-    cutefish::ui::Label* m_label;
-    cutefish::ui::View* m_detailsClip = nullptr;
-    cutefish::ui::ColumnLayout* m_details = nullptr;
-    std::unique_ptr<cutefish::ui::Animation> m_detailsAnimation;
+    properdesktop::ui::Row* m_leadingBox;
+    properdesktop::ui::View* m_leading = nullptr;
+    properdesktop::ui::Label* m_label;
+    properdesktop::ui::View* m_detailsClip = nullptr;
+    properdesktop::ui::ColumnLayout* m_details = nullptr;
+    std::unique_ptr<properdesktop::ui::Animation> m_detailsAnimation;
     // 0 folded, 1 unfolded; animated between.
     double m_unfolded = 0;
     double m_unfoldedFrom = 0;
@@ -149,13 +149,13 @@ private:
     bool m_pressed = false;
     double m_minimumRowHeight;
     double m_labelBottomMargin = 0;
-    cutefish::ui::ListView* m_view = nullptr;
+    properdesktop::ui::ListView* m_view = nullptr;
     int m_viewIndex = -1;
 };
 
 // FishUI's switch with `rightPadding: 0` at the end of a row: its 8 px left
 // padding, then the indicator flush with the content edge.
-void setTrailingSwitchPadding(cutefish::ui::Switch* toggle);
+void setTrailingSwitchPadding(properdesktop::ui::Switch* toggle);
 
 // A row holding only a switch at its end, flush with the content edge; the
 // row itself does not react to clicks.
@@ -164,7 +164,7 @@ class SwitchRow : public ListRow
 public:
     explicit SwitchRow(std::string text = {});
 
-    cutefish::ui::Switch* control() const { return m_switch; }
+    properdesktop::ui::Switch* control() const { return m_switch; }
     void setChecked(bool checked);
     bool isChecked() const;
 
@@ -172,7 +172,7 @@ public:
     std::function<void(bool checked)> onToggled;
 
 private:
-    cutefish::ui::Switch* m_switch;
+    properdesktop::ui::Switch* m_switch;
 };
 
 // A row whose value is typed into it: the label, then a text field of the
@@ -183,17 +183,17 @@ class TextFieldRow : public ListRow
 public:
     TextFieldRow(std::string text, double fieldWidth);
 
-    cutefish::ui::TextField* field() const { return m_field; }
+    properdesktop::ui::TextField* field() const { return m_field; }
     void setFieldWidth(double width);
 
     bool acceptsPointer() const override { return true; }
 
 protected:
-    void pointerPress(const cutefish::ui::PointerEvent& event) override;
-    void pointerRelease(const cutefish::ui::PointerEvent& event) override;
+    void pointerPress(const properdesktop::ui::PointerEvent& event) override;
+    void pointerRelease(const properdesktop::ui::PointerEvent& event) override;
 
 private:
-    cutefish::ui::TextField* m_field;
+    properdesktop::ui::TextField* m_field;
 };
 
 // A read-only row: the label, then its value in secondary text. Hidden while
@@ -209,25 +209,25 @@ protected:
     void layout() override;
 
 private:
-    cutefish::ui::Label* m_value;
+    properdesktop::ui::Label* m_value;
 };
 
 // One of FishUI's glyphs at the end of a row.
-class TrailingIcon : public cutefish::ui::View, public TrailingOverhang
+class TrailingIcon : public properdesktop::ui::View, public TrailingOverhang
 {
 public:
     explicit TrailingIcon(std::string name, double size = 16);
 
-    cutefish::ui::Icon* icon() const { return m_icon; }
+    properdesktop::ui::Icon* icon() const { return m_icon; }
 
-    cutefish::ui::SizeF sizeHint() const override { return {m_size, m_size}; }
+    properdesktop::ui::SizeF sizeHint() const override { return {m_size, m_size}; }
     double trailingOverhang() const override { return m_overhang; }
 
 protected:
     void layout() override;
 
 private:
-    cutefish::ui::Icon* m_icon;
+    properdesktop::ui::Icon* m_icon;
     double m_size;
     double m_overhang;
 };
@@ -245,7 +245,7 @@ protected:
     void layout() override;
 
 private:
-    cutefish::ui::Label* m_value;
+    properdesktop::ui::Label* m_value;
 };
 
 } // namespace settings

@@ -10,15 +10,15 @@
 #include "window/options.h"
 #include "window/settingswindow.h"
 
-using namespace cutefish;
+using namespace properdesktop;
 
-static constexpr const char* kService = "org.cutefish.SettingsUI";
+static constexpr const char* kService = "org.properdesktop.SettingsUI";
 static constexpr const char* kPath = "/SettingsUI";
 
 static void printHelp(const char* program)
 {
     printf("Usage: %s [options]\n"
-           "Cutefish Settings\n"
+           "Proper Desktop Settings\n"
            "\n"
            "Options:\n"
            "  -h, --help                     Displays help on commandline options.\n"
@@ -72,8 +72,8 @@ int main(int argc, char** argv)
     settings::setOptions(options);
 
     ui::Application application(argc, argv);
-    application.setApplicationId("cutefish-settings");
-    i18n::setDomain("cutefish-settings");
+    application.setApplicationId("properdesktop-settings");
+    i18n::setDomain("properdesktop-settings");
 
     // A running instance takes the request, and this process ends.
     base::dbus::Connection* bus = application.sessionBus();

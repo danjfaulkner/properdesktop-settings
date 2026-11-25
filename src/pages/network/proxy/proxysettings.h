@@ -76,7 +76,7 @@ struct ProxySettings
 
     static ProxySettings load();
     // Writes the mode, the PAC URL and the servers. Ignore hosts and
-    // credentials are left as they are, since nothing in Cutefish edits them.
+    // credentials are left as they are, since nothing in Proper Desktop edits them.
     void save() const;
 
     bool operator==(const ProxySettings&) const = default;
@@ -124,7 +124,7 @@ public:
     void setSocksProxyPort(const std::string& port);
 
     // The fields whose values changed, as Field bits.
-    cutefish::base::Signal<unsigned> changed;
+    properdesktop::base::Signal<unsigned> changed;
 
 private:
     void watch();
@@ -133,10 +133,10 @@ private:
 
     ProxySettings m_settings;
     bool m_useSameProxy = false;
-    cutefish::base::FileWatch m_watch;
-    cutefish::base::Timer m_reloadTimer;
+    properdesktop::base::FileWatch m_watch;
+    properdesktop::base::Timer m_reloadTimer;
     // The page sets every field in a row on Save; one write covers them all.
-    cutefish::base::Timer m_saveTimer;
+    properdesktop::base::Timer m_saveTimer;
 };
 
 } // namespace settings::network

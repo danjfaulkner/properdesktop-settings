@@ -15,10 +15,10 @@
 #include "window/page.h"
 #include "window/pagelist.h"
 
-using namespace cutefish::ui;
-using cutefish::i18n::format;
-using cutefish::i18n::tr;
-using cutefish::i18n::trNoop;
+using namespace properdesktop::ui;
+using properdesktop::i18n::format;
+using properdesktop::i18n::tr;
+using properdesktop::i18n::trNoop;
 
 namespace settings {
 
@@ -39,7 +39,7 @@ public:
         m_unavailable = content()->addChild<Card>();
         m_unavailable->setName("hotcorners:unavailable");
         m_unavailableLabel = m_unavailable->addChild<Label>(
-                tr("Hot corners are managed by the Cutefish compositor, which is not running."));
+                tr("Hot corners are managed by the Proper Desktop compositor, which is not running."));
         m_unavailableLabel->setWrap(true);
         m_unavailableLabel->setLayoutHints({.fillWidth = true});
 
@@ -100,7 +100,7 @@ private:
     }
 
     HotCorners m_corners;
-    cutefish::base::Subscription m_subscription;
+    properdesktop::base::Subscription m_subscription;
     Card* m_unavailable;
     Label* m_unavailableLabel;
     Card* m_list;

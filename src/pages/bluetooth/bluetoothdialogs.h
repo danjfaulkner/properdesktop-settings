@@ -7,9 +7,9 @@
 #include <vector>
 
 #include "base/signal.h"
-#include "cutefish/bluez/bluetooth_object.h"
+#include "properdesktop/bluez/bluetooth_object.h"
 
-namespace cutefish::ui {
+namespace properdesktop::ui {
 class DialogButton;
 class DialogWindow;
 class Window;
@@ -24,7 +24,7 @@ class SwitchRow;
 class AdapterDetailsDialog
 {
 public:
-    AdapterDetailsDialog(cutefish::ui::Window* parent, std::shared_ptr<cutefish::bluez::BluetoothObject> adapter);
+    AdapterDetailsDialog(properdesktop::ui::Window* parent, std::shared_ptr<properdesktop::bluez::BluetoothObject> adapter);
     ~AdapterDetailsDialog();
 
     void show();
@@ -32,13 +32,13 @@ public:
 private:
     void update();
 
-    std::shared_ptr<cutefish::bluez::BluetoothObject> m_adapter;
-    std::unique_ptr<cutefish::ui::DialogWindow> m_dialog;
+    std::shared_ptr<properdesktop::bluez::BluetoothObject> m_adapter;
+    std::unique_ptr<properdesktop::ui::DialogWindow> m_dialog;
     InfoRow* m_address;
     SwitchRow* m_powered;
     SwitchRow* m_discoverable;
     SwitchRow* m_pairable;
-    cutefish::base::Subscription m_changed;
+    properdesktop::base::Subscription m_changed;
 };
 
 // A device's type, model, version and address, its trust and block
@@ -46,7 +46,7 @@ private:
 class DeviceDetailsDialog
 {
 public:
-    DeviceDetailsDialog(cutefish::ui::Window* parent, std::shared_ptr<cutefish::bluez::BluetoothObject> device);
+    DeviceDetailsDialog(properdesktop::ui::Window* parent, std::shared_ptr<properdesktop::bluez::BluetoothObject> device);
     ~DeviceDetailsDialog();
 
     void show();
@@ -54,18 +54,18 @@ public:
 private:
     void update();
 
-    std::shared_ptr<cutefish::bluez::BluetoothObject> m_device;
-    std::unique_ptr<cutefish::ui::DialogWindow> m_dialog;
+    std::shared_ptr<properdesktop::bluez::BluetoothObject> m_device;
+    std::unique_ptr<properdesktop::ui::DialogWindow> m_dialog;
     InfoRow* m_type;
     InfoRow* m_model;
     InfoRow* m_version;
     InfoRow* m_address;
     SwitchRow* m_trusted;
     SwitchRow* m_blocked;
-    cutefish::ui::DialogButton* m_forget;
+    properdesktop::ui::DialogButton* m_forget;
     // The Device Information service shows up once the device's services resolve.
     bool m_servicesResolved = false;
-    cutefish::base::Subscription m_changed;
+    properdesktop::base::Subscription m_changed;
 };
 
 } // namespace settings

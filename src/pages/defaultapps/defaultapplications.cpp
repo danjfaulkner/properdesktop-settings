@@ -14,7 +14,7 @@
 #include "base/mime_database.h"
 
 namespace fs = std::filesystem;
-using namespace cutefish::base;
+using namespace properdesktop::base;
 
 namespace settings {
 

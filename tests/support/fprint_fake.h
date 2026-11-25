@@ -30,7 +30,7 @@ struct FakeFprintd
     std::atomic<int> claims = 0;
     std::atomic<int> releases = 0;
     std::atomic<int> enrollStops = 0;
-    cutefish::base::dbus::Object* device = nullptr;
+    properdesktop::base::dbus::Object* device = nullptr;
 
     // On the service thread: what the driver reports for the finger being
     // recorded; a completed print is stored.
@@ -73,23 +73,23 @@ inline int fprintProperties(sd_bus_message* message, void* userdata, sd_bus_erro
 
 struct FprintObjects
 {
-    FprintObjects(cutefish::base::dbus::Connection& bus)
+    FprintObjects(properdesktop::base::dbus::Connection& bus)
         : manager(&bus, "/net/reactivated/Fprint/Manager", "net.reactivated.Fprint.Manager")
         , device(&bus, "/net/reactivated/Fprint/Device/0", "net.reactivated.Fprint.Device")
     {
     }
     ~FprintObjects() { sd_bus_slot_unref(properties); }
 
-    cutefish::base::dbus::Object manager;
-    cutefish::base::dbus::Object device;
+    properdesktop::base::dbus::Object manager;
+    properdesktop::base::dbus::Object device;
     sd_bus_slot* properties = nullptr;
 };
 
 } // namespace detail
 
-inline std::shared_ptr<void> serveFprintd(cutefish::base::dbus::Connection& bus, FakeFprintd& fake)
+inline std::shared_ptr<void> serveFprintd(properdesktop::base::dbus::Connection& bus, FakeFprintd& fake)
 {
-    using namespace cutefish::base::dbus;
+    using namespace properdesktop::base::dbus;
     auto objects = std::make_shared<detail::FprintObjects>(bus);
     objects->manager.addMethod("GetDefaultDevice", "", "o", [](MethodCall& call) {
         call.reply(ObjectPath{"/net/reactivated/Fprint/Device/0"});

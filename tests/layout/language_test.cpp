@@ -18,8 +18,8 @@
 #include "ui/test_input.h"
 #include "ui/window.h"
 
-using namespace cutefish;
-using namespace cutefish::ui;
+using namespace properdesktop;
+using namespace properdesktop::ui;
 using namespace settings;
 using namespace std::chrono_literals;
 using settings::testing::LanguageConfig;

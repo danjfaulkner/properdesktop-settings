@@ -8,7 +8,7 @@
 #include "scenario.h"
 #include "ui/keys.h"
 
-using namespace cutefish::ui;
+using namespace properdesktop::ui;
 
 TEST(GeneralPage, LeadsToTheSystemWidePages)
 {

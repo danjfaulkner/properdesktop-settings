@@ -24,25 +24,25 @@ struct RegionEntry
 };
 
 // The session's region and the format choices that go with it, as
-// cutefish-services keeps them, and the catalog of regions.
+// properdesktop-services keeps them, and the catalog of regions.
 class Region
 {
 public:
-    // Reads cutefish-services' settings at the path.
+    // Reads properdesktop-services' settings at the path.
     explicit Region(std::string configPath = defaultConfigPath());
 
     // As stored: an empty region or an unset choice follows the system.
-    const cutefish::base::RegionalPreferences& preferences() const { return m_preferences; }
+    const properdesktop::base::RegionalPreferences& preferences() const { return m_preferences; }
     // The chosen region, else the system's.
     std::string region() const;
     // How the session writes dates and numbers now.
-    cutefish::base::Locale locale() const;
+    properdesktop::base::Locale locale() const;
 
     void setRegion(const std::string& code);
     // 1 for Monday to 7 for Sunday; 0 for the region's.
     void setFirstDayOfWeek(int day);
-    void setMeasurementSystem(std::optional<cutefish::base::MeasurementSystem> system);
-    void setTemperatureUnit(std::optional<cutefish::base::TemperatureUnit> unit);
+    void setMeasurementSystem(std::optional<properdesktop::base::MeasurementSystem> system);
+    void setTemperatureUnit(std::optional<properdesktop::base::TemperatureUnit> unit);
     void setTwentyFourHour(std::optional<bool> enabled);
 
     // The catalog entries matching the search.
@@ -53,15 +53,15 @@ public:
     // Keeps catalog entries whose code or names contain the text, ignoring case.
     void search(const std::string& text);
 
-    cutefish::base::Signal<> changed;
+    properdesktop::base::Signal<> changed;
     // The catalog arrived or the search changed.
-    cutefish::base::Signal<> availableRegionsChanged;
-    cutefish::base::Signal<> loadingChanged;
+    properdesktop::base::Signal<> availableRegionsChanged;
+    properdesktop::base::Signal<> loadingChanged;
 
     static std::string defaultConfigPath();
     // The formats of the first preferred language in the stored region,
     // else the system's, with the stored choices.
-    static cutefish::base::Locale sessionLocale(const std::string& configPath);
+    static properdesktop::base::Locale sessionLocale(const std::string& configPath);
     // A region's name in the language of the user interface.
     static std::string displayName(const std::string& code);
     // Every region CLDR names, sorted by name.
@@ -73,10 +73,10 @@ private:
     void send(const char* method, int value);
 
     std::string m_configPath;
-    cutefish::base::dbus::Proxy m_service;
-    cutefish::base::dbus::Match m_changedMatch;
-    cutefish::base::Job m_catalogJob;
-    cutefish::base::RegionalPreferences m_preferences;
+    properdesktop::base::dbus::Proxy m_service;
+    properdesktop::base::dbus::Match m_changedMatch;
+    properdesktop::base::Job m_catalogJob;
+    properdesktop::base::RegionalPreferences m_preferences;
     std::vector<RegionEntry> m_catalog;
     std::string m_search;
     bool m_loaded = false;

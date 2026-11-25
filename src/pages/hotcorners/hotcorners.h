@@ -11,7 +11,7 @@
 
 namespace settings {
 
-// The compositor's org.cutefish.HotCorners1: what each screen corner runs.
+// The compositor's org.properdesktop.HotCorners1: what each screen corner runs.
 class HotCorners
 {
 public:
@@ -30,18 +30,18 @@ public:
     // "Option + Shift" and the like, in the session's shortcut convention.
     std::string modifierText(int modifiers) const;
 
-    cutefish::base::Signal<> changed;
+    properdesktop::base::Signal<> changed;
 
 private:
     void reload();
 
-    cutefish::base::dbus::Proxy m_corners;
-    cutefish::base::dbus::NameWatch m_watch;
-    cutefish::base::dbus::Match m_changedMatch;
-    cutefish::base::dbus::PendingCall m_reload;
+    properdesktop::base::dbus::Proxy m_corners;
+    properdesktop::base::dbus::NameWatch m_watch;
+    properdesktop::base::dbus::Match m_changedMatch;
+    properdesktop::base::dbus::PendingCall m_reload;
     // By corner: a newer change of a corner replaces its older one.
-    std::map<std::string, cutefish::base::dbus::PendingCall> m_calls;
-    cutefish::base::dbus::VariantMap m_properties;
+    std::map<std::string, properdesktop::base::dbus::PendingCall> m_calls;
+    properdesktop::base::dbus::VariantMap m_properties;
     bool m_available = false;
     bool m_commandKeys = false;
 };

@@ -206,6 +206,11 @@ public:
         m_reduceTransparency->onToggled = [this](bool checked) { m_appearance.setReduceTransparency(checked); };
         m_coloredWindowControls = transparency->addChild<SwitchRow>(tr("Colored Window Buttons"));
         m_coloredWindowControls->onToggled = [this](bool checked) { m_appearance.setColoredWindowControls(checked); };
+        m_windowButtonsOnRight = transparency->addChild<SwitchRow>(tr("Window Buttons on the Right in Other Apps"));
+        m_windowButtonsOnRight->onToggled = [this](bool checked) { m_appearance.setWindowButtonsOnRight(checked); };
+        content()->addChild<Footnote>(
+                tr("For apps that draw their own window buttons, such as web browsers. Some only follow a change "
+                   "when they next open."));
 
         Card* links = content()->addChild<Card>(Card::Style::List);
         const std::array<std::tuple<const char*, const char*, Color, const char*>, 3> pages = {
@@ -251,6 +256,7 @@ private:
             m_swatches[i]->setChecked(theme.highlight == kAccentColors[i]);
         m_reduceTransparency->setChecked(m_appearance.reduceTransparency());
         m_coloredWindowControls->setChecked(m_appearance.coloredWindowControls());
+        m_windowButtonsOnRight->setChecked(m_appearance.windowButtonsOnRight());
     }
 
     Appearance m_appearance;
@@ -261,6 +267,7 @@ private:
     std::vector<AccentSwatch*> m_swatches;
     SwitchRow* m_reduceTransparency;
     SwitchRow* m_coloredWindowControls;
+    SwitchRow* m_windowButtonsOnRight;
 };
 
 } // namespace

@@ -80,11 +80,11 @@ public:
                 tr("Applications started before the input method may need to be restarted."));
         m_restartNote->setOpacity(0.8);
 
-        m_shortcutKey = content()->addChild<Section>(tr("Shortcut key"));
+        m_shortcutKey = content()->addChild<Section>(tr("Shortcut style"));
         Card* conventions = m_shortcutKey->addChild<Card>(Card::Style::List);
-        m_pc = conventions->addChild<CheckRow>(trc("key", "Ctrl"));
+        m_pc = conventions->addChild<CheckRow>(tr("PC style"));
         m_pc->onClicked = [this] { m_keyboard.setShortcutConvention("pc"); };
-        m_command = conventions->addChild<CheckRow>(trc("key", "Command"));
+        m_command = conventions->addChild<CheckRow>(tr("Mac style"));
         m_command->onClicked = [this] { m_keyboard.setShortcutConvention("command"); };
         m_conventionNote = m_shortcutKey->addChild<Footnote>();
 
@@ -155,11 +155,12 @@ private:
         m_command->setChecked(convention == "command");
         m_conventionNote->setText(
                 convention == "command"
-                        ? tr("The key next to the space bar works as Command and the one beside it as Option, on "
-                             "any keyboard: Command+C copies, Command+Tab switches windows, Command+Q quits. The "
-                             "shortcuts can be changed in Keyboard Shortcuts.")
-                        : tr("Ctrl is the shortcut key and Alt switches windows. The shortcuts can be changed in "
-                             "Keyboard Shortcuts."));
+                        ? tr("Like a Mac: the key next to the space bar works as Command and the one beside it as "
+                             "Option, on any keyboard: Command+C copies, Command+Tab switches windows, Command+Q "
+                             "quits. The shortcuts can be changed in Keyboard Shortcuts.")
+                        : tr("Like Windows and GNOME: Ctrl is the shortcut key (Ctrl+C copies), the Super key opens "
+                             "the applications, Alt+Tab switches windows and Alt+F4 closes them. The shortcuts can be "
+                             "changed in Keyboard Shortcuts."));
         m_layout->setVisible(available);
         m_layout->setValue(m_keyboard.layoutName());
         m_repeatCard->setVisible(available);
